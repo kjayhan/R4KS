@@ -1,9 +1,133 @@
 # Introduction
 
-This is a book created from markdown and executable code.
+Main purpose: triggering interest in R in Korean Studies community.
 
-See @knuth84 for additional discussion of literate programming.
+Korean Studies heavily remain historical studies, and literature. Recently more interest in pop culture.
 
-```{r}
-1 + 1
-```
+Qualitative-heavy.
+
+Fear of coding.
+
+Show that it is easy with examples, code samples, and motivational case studies.
+
+Let's start with the basics. There are very good books, tutorials. Here, I will give the very basics and some sources you can refer to for more information. There is always Google and chatbots (including Copilot) that you can get help from whenever you are stuck or come across an error. You can also join our workshops for problem solving!
+
+# Korean Studies Data Sources
+
+## Statistical Data
+
+## Text Data
+
+## Working with API
+
+WDI etc. readily available packages
+
+Creating your own API (Heiss' presentation, Hadley's blogs/ books/ presentations?)
+
+# Setting Up
+
+Downloading R, and Rstudio.
+
+Setting up Github.
+
+Creating a new Github project.
+
+# Basics of R
+
+Assigning
+
+str()
+
+# Data Wrangling
+
+select()
+
+filter()
+
+group_by()
+
+lubridate()
+
+join()
+
+# Data Visualization
+
+## Tables
+
+## Ggplot2
+
+### Types of visuals
+
+#### Maps
+
+# Getting Messy Data and Tidying it up
+
+## Getting Data from the Internet
+
+read_html()
+
+tables
+
+text data
+
+## Getting Data from pdf Files
+
+pdftools()
+
+# Text Analysis
+
+## Getting Korean Text Right.
+
+## Frequency Analysis
+
+## Word Networks
+
+## Wordclouds (not recommended)
+
+## Sentiment Analysis
+
+### Korean Sentiment Analysis Dictionaries
+
+## Topic Modeling
+
+### Korean Topic modeling
+
+# Statistical Analyses
+
+## Causal Inference
+
+Regression is not some oracle. Refer to McElreath.
+
+DAGs
+
+## Correlation Analysis
+
+## Cross-tabulation etc. (visuals)
+
+## Regressions
+
+### lm
+
+### plm
+
+### glm
+
+### lmer
+
+### brms
+
+# Quarto
+
+Authoring an article.
+
+Preparing presentations.
+
+Creating a new blog.
+
+Creating a new website.
+
+Writing a book.
+
+# #kdiploviz #kdataviz
+
+Join the challenge.
