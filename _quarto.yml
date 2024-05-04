@@ -2,22 +2,21 @@ project:
   type: book
 
 book:
-  title: "Computational Korean Studies"
-  author: "Norah Jones"
-  date: "5/3/2024"
+  title: "R for Korean Studies"
+  subtitle: "A Gentle Introduction to R with Korean Studies-based Examples"
+  author: "Kadir Jun Ayhan, Ph.D."
+  date: today
+  edition: 0.0.1
   chapters:
     - index.qmd
     - intro.qmd
     - summary.qmd
     - references.qmd
-
 bibliography: references.bib
-
 format:
   html:
     theme: cosmo
   pdf:
     documentclass: scrreprt
-
 editor: visual
 
