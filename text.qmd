@@ -6,13 +6,13 @@ In this chapter, we will learn how to analyze Korean text data using R. We will 
 
 We will learn the following things in order:
 
-- Extracting text from a pdf file.
-- Extracting tables from a pdf file
-- Getting the spacing right in Korean text files.
-- Analyzing the word frequency in the text.
-- Analyzing the word network in the text.
-- Analyzing the sentiment of the text.
-- Topic modeling of the text.
+-   Extracting text from a pdf file.
+-   Extracting tables from a pdf file
+-   Getting the spacing right in Korean text files.
+-   Analyzing the word frequency in the text.
+-   Analyzing the word network in the text.
+-   Analyzing the sentiment of the text.
+-   Topic modeling of the text.
 
 # Libraries
 
@@ -21,19 +21,288 @@ First, let's load the necessary libraries.
 ```{r}
 # install.packages("tidyverse")
 # install.packages("pdftools")
+# install.packages("rvest")
 # install.packages("bitNLP")
 library(tidyverse)
 library(pdftools)
+library(rvest)
 library(bitNLP)
 ```
 
 # Loading Data
 
-Let's analyze the text from Korea's 2022 Diplomatic White Paper (외교백서, *waegyo baekseo*) which is available as a pdf file on the Ministry of Foreign Affairs' (MOFA) [website](https://www.mofa.go.kr/www/brd/m_4105/down.do?brd_id=N8701&seq=298&data_tp=A&file_seq=1)[^text-1].
+Let's analyze the text from Korea's 2024 Public Diplomacy Comprehensive Implementation Plan (2024년 공공외교 종합시행계획 개요) which is available as a pdf file on the Ministry of Foreign Affairs' (MOFA) [website](https://www.mofa.go.kr/cntntsDown.do?path=www&physic=2024%EB%85%84%EB%8F%84_%EA%B3%B5%EA%B3%B5%EC%99%B8%EA%B5%90_%EC%A2%85%ED%95%A9%EC%8B%9C%ED%96%89%EA%B3%84%ED%9A%8D.pdf&real=2024%EB%85%84%EB%8F%84_%EA%B3%B5%EA%B3%B5%EC%99%B8%EA%B5%90_%EC%A2%85%ED%95%A9%EC%8B%9C%ED%96%89%EA%B3%84%ED%9A%8D.pdf)[^text-1].
 
-[^text-1]: Please bear in mind that MOFA website's url might change later, making this hyperlink broken. In that case, you can download the pdf file on the MOFA's website either by searching for it or following this route, which also might be subject to change, "외교부 홈페이지(www.mofa.go.kr)→뉴스·공지→자료실→외교백서".
+[^text-1]: Please bear in mind that MOFA website's url might change later, making this hyperlink broken. In that case, you can download the pdf file on the MOFA's website by searching for "2024년 공공외교 종합시행계획 개요."
 
-Let's load the pdf file
+Let's load the pdf file:
+
+```{r}
+# Load PDF
+pdf_path <- "data/2024공공외교.pdf"
+
+```
+
+Now let's extract the text from the pdf file using the `pdf_text` function from the `pdftools` package.
+
+```{r}
+# Extract text
+pdf_text_all <- pdf_text(pdf_path)
+```
+
+Now, `pdf_text_all` is a list of character vectors, where each element corresponds to a page in the pdf file. For example, we can look at the 4^th^ page of the pdf file in the following way.
+
+```{r}
+# Let's look at the 4th page
+pdf_text_all[4]
+```
+
+Oh, this is too long even for an example. But you can realize that there are many "\n" characters in the text. "Let's split the text by the newline character and look at the first 10 lines of the 4th page."\n" refers to a new line in the text. We can split the text into lines by using the `str_split` function from the `stringr`[^text-2] package. Let's look at the first six lines of the 4th page.
+
+[^text-2]: `stringr` package is part of `tidyverse`. So, we don't need to load it separately.
+
+```{r}
+# Look at the first 10 lines of the 4th page
+pdf_text_all[4] |> 
+  # Split by newline character.
+  str_split("\n") |> 
+  # Unlist
+  unlist() |>
+  # Take the first 10 lines
+  head(6)
+```
+
+The 4th page in the pdf file looks like this:
+
+![2024 Public Diplomacy Comprehensive Implementation Plan, p. 4](data/2024pd4.png)
+
+# pdf Table Extraction
+
+Let's try to extract the second table on page 4 of the pdf file. The table has the number of public diplomacy projects and budgets for [first-tier local administration unit](https://www.mois.go.kr/eng/sub/a03/citiesProvinces/screen.do) (hereafter, *province* for short although some of them are not provinces) in Korea. We will unlist each line as we did earlier so that we can see the table in a more readable way.
+
+```{r}
+# Look at the first 10 lines of the 4th page
+lines_pdf_4 <- pdf_text_all[4] |> 
+  # Split by newline character.
+  str_split("\n") |> 
+  # Unlist
+  unlist()
+```
+
+First, let's look at the 29^th^ and 30^th^ lines for the column names in the pdf file.
+
+```{r}
+lines_pdf_4[29:30]
+```
+
+The column names are the line number, province's name, project numbers for 2024 and 2023 respectively, and the budget for 2024 and 2023 in million Korean Won respectively. Let's use the following English column names that correspond to the Korean column names in the pdf file.
+
+```{r}
+# Column names
+col_names <- c("no", "province", "project_no_2024", "project_no_2023", "budget_2024", "budget_2023")
+```
+
+By observing the `lines_pdf_4` object using `view(lines_pdf_4)`, we can see that the second table starts from the 32^nd^ line and ends on the 48^th^. We will extract only those lines. We will use [`str_trim`](https://stringr.tidyverse.org/reference/str_trim.html) "removes whitespace from start and end of string". We will also use [`str_replace_all`](https://stringr.tidyverse.org/reference/str_replace.html) to remove commas from each line to convert entries into numbers. We will then split each line based on two or more consecutive spaces (our string is "`\s{2,}`") using [`str_split`](https://stringr.tidyverse.org/reference/str_split.html) and simplify the result into a matrix. We will convert this matrix into a data frame with non-factor columns using `data.frame(stringsAsFactors = FALSE)`. We will set the column names of the data frame using the `col_names` vector that we created above. These explanations are also available in each step in the following code chunk.
+
+```{r}
+# Select lines 32 to 48 from the lines_pdf_4 data frame
+provinces_pd <- lines_pdf_4[32:48] |>
+  # Trim whitespace from both ends of each element in the selected rows
+  str_trim() |>
+  # Replace all commas with an empty string in each element
+  str_replace_all(",", "") |>
+  # Split each element based on 2 or more consecutive spaces and simplify into a matrix
+  str_split("\\s{2,}", simplify = TRUE) |>
+  # Convert the matrix into a data frame with non-factor columns
+  data.frame(stringsAsFactors = FALSE) |>
+  # Set column names for the data frame using the provided 'col_names' vector
+  setNames(col_names)
+```
+
+Let's rearrange the table (which is originally in alphabetical order) by descending order based on public diplomacy budgets in 2024.
+
+```{r}
+provinces_pd |>
+  arrange(desc(budget_2024))
+```
+
+But these province names are in Korean since the document was in Korean. Let's practice extracting a table from internet then to find English names for these Korean provinces. As of May 6, 2024, [Wikipedia's list of Korean province names](https://en.wikipedia.org/wiki/Administrative_divisions_of_South_Korea) seems to be correct. Let's extract the table there.
+
+# html Table Extraction
+
+We will use the `rvest` package to extract the table from the Wikipedia page. We will use the `read_html` function to read the html content of the Wikipedia page. We will then use the `html_node` function to select the table we want to extract. You can refer to [`rvest`](https://rvest.tidyverse.org/) package for more information on how to extract what you want. We can use the xpath of the table we want to extract. You can find the xpath of the table by right-clicking on the table on the Wikipedia page and selecting "Inspect" or "Inspect Element" depending on your browser. You can then right-click on the highlighted html element in the "Elements" tab of the "Developer Tools" and select "Copy" -> "Copy XPath". The xpath of the table we want to extract is `//*[@id="mw-content-text"]/div[1]/table[5]`. We will use the `html_table` function to extract the table as a data frame. We will use the `fill = TRUE` argument to fill in the missing values in the table.
+
+```{r}
+html <- read_html("https://en.wikipedia.org/wiki/Administrative_divisions_of_South_Korea")
+
+table <- html %>% 
+  html_node(xpath = '//*[@id="mw-content-text"]/div[1]/table[5]') %>%
+  html_table(fill = TRUE)
+```
+
+Let's look at the first few rows of the table.
+
+```{r}
+head(table)
+```
+
+Perfect! Now, let's keep only the columns that we will need.
+
+```{r}
+# Select columns 4 and 5 from the table
+table <- table %>%
+  select(4:5)
+```
+
+Let's hope that the Korean names in the Wikipedia table and the MOFA's pdf file are the same. Let's merge the two tables based on the Korean names.
+
+```{r}
+# Merge the two tables based on the Korean names
+provinces_pd_joined <- provinces_pd %>%
+  left_join(table, by = c("province" = "Hangul"))
+```
+
+We almost got it! The only difference is 전라북도 (North Jeolla Province) in the MOFA's pdf file which is written as 전북특별자치도 (Jeonbuk State) in the Wikipedia table. Let's fix this. 
+
+```{r}
+# Let's change the English province column name.
+
+provinces_pd_joined <- provinces_pd_joined %>%
+  rename(province_eng = `Official English name[5]`)
+
+
+# Move the English name column next to the Korean name column, and remove the 'no' column
+
+provinces_pd_joined <- provinces_pd_joined %>%
+  select(province, province_eng, everything(), -no)
+
+# Fix the English name of 전라북도
+
+provinces_pd_joined <- provinces_pd_joined %>%
+  mutate(province_eng = ifelse(province == "전라북도", "North Jeolla Province", province_eng))
+```
+
+# Text Analysis
+
+## Word Frequency
+
+This time let's look at all of the text in the 2024 Public Diplomacy Comprehensive Implementation Pla. We will combine all the text into a single character vector.
+
+```{r}
+# Combine text
+pdf_text <- str_c(pdf_text_all, collapse = " ")
+```
+
+We will now split the text into words using the `str_split` function from the `stringr` package. We will then convert the result into a data frame with non-factor columns using the `data.frame(stringsAsFactors = FALSE)` function. We will set the column name of the data frame as "word".
+
+```{r}
+# Split the text into words
+words <- pdf_text |>
+  # Split the text into words
+  str_split("\\s+") |>
+  # Convert the result into a data frame with non-factor columns
+  data.frame(stringsAsFactors = FALSE) |>
+  # Set the column name of the data frame as "word"
+  setNames("word")
+```
+
+Let's look at the first few rows of the data frame.
+
+```{r}
+head(words, 10)
+```
+
+Now, let's count the frequency of each word in the text using the `count` function from the `dplyr` package. We will then arrange the result in descending order based on the frequency of the words.
+
+```{r}
+# Count the frequency of each word
+word_freq <- words %>%
+  count(word, sort = TRUE)
+```
+
+Let's look at the first few rows of the data frame
+
+```{r}
+head(word_freq, 10)
+```
+
+This is not very useful. There are two main issues with Korean text. First, Korean text does not have consistent spaceing between words. Second, Korean text has particles and other morphemes that are not words. We will address these issues now.
+
+## Spacing in Korean Text
+
+Let's get the spacing right in Korean text using the [`bitNLP`](https://github.com/bit2r/bitNLP) package's `get_spacing` function. We will use the `get_spacing` function to add spaces between words in the Korean text. 
+
+```{r}
+# Get the spacing right in Korean text
+pdf_text_ko <- get_spacing(pdf_text)
+```
+
+Now, let's split the text into words again using the `str_split` function from the `stringr` package. 
+
+```{r}
+# Split the text into words
+words_ko <- pdf_text_ko |>
+  # Split the text into words
+  str_split("\\s+") |>
+  # Convert the result into a data frame with non-factor columns
+  data.frame(stringsAsFactors = FALSE) |>
+  # Set the column name of the data frame as "word"
+  setNames("word")
+```
+
+Let's analyze the word frequency in the text again.
+
+```{r}
+# Count the frequency of each word
+word_freq_ko <- words_ko %>%
+  count(word, sort = TRUE)
+
+head(word_freq_ko, 10)
+```
+
+
+
+```{r}
+# Remove all characters except for Korean characters, spaces, English letters, and numbers
+word_freq_ko <- pdf_text_ko %>%
+  # Remove all characters except Korean characters, English letters, numbers, and spaces
+  str_replace_all("[^가-힣a-zA-Z0-9\\s]", "") %>%
+  # Split the cleaned text into words based on one or more spaces
+  str_split("\\s+") %>%
+  # Convert the list result into a data frame with non-factor columns
+  data.frame(stringsAsFactors = FALSE) %>%
+  # Set the column name of the data frame as "word"
+  setNames("word")
+```
+
+Let's analyze the word frequency in the text again.
+
+```{r}
+# Count the frequency of each word
+word_freq_ko <- pdf_text_ko %>%
+  count(word, sort = TRUE)
+
+head(word_freq_ko, 10)
+```
+## Morpheme Analysis in Korean Text
+
+Let's analyze the morphemes in the Korean text using the `morpho_mecab` function from the `bitNLP` package. We will use the `morpho_mecab` function to extract morphemes from the Korean text. 
+
+```{r}
+# Analyze the morphemes in the Korean text
+morphemes <- morpho_mecab(pdf_text_ko)
+```
+
+
+
+# safa
+
+Let's analyze the text from Korea's 2022 Diplomatic White Paper (외교백서, *waegyo baekseo*) which is available as a pdf file on the Ministry of Foreign Affairs' (MOFA) [website](https://www.mofa.go.kr/www/brd/m_4105/down.do?brd_id=N8701&seq=298&data_tp=A&file_seq=1)[^text-3].
+
+[^text-3]: Please bear in mind that MOFA website's url might change later, making this hyperlink broken. In that case, you can download the pdf file on the MOFA's website either by searching for it or following this route, which also might be subject to change, "외교부 홈페이지(www.mofa.go.kr)→뉴스·공지→자료실→외교백서".
+
+Let's load the pdf file:
+
 ```{r}
 # Load PDF
 pdf_path <- "data/2022외교백서.pdf"
@@ -59,28 +328,33 @@ The 141st page, which is actually 296 and 297th pages, in the pdf file looks lik
 
 # Table extraction
 
-Let's try to extract the first table on the pages from 280th to 284th of the pdf file. It is going to be more complicated than regular text extraction. That is because the table is not multi-page but also each pdf page actually consist two pages, that is there are two columns on each page. In other words, when extracting, we would see that the lines on the table on the left side of the pdf page (i.e., page 280)  and the lines on the table on the right side of the pdf page (i.e., page 281) are technically on the same line. Check out line 11 of the 141th page on the pdf file. UN and OECD are on the same line. Explain the functions.
+Let's try to extract the first table on the pages from 280th to 284th of the pdf file. It is going to be more complicated than regular text extraction. That is because the table is not multi-page but also each pdf page actually consist two pages, that is there are two columns on each page. In other words, when extracting, we would see that the lines on the table on the left side of the pdf page (i.e., page 280) and the lines on the table on the right side of the pdf page (i.e., page 281) are technically on the same line. Check out line 11 of the 141th page on the pdf file. UN and OECD are on the same line. Explain the functions.
 
 ```{r}
 pdf_141_143 <- pdf_text_all[141:143]
 
-tab_pdf_141_143 <- str_split(pdf_141_143, "\n")
+lines_pdf_141_143 <- str_split(pdf_141_143, "\n")
 
 for (i in 1:3) {
-  assign(paste0("tab_pdf_", i), tab_pdf_141_143[[i]])
+  assign(paste0("lines_pdf_", i), lines_pdf_141_143[[i]])
 }
 
-tab_pdf_1[11]
+lines_pdf_1[11]
 
 #https://stackoverflow.com/questions/42541849/extract-text-from-two-column-pdf-with-r
 ```
 
-
 Let's combine all the text into a single character vector.
+
+```{r}
+
+
 
 
 # let's automate this process
-pdf_text <- map(pdf_text_all, ~.x %>% str_c(collapse = " ") %>% str_squish())
+
+
+pdf_text <- map(pdf_text_all, ~.x |> str_c(collapse = " ") |> str_squish())
 
 # Combine text
 pdf_text <- str_c(pdf_text, collapse = " ")
