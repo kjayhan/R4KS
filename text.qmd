@@ -23,10 +23,17 @@ First, let's load the necessary libraries.
 # install.packages("pdftools")
 # install.packages("rvest")
 # install.packages("bitNLP")
+# install.packages("tidytext")
+# install.packages("igraph")
+# install.packages("ggraph")
 library(tidyverse)
 library(pdftools)
 library(rvest)
 library(bitNLP)
+library(tidytext)
+library(igraph)
+library(ggraph)
+
 ```
 
 # Loading Data
@@ -260,7 +267,7 @@ word_freq_ko <- words_ko %>%
 head(word_freq_ko, 10)
 ```
 
-
+We have many special characters in the text. Let's remove all characters except for Korean characters, spaces, English letters, and numbers using the `str_replace_all` function from the `stringr` package.
 
 ```{r}
 # Remove all characters except for Korean characters, spaces, English letters, and numbers
@@ -293,6 +300,93 @@ Let's analyze the morphemes in the Korean text using the `morpho_mecab` function
 morphemes <- morpho_mecab(pdf_text_ko)
 ```
 
+This creates a list of character vectors, where each element corresponds to a morpheme in the text. We can also combine all of the morphemes and tokenize them into a single character vector.
+
+```{r}
+# Combine all the morphemes into a single character vector
+
+morphemes_single <- morpho_mecab(pdf_text_ko, indiv = FALSE)
+```
+
+
+
+Now, let's split the text into words again this time by converting `morphemes_single` into a data frame with non-factor columns using the `as.data.frame` function. We will set the column name of the data frame as "word".
+
+```{r}
+# Split the text into words
+words_morphemes <- morphemes_single |>
+  as.data.frame() |>
+  # Set the column name of the data frame as "word"
+  setNames("word")
+```
+
+We will now count the frequency of each morpheme in the text using the `count` function from the `dplyr` package. We will then arrange the result in descending order based on the frequency of the morphemes.
+
+```{r}
+# Count the frequency of each morpheme
+
+morpheme_freq <- words_morphemes %>%
+  count(word, sort = TRUE)
+
+head(morpheme_freq, 10)
+```
+Now, this is more like it!
+
+## Word Network in Korean Text
+
+Let's analyze the word network in the Korean text using the `tokenize_noun_grams` function from the `bitNLP` package which builds on [`tidytext`](https://r2bit.com/bitNLP/articles/with_tidytext.html) package. We will use the `tokenize_noun_grams` function to extract the noun word network from the Korean text. 
+
+```{r}
+# Analyze the word network in the Korean text
+
+word_network <- pdf_text_ko %>%
+  # Tokenize the text into noun grams
+  tokenize_noun_ngrams(n = 2)
+
+# 사용자 정의 사전 사용
+dic_path <- system.file("dic", package = "bitNLP")
+dic_file <- glue::glue("{dic_path}/buzz_dic.dic")
+
+word_network <- tokenize_noun_ngrams(pdf_text_ko, simplify = TRUE, user_dic = dic_file, n = 2) |>
+  as_tibble() |>
+  setNames("paired_words")
+```
+
+```{r}
+
+word_network_separated <- word_network %>%
+  separate(paired_words, c("word1", "word2"), sep = " ")
+
+# new bigram counts:
+word_network_counts <- word_network_separated %>%
+  count(word1, word2, sort = TRUE)
+
+
+library(extrafont)
+# eval = FALSE
+# Load extrafont and register fonts
+font_import()  # This might take a while if it's the first time you're running it
+loadfonts(device = "all")  # Use 'device = "win"' for Windows or 'device = "cairo"' for Linux/Mac
+
+# Display available fonts, find one that supports Korean
+fonts()
+
+# Set the font to one that supports Korean characters
+korean_font <- "Arial Unicode MS"  # Replace with a font from your system that supports Korean if necessary
+
+# Your graph code with font adjustment
+word_network_select <- word_network_counts %>%
+  filter(n >= 6) %>%
+  graph_from_data_frame() %>%
+  ggraph(layout = "fr") +
+  geom_edge_link(aes()) +
+  geom_node_point(color = "#2196f3", size = 4) +
+  geom_node_text(aes(label = name), family = korean_font, vjust = 2, size = 4) +  # Set family to Korean font
+  theme_void()
+
+
+word_network_select
+```
 
 
 # safa
