@@ -137,13 +137,13 @@ But these province names are in Korean since the document was in Korean. Let's p
 
 # html Table Extraction
 
-We will use the `rvest` package to extract the table from the Wikipedia page. We will use the `read_html` function to read the html content of the Wikipedia page. We will then use the `html_node` function to select the table we want to extract. You can refer to [`rvest`](https://rvest.tidyverse.org/) package for more information on how to extract what you want. We can use the xpath of the table we want to extract. You can find the xpath of the table by right-clicking on the table on the Wikipedia page and selecting "Inspect" or "Inspect Element" depending on your browser. You can then right-click on the highlighted html element in the "Elements" tab of the "Developer Tools" and select "Copy" -> "Copy XPath". The xpath of the table we want to extract is `//*[@id="mw-content-text"]/div[1]/table[5]`. We will use the `html_table` function to extract the table as a data frame. We will use the `fill = TRUE` argument to fill in the missing values in the table.
+We will use the `rvest` package to extract the table from the Wikipedia page. We will use the `read_html` function to read the html content of the Wikipedia page. We will then use the `html_node` function to select the table we want to extract. You can refer to [`rvest`](https://rvest.tidyverse.org/) package for more information on how to extract what you want. We can use the xpath of the table we want to extract. You can find the xpath of the table by right-clicking on the table on the Wikipedia page and selecting "Inspect" or "Inspect Element" depending on your browser. You can then right-click on the highlighted html element in the "Elements" tab of the "Developer Tools" and select "Copy" -\> "Copy XPath". The xpath of the table we want to extract is `//*[@id="mw-content-text"]/div[1]/table[5]`. We will use the `html_table` function to extract the table as a data frame. We will use the `fill = TRUE` argument to fill in the missing values in the table.
 
 ```{r}
 html <- read_html("https://en.wikipedia.org/wiki/Administrative_divisions_of_South_Korea")
 
-table <- html %>% 
-  html_node(xpath = '//*[@id="mw-content-text"]/div[1]/table[5]') %>%
+table <- html |> 
+  html_node(xpath = '//*[@id="mw-content-text"]/div[1]/table[5]') |>
   html_table(fill = TRUE)
 ```
 
@@ -157,7 +157,7 @@ Perfect! Now, let's keep only the columns that we will need.
 
 ```{r}
 # Select columns 4 and 5 from the table
-table <- table %>%
+table <- table |>
   select(4:5)
 ```
 
@@ -165,27 +165,27 @@ Let's hope that the Korean names in the Wikipedia table and the MOFA's pdf file 
 
 ```{r}
 # Merge the two tables based on the Korean names
-provinces_pd_joined <- provinces_pd %>%
+provinces_pd_joined <- provinces_pd |>
   left_join(table, by = c("province" = "Hangul"))
 ```
 
-We almost got it! The only difference is 전라북도 (North Jeolla Province) in the MOFA's pdf file which is written as 전북특별자치도 (Jeonbuk State) in the Wikipedia table. Let's fix this. 
+We almost got it! The only difference is 전라북도 (North Jeolla Province) in the MOFA's pdf file which is written as 전북특별자치도 (Jeonbuk State) in the Wikipedia table. Let's fix this.
 
 ```{r}
 # Let's change the English province column name.
 
-provinces_pd_joined <- provinces_pd_joined %>%
+provinces_pd_joined <- provinces_pd_joined |>
   rename(province_eng = `Official English name[5]`)
 
 
 # Move the English name column next to the Korean name column, and remove the 'no' column
 
-provinces_pd_joined <- provinces_pd_joined %>%
+provinces_pd_joined <- provinces_pd_joined |>
   select(province, province_eng, everything(), -no)
 
 # Fix the English name of 전라북도
 
-provinces_pd_joined <- provinces_pd_joined %>%
+provinces_pd_joined <- provinces_pd_joined |>
   mutate(province_eng = ifelse(province == "전라북도", "North Jeolla Province", province_eng))
 ```
 
@@ -193,7 +193,7 @@ provinces_pd_joined <- provinces_pd_joined %>%
 
 ## Word Frequency
 
-This time let's look at all of the text in the 2024 Public Diplomacy Comprehensive Implementation Pla. We will combine all the text into a single character vector.
+This time let's look at all of the text in the 2024 Public Diplomacy Comprehensive Implementation Plan. We will combine all the text into a single character vector.
 
 ```{r}
 # Combine text
@@ -223,7 +223,7 @@ Now, let's count the frequency of each word in the text using the `count` functi
 
 ```{r}
 # Count the frequency of each word
-word_freq <- words %>%
+word_freq <- words |>
   count(word, sort = TRUE)
 ```
 
@@ -233,18 +233,18 @@ Let's look at the first few rows of the data frame
 head(word_freq, 10)
 ```
 
-This is not very useful. There are two main issues with Korean text. First, Korean text does not have consistent spaceing between words. Second, Korean text has particles and other morphemes that are not words. We will address these issues now.
+This is not very useful. There are two main issues with Korean text. First, Korean text does not have consistent spacing between words. Second, Korean text has particles and other morphemes that are not words. We will address these issues now.
 
 ## Spacing in Korean Text
 
-Let's get the spacing right in Korean text using the [`bitNLP`](https://github.com/bit2r/bitNLP) package's `get_spacing` function. We will use the `get_spacing` function to add spaces between words in the Korean text. 
+Let's get the spacing right in Korean text using the [`bitNLP`](https://github.com/bit2r/bitNLP) package's `get_spacing` function. We will use the `get_spacing` function to add spaces between words in the Korean text.
 
 ```{r}
 # Get the spacing right in Korean text
 pdf_text_ko <- get_spacing(pdf_text)
 ```
 
-Now, let's split the text into words again using the `str_split` function from the `stringr` package. 
+Now, let's split the text into words again using the `str_split` function from the `stringr` package.
 
 ```{r}
 # Split the text into words
@@ -261,7 +261,7 @@ Let's analyze the word frequency in the text again.
 
 ```{r}
 # Count the frequency of each word
-word_freq_ko <- words_ko %>%
+word_freq_ko <- words_ko |>
   count(word, sort = TRUE)
 
 head(word_freq_ko, 10)
@@ -271,13 +271,13 @@ We have many special characters in the text. Let's remove all characters except 
 
 ```{r}
 # Remove all characters except for Korean characters, spaces, English letters, and numbers
-word_freq_ko <- pdf_text_ko %>%
+word_freq_ko <- pdf_text_ko |>
   # Remove all characters except Korean characters, English letters, numbers, and spaces
-  str_replace_all("[^가-힣a-zA-Z0-9\\s]", "") %>%
+  str_replace_all("[^가-힣a-zA-Z0-9\\s]", "") |>
   # Split the cleaned text into words based on one or more spaces
-  str_split("\\s+") %>%
+  str_split("\\s+") |>
   # Convert the list result into a data frame with non-factor columns
-  data.frame(stringsAsFactors = FALSE) %>%
+  data.frame(stringsAsFactors = FALSE) |>
   # Set the column name of the data frame as "word"
   setNames("word")
 ```
@@ -286,14 +286,15 @@ Let's analyze the word frequency in the text again.
 
 ```{r}
 # Count the frequency of each word
-word_freq_ko <- pdf_text_ko %>%
+word_freq_ko <- word_freq_ko |>
   count(word, sort = TRUE)
 
 head(word_freq_ko, 10)
 ```
+
 ## Morpheme Analysis in Korean Text
 
-Let's analyze the morphemes in the Korean text using the `morpho_mecab` function from the `bitNLP` package. We will use the `morpho_mecab` function to extract morphemes from the Korean text. 
+Let's analyze the morphemes in the Korean text using the `morpho_mecab` function from the `bitNLP` package. We will use the `morpho_mecab` function to extract morphemes from the Korean text.
 
 ```{r}
 # Analyze the morphemes in the Korean text
@@ -307,8 +308,6 @@ This creates a list of character vectors, where each element corresponds to a mo
 
 morphemes_single <- morpho_mecab(pdf_text_ko, indiv = FALSE)
 ```
-
-
 
 Now, let's split the text into words again this time by converting `morphemes_single` into a data frame with non-factor columns using the `as.data.frame` function. We will set the column name of the data frame as "word".
 
@@ -325,21 +324,22 @@ We will now count the frequency of each morpheme in the text using the `count` f
 ```{r}
 # Count the frequency of each morpheme
 
-morpheme_freq <- words_morphemes %>%
+morpheme_freq <- words_morphemes |>
   count(word, sort = TRUE)
 
 head(morpheme_freq, 10)
 ```
+
 Now, this is more like it!
 
 ## Word Network in Korean Text
 
-Let's analyze the word network in the Korean text using the `tokenize_noun_grams` function from the `bitNLP` package which builds on [`tidytext`](https://r2bit.com/bitNLP/articles/with_tidytext.html) package. We will use the `tokenize_noun_grams` function to extract the noun word network from the Korean text. 
+Let's analyze the word network in the Korean text using the `tokenize_noun_grams` function from the `bitNLP` package which builds on [`tidytext`](https://r2bit.com/bitNLP/articles/with_tidytext.html) package. We will use the `tokenize_noun_grams` function to extract the noun word network from the Korean text.
 
 ```{r}
 # Analyze the word network in the Korean text
 
-word_network <- pdf_text_ko %>%
+word_network <- pdf_text_ko |>
   # Tokenize the text into noun grams
   tokenize_noun_ngrams(n = 2)
 
@@ -354,30 +354,30 @@ word_network <- tokenize_noun_ngrams(pdf_text_ko, simplify = TRUE, user_dic = di
 
 ```{r}
 
-word_network_separated <- word_network %>%
+word_network_separated <- word_network |>
   separate(paired_words, c("word1", "word2"), sep = " ")
 
 # new bigram counts:
-word_network_counts <- word_network_separated %>%
+word_network_counts <- word_network_separated |>
   count(word1, word2, sort = TRUE)
 
 
 library(extrafont)
 # eval = FALSE
 # Load extrafont and register fonts
-font_import()  # This might take a while if it's the first time you're running it
-loadfonts(device = "all")  # Use 'device = "win"' for Windows or 'device = "cairo"' for Linux/Mac
+#font_import()  # This might take a while if it's the first time you're running it
+#loadfonts(device = "all")  # Use 'device = "win"' for Windows or 'device = "cairo"' for Linux/Mac
 
 # Display available fonts, find one that supports Korean
-fonts()
+#fonts()
 
 # Set the font to one that supports Korean characters
 korean_font <- "Arial Unicode MS"  # Replace with a font from your system that supports Korean if necessary
 
 # Your graph code with font adjustment
-word_network_select <- word_network_counts %>%
-  filter(n >= 6) %>%
-  graph_from_data_frame() %>%
+word_network_select <- word_network_counts |>
+  filter(n >= 6) |>
+  graph_from_data_frame() |>
   ggraph(layout = "fr") +
   geom_edge_link(aes()) +
   geom_node_point(color = "#2196f3", size = 4) +
@@ -386,73 +386,6 @@ word_network_select <- word_network_counts %>%
 
 
 word_network_select
-```
-
-
-# safa
-
-Let's analyze the text from Korea's 2022 Diplomatic White Paper (외교백서, *waegyo baekseo*) which is available as a pdf file on the Ministry of Foreign Affairs' (MOFA) [website](https://www.mofa.go.kr/www/brd/m_4105/down.do?brd_id=N8701&seq=298&data_tp=A&file_seq=1)[^text-3].
-
-[^text-3]: Please bear in mind that MOFA website's url might change later, making this hyperlink broken. In that case, you can download the pdf file on the MOFA's website either by searching for it or following this route, which also might be subject to change, "외교부 홈페이지(www.mofa.go.kr)→뉴스·공지→자료실→외교백서".
-
-Let's load the pdf file:
-
-```{r}
-# Load PDF
-pdf_path <- "data/2022외교백서.pdf"
-```
-
-Now let's extract the text from the pdf file using the `pdf_text` function from the `pdftools` package.
-
-```{r}
-# Extract text
-pdf_text_all <- pdf_text(pdf_path)
-```
-
-Now, `pdf_text_all` is a list of character vectors, where each element corresponds to a page in the pdf file. For example, we can look at the 141st page of the pdf file in the following way.
-
-```{r}
-# Look at the 141st page
-pdf_text_all[141]
-```
-
-The 141st page, which is actually 296 and 297th pages, in the pdf file looks like this:
-
-![2022 Diplomatic White Paper (Korean Version), 280 and 281th pages](data/2022dwp141.png)
-
-# Table extraction
-
-Let's try to extract the first table on the pages from 280th to 284th of the pdf file. It is going to be more complicated than regular text extraction. That is because the table is not multi-page but also each pdf page actually consist two pages, that is there are two columns on each page. In other words, when extracting, we would see that the lines on the table on the left side of the pdf page (i.e., page 280) and the lines on the table on the right side of the pdf page (i.e., page 281) are technically on the same line. Check out line 11 of the 141th page on the pdf file. UN and OECD are on the same line. Explain the functions.
-
-```{r}
-pdf_141_143 <- pdf_text_all[141:143]
-
-lines_pdf_141_143 <- str_split(pdf_141_143, "\n")
-
-for (i in 1:3) {
-  assign(paste0("lines_pdf_", i), lines_pdf_141_143[[i]])
-}
-
-lines_pdf_1[11]
-
-#https://stackoverflow.com/questions/42541849/extract-text-from-two-column-pdf-with-r
-```
-
-Let's combine all the text into a single character vector.
-
-```{r}
-
-
-
-
-# let's automate this process
-
-
-pdf_text <- map(pdf_text_all, ~.x |> str_c(collapse = " ") |> str_squish())
-
-# Combine text
-pdf_text <- str_c(pdf_text, collapse = " ")
-
 ```
 
 # Session Info

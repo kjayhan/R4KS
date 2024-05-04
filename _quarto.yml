@@ -3,7 +3,7 @@ project:
 
 book:
   title: "R for Korean Studies"
-  subtitle: "A Gentle Introduction to R with Korean Studies-based Examples"
+  subtitle: "A Gentle Introduction to Computational Social Science"
   author: "Kadir Jun Ayhan, Ph.D."
   date: today
   edition: 0.0.1

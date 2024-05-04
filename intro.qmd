@@ -72,7 +72,6 @@ text data
 
 ## Getting Data from Twitter
 
-
 ## Getting Data from pdf Files
 
 pdftools()
