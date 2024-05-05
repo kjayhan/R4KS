@@ -1,1 +1,5 @@
-# R for Korean Studies Bootcamps: 3-Days to Jumpstart R with Korean Studies-based Examples 
+# R for Korean Studies Bootcamps
+
+I plan to organize 1 to 3-days bootcamps to help Korean Studies scholars and students to jumpstart their R learning with Korean Studies-based examples.
+
+You can [sign up for my newsletter to get updates on the workshops](https://mailchi.mp/29054dcc1b0d/dr-ayhan-newsletter).

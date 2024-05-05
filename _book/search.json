@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "R for Korean Studies",
     "section": "",
-    "text": "Preface\nKorean Studies is traditionally dominated by scholars of history and literature. It’s relatively rare to see R, Python, or other computational social science tools being used or taught in this field.\nI believe computational social science offers huge opportunities for Korean Studies, not only for quantitative research but also for qualitative studies, including those on history and literature!\nIn this book, I aim to increase data literacy and convince as many Korean Studies scholars and students as possible about the relative ease of learning R with code samples, and motivational case studies about Korea.\nThis book is supposed to be a gentle introduction, so I do not go into the details of the R language. You can refer to the links that I provide in this book for more information. Furthermore, I also strongly encourage you to use Github's Copilot which is free for academic use, Chatgpt which is not necessarily a coding bot, but still helpful especially for simple tasks, Stackoverflow, and Google for help whenever you are stuck or come across an error.\nI also encourage you to join our bootcamps for problem solving! You can sign up for my newsletter to get updates on the workshops."
+    "text": "Preface\nKorean Studies is traditionally dominated by scholars of history and literature. It’s relatively rare to see R, Python, or other computational social science tools being used or taught in this field.\nI believe computational social science offers huge opportunities for Korean Studies, not only for quantitative research but also for qualitative studies, including those on history and literature!\nIn this book, I aim to increase data literacy and convince as many Korean Studies scholars and students as possible about the relative ease of learning R with code samples, and motivational case studies about Korea.\nThis book is supposed to be a gentle introduction, so I do not go into the details of the R language. You can refer to the links that I provide in this book for more information. Furthermore, I also strongly encourage you to use Github's Copilot which is free for academic use, Chatgpt which is not necessarily a coding bot, but still helpful especially for simple tasks, Stackoverflow, and Google for help whenever you are stuck or come across an error.\nI also encourage you to join our bootcamps for problem solving! You can sign up for my newsletter to get updates on the workshops.\n\n\nCurrent Status of the book\n\n0.Preface: Done\n9.Text Analysis: 50% Done\n14.Making Korean Data Visualization Social: Done\n15.Bootcamp: Done\n\nI will complete the Text Analysis chapter and then move on to the next chapters. Subscribe to my newsletter to get updates on the book and the bootcamps."
   },
   {
     "objectID": "setup.html",
@@ -110,5 +110,33 @@
     "title": "13  Working with API to get Korean Data",
     "section": "",
     "text": "WDI etc. readily available packages\nCreating your own API\nhttps://httr2.r-lib.org/articles/wrapping-apis.html\nhttps://www.andrewheiss.com/blog/2024/01/12/diy-api-plumber-quarto-ojs/_book/"
+  },
+  {
+    "objectID": "kdiplo.html#kdiplo-kdiploviz",
+    "href": "kdiplo.html#kdiplo-kdiploviz",
+    "title": "14  Making Korean Data Visualization Social",
+    "section": "14.1 #kdiplo #kdiploviz",
+    "text": "14.1 #kdiplo #kdiploviz\nI love Korea, and I love data.\nCombining my enthusiasm for Korean Studies and data, I am initiating an exciting project to make engaging and valuable Korean datasets publicly accessible… in an enjoyable manner!\nI invite you to explore and interact with the data I will be sharing. Let’s craft stories together using these datasets and connect through the hashtags #kdiplo, #kdiploviz, #kdata, and #kdataviz.\nRecently, I have created several novel datasets on Korean diplomacy for my research1, mainly focusing on high-level diplomatic visits (both outgoing and incoming), their formats (bilateral, multilateral, informal), nature (such as state visits), purposes (economic, security, etc.), timelines, and the conveners in multilateral contexts among others.\nI will make these datasets available via a new R package, #kdiplo. Although this is a work in progress, the first version is already shaping up.\nThe current development version features a pivotal function (along with an accompanying dataset) designed to assist researchers in merging various Korean datasets by country names. Due to inconsistent naming conventions across Korean government datasets (for instance, Thailand might appear as 태국 [Taeguk] or 타이 [Tai]), the kdiplo::iso3c function creates iso3c country codes for Korean country names, simplifying the joining process (similar to countrycode::countrycode).\nNext on the agenda is adding comprehensive Korean trade data spanning from 1948 to 2023, inclusive of multiple sources and estimations/ imputations for missing data.\nMore datasets are on the way, and I am open to data requests.\nStay tuned (follow hashtags #kdiplo, #kdiploviz #kdata, and #kdataviz) for more updates on (https://github.com/kjayhan/kdiplo) - a one-stop public repository for data insights on Korean diplomacy and foreign policy!\nFor now check this website out, which I will soon update as well."
+  },
+  {
+    "objectID": "kdiplo.html#kdata-kdataviz",
+    "href": "kdiplo.html#kdata-kdataviz",
+    "title": "14  Making Korean Data Visualization Social",
+    "section": "14.2 #kdata #kdataviz",
+    "text": "14.2 #kdata #kdataviz\nWhile my main interests in Korean Studies lie in foreign policy and (public) diplomacy, I am also interested in everything related to Korea, from business to education to culture.\nIndeed, I was trained as an economist, with a double major in international trade, wrote my master’s thesis on Korean popular culture (from an international relations angle), and have published at least 8 peer-reviewed articles on international student mobility programs (from a public diplomacy angle).\nSo… in addition to the #kdiplo package, I am happy to announce that, I am also building another package, #kdata, dedicated to datasets on Korean business, culture, and education. Although this is a work-in-progress, I have already uploaded multiple datasets to the #kdiplo repository. I will upload documentation and vignettes for these datasets soon.\nTo kick things off with the vibrant Spring season in Korea, I present our first challenge: the Korean Festivals dataset! 🌸🎎🎇\nExplore and interact with the data available at #kdiplo kdiplo::korean_festivals_data.\nCheck out my blog post where I’ve used this dataset.\nI encourage you to dive into this dataset and share your insights. Remember to use hashtags #kdiplo, #kdiploviz #kdata, and #kdataviz in your posts across various social media platforms!"
+  },
+  {
+    "objectID": "kdiplo.html#footnotes",
+    "href": "kdiplo.html#footnotes",
+    "title": "14  Making Korean Data Visualization Social",
+    "section": "",
+    "text": "See these blog posts for now.↩︎"
+  },
+  {
+    "objectID": "bootcamp.html",
+    "href": "bootcamp.html",
+    "title": "15  R for Korean Studies Bootcamps",
+    "section": "",
+    "text": "I plan to organize 1 to 3-days bootcamps to help Korean Studies scholars and students to jumpstart their R learning with Korean Studies-based examples.\nYou can sign up for my newsletter to get updates on the workshops."
   }
 ]

@@ -1,1 +1,41 @@
-# #kdiplo and #kdata
+# Making Korean Data Visualization Social
+
+## #kdiplo #kdiploviz
+
+I love Korea, and I love data.
+
+Combining my enthusiasm for Korean Studies and data, I am initiating an exciting project to make engaging and valuable Korean datasets publicly accessible... in an enjoyable manner!
+
+I invite you to explore and interact with the data I will be sharing. Let's craft stories together using these datasets and connect through the hashtags [`#kdiplo`](https://www.linkedin.com/feed/hashtag/?keywords=kdiplo), [#kdiploviz](https://www.linkedin.com/feed/hashtag/?keywords=kdiploviz), [`#kdata`](https://www.linkedin.com/feed/hashtag/?keywords=kdata), and [#kdataviz](https://www.linkedin.com/feed/hashtag/?keywords=kdiplo).
+
+Recently, I have created several novel datasets on Korean diplomacy for my research[^1], mainly focusing on high-level diplomatic visits (both outgoing and incoming), their formats (bilateral, multilateral, informal), nature (such as state visits), purposes (economic, security, etc.), timelines, and the conveners in multilateral contexts among others.
+
+[^1]: See these [blog posts](https://ayhan.phd/blog/#category=diplomacy) for now.
+
+I will make these datasets available via a new R package, [`#kdiplo`](https://github.com/kjayhan/kdiplo). Although this is a work in progress, the first version is already shaping up.
+
+The current development version features a pivotal function (along with an accompanying dataset) designed to assist researchers in merging various Korean datasets by country names. Due to inconsistent naming conventions across Korean government datasets (for instance, Thailand might appear as 태국 \[Taeguk\] or 타이 \[Tai\]), the kdiplo::iso3c function creates iso3c country codes for Korean country names, simplifying the joining process (similar to countrycode::countrycode).
+
+Next on the agenda is adding comprehensive Korean trade data spanning from 1948 to 2023, inclusive of multiple sources and estimations/ imputations for missing data.
+
+More datasets are on the way, and I am open to data requests.
+
+Stay tuned (follow hashtags [#kdiplo](https://www.linkedin.com/feed/hashtag/?keywords=kdiplo), [#kdiploviz](https://www.linkedin.com/feed/hashtag/?keywords=kdiploviz) [#kdata](https://www.linkedin.com/feed/hashtag/?keywords=kdata), and [#kdataviz](https://www.linkedin.com/feed/hashtag/?keywords=kdiplo)) for more updates on (https://github.com/kjayhan/kdiplo) - a one-stop public repository for data insights on Korean diplomacy and foreign policy!
+
+For now check this [website](https://kdiplo.netlify.app/datasets.html) out, which I will soon update as well.
+
+## #kdata #kdataviz
+
+While my main interests in Korean Studies lie in foreign policy and (public) diplomacy, I am also interested in everything related to Korea, from business to education to culture.
+
+Indeed, I was trained as an economist, with a double major in international trade, wrote my master's thesis on Korean popular culture (from an international relations angle), and have published at least 8 peer-reviewed [articles](https:://ayhan.phd/research) on international student mobility programs (from a public diplomacy angle).
+
+So... in addition to the [`#kdiplo`](https://github.com/kjayhan/kdiplo) package, I am happy to announce that, I am also building another package, [`#kdata`](https://github.com/kjayhan/kdata), dedicated to datasets on Korean business, culture, and education. Although this is a work-in-progress, I have already uploaded multiple datasets to the [`#kdiplo`](https://github.com/kjayhan/kdiplo) repository. I will upload documentation and vignettes for these datasets soon.
+
+To kick things off with the vibrant Spring season in Korea, I present our first challenge: the Korean Festivals dataset! 🌸🎎🎇
+
+Explore and interact with the data available at [`#kdiplo`](https://github.com/kjayhan/kdiplo) `kdiplo::korean_festivals_data`.
+
+Check out my [blog post](https://ayhan.phd/blog/2024-03-23%20Geolocations%20of%20All%20Korean%20Festivals/) where I've used this dataset.
+
+I encourage you to dive into this dataset and share your insights. Remember to use hashtags [`#kdiplo`](https://www.linkedin.com/feed/hashtag/?keywords=kdiplo), [#kdiploviz](https://www.linkedin.com/feed/hashtag/?keywords=kdiploviz) [`#kdata`](https://www.linkedin.com/feed/hashtag/?keywords=kdata), and [#kdataviz](https://www.linkedin.com/feed/hashtag/?keywords=kdiplo) in your posts across various social media platforms!

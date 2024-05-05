@@ -9,3 +9,12 @@ In this book, I aim to increase data literacy and convince as many Korean Studie
 This book is supposed to be a gentle introduction, so I do not go into the details of the R language. You can refer to the links that I provide in this book for more information. Furthermore, I also strongly encourage you to use [`Github's Copilot`](https://github.com/features/copilot) which is free for academic use, [`Chatgpt`](https://chat.openai.com/) which is not necessarily a coding bot, but still helpful especially for simple tasks, [`Stackoverflow`](https://stackoverflow.com/), and [`Google`](https://www.google.com) for help whenever you are stuck or come across an error.
 
 I also encourage you to join our bootcamps for problem solving! You can [sign up for my newsletter to get updates on the workshops](https://mailchi.mp/29054dcc1b0d/dr-ayhan-newsletter).
+
+# Current Status of the book
+
+- 0.Preface: Done
+- 9.Text Analysis: 50% Done
+- 14.Making Korean Data Visualization Social: Done
+- 15.Bootcamp: Done
+
+I will complete the Text Analysis chapter and then move on to the next chapters. Subscribe to [my newsletter](https://mailchi.mp/29054dcc1b0d/dr-ayhan-newsletter) to get updates on the book and the bootcamps.
