@@ -1,0 +1,20 @@
+{
+  "hash": "06a7b187a545f3def79a72e6607a3058",
+  "result": {
+    "markdown": "# Preface {.unnumbered}\n\nKorean Studies is traditionally dominated by scholars of history and literature. It’s relatively rare to see R, Python, or other computational social science tools being used or taught in this field.\n\nI believe computational social science offers huge opportunities for Korean Studies, not only for quantitative research but also for qualitative studies, including those on history and literature!\n\nIn this book, I aim to increase data literacy and convince as many Korean Studies scholars and students as possible about the relative ease of learning R with code samples, and motivational case studies about Korea.\n\nThis book is supposed to be a gentle introduction, so I do not go into the details of the R language. You can refer to the links that I provide in this book for more information. Furthermore, I also strongly encourage you to use [`Github's Copilot`](https://github.com/features/copilot) which is free for academic use, [`Chatgpt`](https://chat.openai.com/) which is not necessarily a coding bot, but still helpful especially for simple tasks, [`Stackoverflow`](https://stackoverflow.com/), and [`Google`](https://www.google.com) for help whenever you are stuck or come across an error.\n\nI also encourage you to join our bootcamps for problem solving! You can [sign up for my newsletter to get updates on the workshops](https://mailchi.mp/29054dcc1b0d/dr-ayhan-newsletter).\n\n# Current Status of the book\n\n-   0.Preface: Done\n-   9.Text Analysis: 50% Done\n-   14.Making Korean Data Visualization Social: Done\n-   15.Bootcamp: Done\n\nI will complete the Text Analysis chapter and then move on to the next chapters. Subscribe to [my newsletter](https://mailchi.mp/29054dcc1b0d/dr-ayhan-newsletter) to get updates on the book and the bootcamps.\n\n# How to Cite This Book\n\nThis book This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 United States License. You can check the license [here](https://github.com/kjayhan/R4KS/blob/master/LICENCE).\n\nYou can freely use this book, but you must cite my work to avoid plagiarism. You can cite it in the following way: [@ayhan_2024_r4ks].\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\n@book{ayhan_2024_r4ks,\n  title = {R for {Korean Studies}: A Gentle Introduction to {Computational Social Science}},\n  author = {Ayhan, Kadir Jun},\n  year = {2024},\n  month = {May},\n  edition = {Draft Version 0.0.1},\n  url = {https://r4ks.com}\n}\n```\n:::\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {
+      "knitr": [
+        "{\"type\":\"list\",\"attributes\":{},\"value\":[]}"
+      ]
+    },
+    "preserve": null,
+    "postProcess": false
+  }
+}

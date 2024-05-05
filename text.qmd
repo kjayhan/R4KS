@@ -1,6 +1,6 @@
 # Korean Text Analysis
 
-In this chapter, we will learn how to analyze Korean text data using R. We will use the [`tidyverse`](https://www.tidyverse.org/), `pdftools`, and `bitNLP` packages to extract text from a pdf file and analyze it. We will use Korea's 2022 Diplomatic White Paper (외교백서, *waegyo baekseo*) as an example text.
+In this chapter, we will learn how to analyze Korean text data using R. We will use Korea's 2022 Diplomatic White Paper (외교백서, *waegyo baekseo*) as an example text.
 
 We will learn the following things in order:
 
@@ -53,7 +53,7 @@ Let's analyze the text from Korea's 2024 Public Diplomacy Comprehensive Implemen
 
 [^text-1]: Please bear in mind that MOFA website's url might change later, making this hyperlink broken. In that case, you can download the pdf file on the MOFA's website by searching for "2024년 공공외교 종합시행계획 개요".
 
-If the pdf file is in your local directory, you can load it using the following code. 
+If the pdf file is in your local directory, you can load it using the following code.
 
 ```{r}
 # Load PDF
@@ -61,8 +61,7 @@ pdf_path <- "data/2024공공외교.pdf"
 
 ```
 
-Alternatively, you can download the pdf file from the MOFA's website using the [`download.file`](https://henrikbengtsson.github.io/R.utils/reference/downloadFile.character.html) function. You can then load the pdf file using the `pdf_path` variable.
-Working with the online pdf file and the local pdf file is the same. We can do either. For now, I will use the local pdf file since the MOFA might change the url for the pdf later. That is why I commented the download code. You can comment the earlier code for the local pdf file and uncomment the following  code for the online pdf file.
+Alternatively, you can download the pdf file from the MOFA's website using the [`download.file`](https://henrikbengtsson.github.io/R.utils/reference/downloadFile.character.html) function. You can then load the pdf file using the `pdf_path` variable. Working with the online pdf file and the local pdf file is the same. We can do either. For now, I will use the local pdf file since the MOFA might change the url for the pdf later. That is why I commented the download code. You can comment the earlier code for the local pdf file and uncomment the following code for the online pdf file.
 
 ```{r}
 # Download PDF
@@ -74,7 +73,6 @@ Working with the online pdf file and the local pdf file is the same. We can do e
 
 # download.file(url, pdf_path, headers = c("User-Agent" = "My Custom User Agent"))
 ```
-
 
 Now let's extract the text from the pdf file using the [`pdf_text`](https://docs.ropensci.org/pdftools/reference/pdftools.html) function from the [`pdftools`](https://docs.ropensci.org/pdftools/index.html) package.
 
@@ -323,10 +321,9 @@ word_freq_ko <- word_freq_ko |>
 head(word_freq_ko, 10)
 ```
 
-This is much better! We have removed the special characters and have more meaningful words in the text. 
+This is much better! We have removed the special characters and have more meaningful words in the text.
 
 We can also remove some common stopwords in Korean using the [`stopwords`](https://github.com/koheiw/stopwords) function in [`stopwords`](https://github.com/koheiw/stopwords) package along with the [`stopwords-iso`](https://github.com/stopwords-iso/stopwords-iso/) library that has Korean stopwords.
-
 
 ```{r}
 
@@ -393,7 +390,7 @@ Now, this is more like it!
 
 Let's visualize the frequency of the morphemes in the text using a bar plot. Before that let's address the font issue with Korean text in the plot.
 
-Korean text sometimes is not visible in the graph due to the font issue. This was the case in my Macbook. Let's set the font to one that supports Korean characters. We will use the [`extrafont`](https://github.com/wch/extrafont) package to set the font to one that supports Korean characters. We will use the [`font_import`](https://github.com/wch/extrafont) function to import the fonts from the system. This may take some time. You only need to do it once. That's why I commented it. You can uncomment it in first usage. 
+Korean text sometimes is not visible in the graph due to the font issue. This was the case in my Macbook. Let's set the font to one that supports Korean characters. We will use the [`extrafont`](https://github.com/wch/extrafont) package to set the font to one that supports Korean characters. We will use the [`font_import`](https://github.com/wch/extrafont) function to import the fonts from the system. This may take some time. You only need to do it once. That's why I commented it. You can uncomment it in first usage.
 
 ```{r}
 # Load extrafont and register fonts
@@ -460,7 +457,6 @@ word_network_counts <- word_network_separated |>
 ```
 
 We will now create a graph from the bigram counts using the [`graph_from_data_frame`](https://r.igraph.org/reference/graph_from_data_frame.html) function from the [`igraph`](https://r.igraph.org/) package. We will use the [`ggraph`](https://ggraph.data-imaginist.com/reference/ggraph.html) function from the [`ggraph`](https://ggraph.data-imaginist.com) package to create the graph. We will use the [`geom_edge_link`](https://ggraph.data-imaginist.com/reference/geom_edge_link.html) function to add the edges to the graph. We will use the [`geom_node_point`](https://ggraph.data-imaginist.com/reference/geom_node_point.html) function to add the nodes to the graph. We will use the [`geom_node_text`](https://ggraph.data-imaginist.com/reference/geom_node_text.html) function to add the labels to the nodes in the graph. We will set the font to the Korean font that we set earlier. We will then adjust the font in the graph. Here, `n >= 6` is used to filter out bigrams that appear less than 6 times. You can adjust this number as needed. You can check out `ggraph` layout options [here](https://cran.r-project.org/web/packages/ggraph/vignettes/Layouts.html).
-
 
 ```{r}
 

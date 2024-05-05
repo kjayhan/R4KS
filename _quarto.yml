@@ -2,11 +2,11 @@ project:
   type: book
 
 book:
-  title: "R for Korean Studies"
-  subtitle: "A Gentle Introduction to Computational Social Science"
+  title: "R for Korean Studies: A Gentle Introduction to Computational Social Science"
+  subtitle: "Draft Version: 0.0.1"
   author: "[Kadir Jun Ayhan, Ph.D.](https://ayhan.phd)"
   date: today
-  edition: 0.0.1
+  version: 0.0.1
   chapters:
     - index.qmd
     - intro.qmd

@@ -12,9 +12,26 @@ I also encourage you to join our bootcamps for problem solving! You can [sign up
 
 # Current Status of the book
 
-- 0.Preface: Done
-- 9.Text Analysis: 50% Done
-- 14.Making Korean Data Visualization Social: Done
-- 15.Bootcamp: Done
+-   0.Preface: Done
+-   9.Text Analysis: 50% Done
+-   14.Making Korean Data Visualization Social: Done
+-   15.Bootcamp: Done
 
 I will complete the Text Analysis chapter and then move on to the next chapters. Subscribe to [my newsletter](https://mailchi.mp/29054dcc1b0d/dr-ayhan-newsletter) to get updates on the book and the bootcamps.
+
+# How to Cite This Book
+
+This book This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 United States License. You can check the license [here](https://github.com/kjayhan/R4KS/blob/master/LICENCE).
+
+You can freely use this book, but you must cite my work to avoid plagiarism. You can cite it in the following way: [@ayhan_2024_r4ks].
+
+```{r, eval = F}
+@book{ayhan_2024_r4ks,
+  title = {R for {Korean Studies}: A Gentle Introduction to {Computational Social Science}},
+  author = {Ayhan, Kadir Jun},
+  year = {2024},
+  month = {May},
+  edition = {Draft Version 0.0.1},
+  url = {https://r4ks.com}
+}
+```
