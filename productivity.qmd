@@ -1,0 +1,7 @@
+# Productivity Tools
+
+Setting up Github.
+
+Creating a new Github project.
+
+Copilot etc.

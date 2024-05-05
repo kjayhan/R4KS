@@ -1,0 +1,4 @@
+# Setting Up
+
+Downloading R, and Rstudio.
+

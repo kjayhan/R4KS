@@ -4,19 +4,47 @@ project:
 book:
   title: "R for Korean Studies"
   subtitle: "A Gentle Introduction to Computational Social Science"
-  author: "Kadir Jun Ayhan, Ph.D."
+  author: "[Kadir Jun Ayhan, Ph.D.](https://ayhan.phd)"
   date: today
   edition: 0.0.1
   chapters:
     - index.qmd
     - intro.qmd
-    - summary.qmd
+    - setup.qmd
+    - sources.qmd
+    - basics.qmd
+    - wrangling.qmd
+    - visuals-tables.qmd
+    - visuals-plots.qmd
+    - visuals-maps.qmd
+    - text.qmd
+    - stats.qmd
+    - quarto.qmd
+    - productivity.qmd
+    - api.qmd
+    - kdiplo.qmd
+    - bootcamp.qmd
     - references.qmd
 bibliography: references.bib
 format:
   html:
-    theme: cosmo
+    theme: cerulean
+    link-external-newwindow: true
   pdf:
     documentclass: scrreprt
 editor: visual
-
+freeze: true
+execute:
+  warning: false
+  message: false
+website:
+  title: "R for Korean Studies"
+  google-analytics: "G-6J6HBMRCFK"
+  comments: 
+    hypothesis:
+      theme: clean
+      openSidebar: false
+  page-footer:
+    left: "© 2024 [Kadir Jun Ayhan](https://ayhan.phd) - [Linkedin](https://www.linkedin.com/in/kadirjunayhan/) - [Email](mailto:k@ayhan.phd)"
+    right: "Written with [Quarto](https://quarto.org/) - Source code on [GitHub](https://github.com/kjayhan/R4KS)"
+    

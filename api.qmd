@@ -1,0 +1,9 @@
+## Working with API to get Korean Data
+
+WDI etc. readily available packages
+
+Creating your own API
+
+<https://httr2.r-lib.org/articles/wrapping-apis.html>
+
+<https://www.andrewheiss.com/blog/2024/01/12/diy-api-plumber-quarto-ojs/_book/>

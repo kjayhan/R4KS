@@ -1,48 +1,59 @@
----
-title: "Korean Text Analysis"
----
+# Korean Text Analysis
 
-In this chapter, we will learn how to analyze Korean text data using R. We will use the `tidyverse`, `pdftools`, and `bitNLP` packages to extract text from a pdf file and analyze it. We will use Korea's 2022 Diplomatic White Paper (외교백서, *waegyo baekseo*) as an example text.
+In this chapter, we will learn how to analyze Korean text data using R. We will use the [`tidyverse`](https://www.tidyverse.org/), `pdftools`, and `bitNLP` packages to extract text from a pdf file and analyze it. We will use Korea's 2022 Diplomatic White Paper (외교백서, *waegyo baekseo*) as an example text.
 
 We will learn the following things in order:
 
--   Extracting text from a pdf file.
--   Extracting tables from a pdf file
--   Getting the spacing right in Korean text files.
--   Analyzing the word frequency in the text.
--   Analyzing the word network in the text.
--   Analyzing the sentiment of the text.
--   Topic modeling of the text.
+-   Extracting text and tables from a PDF file.
+-   Extracting text and tables from the internet.
+-   Ensuring accurate spacing between words in Korean text.
+-   Analyzing morphemes in Korean text.
+-   Analyzing word frequency in Korean text.
+-   Analyzing the noun word network in Korean text.
+-   Analyzing the sentiment of Korean text.
+-   Topic modeling of Korean text.
 
-# Libraries
+## Libraries
 
-First, let's load the necessary libraries.
+First, we need to install [`bitNLP`](https://r2bit.com/bitNLP/) which requires us to install the [`MeCab`](https://taku910.github.io/mecab/) library for Korean text analysis. Uncomment the following lines in your first usage. After the first usage, you can comment out the installation lines.
+
+```{r}
+# install.packages("remotes")
+# remotes::install_github("bit2r/bitNLP")
+library(bitNLP)
+# install_mecab_ko()
+# install.packages("RcppMeCab")
+```
+
+Now let's load the necessary libraries. If you are missing any of the following packages, you can install them by uncommenting the `install.packages` lines.
 
 ```{r}
 # install.packages("tidyverse")
 # install.packages("pdftools")
 # install.packages("rvest")
-# install.packages("bitNLP")
 # install.packages("tidytext")
 # install.packages("igraph")
 # install.packages("ggraph")
+# install.packages("extrafont")
+# install.packages("devtools")
+# devtools::install_github("koheiw/stopwords")
 library(tidyverse)
 library(pdftools)
 library(rvest)
-library(bitNLP)
 library(tidytext)
 library(igraph)
 library(ggraph)
-
+library(extrafont)
+library(stopwords)
 ```
 
-# Loading Data
+## Loading pdf Data
 
 Let's analyze the text from Korea's 2024 Public Diplomacy Comprehensive Implementation Plan (2024년 공공외교 종합시행계획 개요) which is available as a pdf file on the Ministry of Foreign Affairs' (MOFA) [website](https://www.mofa.go.kr/cntntsDown.do?path=www&physic=2024%EB%85%84%EB%8F%84_%EA%B3%B5%EA%B3%B5%EC%99%B8%EA%B5%90_%EC%A2%85%ED%95%A9%EC%8B%9C%ED%96%89%EA%B3%84%ED%9A%8D.pdf&real=2024%EB%85%84%EB%8F%84_%EA%B3%B5%EA%B3%B5%EC%99%B8%EA%B5%90_%EC%A2%85%ED%95%A9%EC%8B%9C%ED%96%89%EA%B3%84%ED%9A%8D.pdf)[^text-1].
 
-[^text-1]: Please bear in mind that MOFA website's url might change later, making this hyperlink broken. In that case, you can download the pdf file on the MOFA's website by searching for "2024년 공공외교 종합시행계획 개요."
+[^text-1]: Please bear in mind that MOFA website's url might change later, making this hyperlink broken. In that case, you can download the pdf file on the MOFA's website by searching for "2024년 공공외교 종합시행계획 개요".
 
-Let's load the pdf file:
+If the pdf file is in your local directory, you can load it using the following code. 
 
 ```{r}
 # Load PDF
@@ -50,7 +61,22 @@ pdf_path <- "data/2024공공외교.pdf"
 
 ```
 
-Now let's extract the text from the pdf file using the `pdf_text` function from the `pdftools` package.
+Alternatively, you can download the pdf file from the MOFA's website using the [`download.file`](https://henrikbengtsson.github.io/R.utils/reference/downloadFile.character.html) function. You can then load the pdf file using the `pdf_path` variable.
+Working with the online pdf file and the local pdf file is the same. We can do either. For now, I will use the local pdf file since the MOFA might change the url for the pdf later. That is why I commented the download code. You can comment the earlier code for the local pdf file and uncomment the following  code for the online pdf file.
+
+```{r}
+# Download PDF
+#file <- tempfile()
+
+# This url works for now. But MOFA might change it later. You can replace the link with any other link you want to download.
+
+#url <- "https://www.mofa.go.kr/cntntsDown.do?path=www&physic=2024%EB%85%84%EB%8F%84_%EA%B3%B5%EA%B3%B5%EC%99%B8%EA%B5%90_%EC%A2%85%ED%95%A9%EC%8B%9C%ED%96%89%EA%B3%84%ED%9A%8D.pdf&real=2024%EB%85%84%EB%8F%84_%EA%B3%B5%EA%B3%B5%EC%99%B8%EA%B5%90_%EC%A2%85%ED%95%A9%EC%8B%9C%ED%96%89%EA%B3%84%ED%9A%8D.pdf"
+
+# download.file(url, pdf_path, headers = c("User-Agent" = "My Custom User Agent"))
+```
+
+
+Now let's extract the text from the pdf file using the [`pdf_text`](https://docs.ropensci.org/pdftools/reference/pdftools.html) function from the [`pdftools`](https://docs.ropensci.org/pdftools/index.html) package.
 
 ```{r}
 # Extract text
@@ -64,9 +90,7 @@ Now, `pdf_text_all` is a list of character vectors, where each element correspon
 pdf_text_all[4]
 ```
 
-Oh, this is too long even for an example. But you can realize that there are many "\n" characters in the text. "Let's split the text by the newline character and look at the first 10 lines of the 4th page."\n" refers to a new line in the text. We can split the text into lines by using the `str_split` function from the `stringr`[^text-2] package. Let's look at the first six lines of the 4th page.
-
-[^text-2]: `stringr` package is part of `tidyverse`. So, we don't need to load it separately.
+Oh, this is too long even for an example. But you can realize that there are many `\n` characters in the text. Let's split the text by the newline character and look at the first 10 lines of the 4th page. `\n` refers to a new line in the text. We can split the text into lines by using the [`str_split`](https://stringr.tidyverse.org/reference/str_split.html) function from the [`stringr`](https://stringr.tidyverse.org/) package, which is part of [`tidyverse`](https://www.tidyverse.org/). So, we don't need to load it separately. Let's look at the first six lines of the 4th page.
 
 ```{r}
 # Look at the first 10 lines of the 4th page
@@ -76,16 +100,16 @@ pdf_text_all[4] |>
   # Unlist
   unlist() |>
   # Take the first 10 lines
-  head(6)
+  head(10)
 ```
 
 The 4th page in the pdf file looks like this:
 
 ![2024 Public Diplomacy Comprehensive Implementation Plan, p. 4](data/2024pd4.png)
 
-# pdf Table Extraction
+## pdf Table Extraction
 
-Let's try to extract the second table on page 4 of the pdf file. The table has the number of public diplomacy projects and budgets for [first-tier local administration unit](https://www.mois.go.kr/eng/sub/a03/citiesProvinces/screen.do) (hereafter, *province* for short although some of them are not provinces) in Korea. We will unlist each line as we did earlier so that we can see the table in a more readable way.
+Let's try to extract the second table on page 4 of the pdf file. The table has the number of public diplomacy projects and budgets for [first-tier local administration unit](https://www.mois.go.kr/eng/sub/a03/citiesprovinces/screen.do) (hereafter, *province_city* for short) in Korea. We will unlist each line as we did earlier so that we can see the table in a more readable way.
 
 ```{r}
 # Look at the first 10 lines of the 4th page
@@ -102,18 +126,18 @@ First, let's look at the 29^th^ and 30^th^ lines for the column names in the pdf
 lines_pdf_4[29:30]
 ```
 
-The column names are the line number, province's name, project numbers for 2024 and 2023 respectively, and the budget for 2024 and 2023 in million Korean Won respectively. Let's use the following English column names that correspond to the Korean column names in the pdf file.
+The column names are the line number, province or city's name, project numbers for 2024 and 2023 respectively, and the budget for 2024 and 2023 in million Korean Won respectively. Let's use the following English column names that correspond to the Korean column names in the pdf file.
 
 ```{r}
 # Column names
-col_names <- c("no", "province", "project_no_2024", "project_no_2023", "budget_2024", "budget_2023")
+col_names <- c("no", "province_city", "project_no_2024", "project_no_2023", "budget_2024", "budget_2023")
 ```
 
 By observing the `lines_pdf_4` object using `view(lines_pdf_4)`, we can see that the second table starts from the 32^nd^ line and ends on the 48^th^. We will extract only those lines. We will use [`str_trim`](https://stringr.tidyverse.org/reference/str_trim.html) "removes whitespace from start and end of string". We will also use [`str_replace_all`](https://stringr.tidyverse.org/reference/str_replace.html) to remove commas from each line to convert entries into numbers. We will then split each line based on two or more consecutive spaces (our string is "`\s{2,}`") using [`str_split`](https://stringr.tidyverse.org/reference/str_split.html) and simplify the result into a matrix. We will convert this matrix into a data frame with non-factor columns using `data.frame(stringsAsFactors = FALSE)`. We will set the column names of the data frame using the `col_names` vector that we created above. These explanations are also available in each step in the following code chunk.
 
 ```{r}
 # Select lines 32 to 48 from the lines_pdf_4 data frame
-provinces_pd <- lines_pdf_4[32:48] |>
+province_city_pd <- lines_pdf_4[32:48] |>
   # Trim whitespace from both ends of each element in the selected rows
   str_trim() |>
   # Replace all commas with an empty string in each element
@@ -129,15 +153,15 @@ provinces_pd <- lines_pdf_4[32:48] |>
 Let's rearrange the table (which is originally in alphabetical order) by descending order based on public diplomacy budgets in 2024.
 
 ```{r}
-provinces_pd |>
+province_city_pd |>
   arrange(desc(budget_2024))
 ```
 
-But these province names are in Korean since the document was in Korean. Let's practice extracting a table from internet then to find English names for these Korean provinces. As of May 6, 2024, [Wikipedia's list of Korean province names](https://en.wikipedia.org/wiki/Administrative_divisions_of_South_Korea) seems to be correct. Let's extract the table there.
+But these province_city names are in Korean since the document was in Korean. Let's practice extracting a table from internet then to find English names for these Korean provinces or cities. As of May 6, 2024, [Wikipedia's list of South Korea's administrative divisions](https://en.wikipedia.org/wiki/Administrative_divisions_of_South_Korea) seems to be correct. Let's extract the table there.
 
-# html Table Extraction
+## html Table Extraction
 
-We will use the `rvest` package to extract the table from the Wikipedia page. We will use the `read_html` function to read the html content of the Wikipedia page. We will then use the `html_node` function to select the table we want to extract. You can refer to [`rvest`](https://rvest.tidyverse.org/) package for more information on how to extract what you want. We can use the xpath of the table we want to extract. You can find the xpath of the table by right-clicking on the table on the Wikipedia page and selecting "Inspect" or "Inspect Element" depending on your browser. You can then right-click on the highlighted html element in the "Elements" tab of the "Developer Tools" and select "Copy" -\> "Copy XPath". The xpath of the table we want to extract is `//*[@id="mw-content-text"]/div[1]/table[5]`. We will use the `html_table` function to extract the table as a data frame. We will use the `fill = TRUE` argument to fill in the missing values in the table.
+We will use the [`rvest`](https://rvest.tidyverse.org/) package to extract the table from the Wikipedia page. We will use the [`read_html`](https://rvest.tidyverse.org/reference/read_html.html) function to read the html content of the Wikipedia page. We will then use the [`html_node`](https://rvest.tidyverse.org/reference/html_nodes.html) function to select the table we want to extract. You can refer to [`rvest`](https://rvest.tidyverse.org/) package for more information on how to extract what you want. We can use the xpath of the table we want to extract. You can find the xpath of the table by right-clicking on the table on the Wikipedia page and selecting "Inspect" or "Inspect Element" depending on your browser. You can then right-click on the highlighted html element in the "Elements" tab of the "Developer Tools" and select "Copy" -\> "Copy XPath". The xpath of the table we want to extract is `//*[@id="mw-content-text"]/div[1]/table[5]`. We will use the [`html_table`](https://rvest.tidyverse.org/reference/html_table.html) function to extract the table as a data frame. We will use the `fill = TRUE` argument to fill in the missing values in the table.
 
 ```{r}
 html <- read_html("https://en.wikipedia.org/wiki/Administrative_divisions_of_South_Korea")
@@ -147,7 +171,7 @@ table <- html |>
   html_table(fill = TRUE)
 ```
 
-Let's look at the first few rows of the table.
+Let's look at the first 10 rows of the table.
 
 ```{r}
 head(table)
@@ -159,39 +183,46 @@ Perfect! Now, let's keep only the columns that we will need.
 # Select columns 4 and 5 from the table
 table <- table |>
   select(4:5)
+
+# Let's change the English province_city column name.
+
+table <- table |>
+  rename(province_city_eng = `Official English name[5]`)
 ```
 
 Let's hope that the Korean names in the Wikipedia table and the MOFA's pdf file are the same. Let's merge the two tables based on the Korean names.
 
 ```{r}
 # Merge the two tables based on the Korean names
-provinces_pd_joined <- provinces_pd |>
-  left_join(table, by = c("province" = "Hangul"))
+province_city_pd_joined <- province_city_pd |>
+  left_join(table, by = c("province_city" = "Hangul"))
+```
+
+Let's see if we have any missing values in the English names.
+
+```{r}
+# Check for missing values in the English names
+province_city_pd_joined |>
+  filter(is.na(province_city_eng))
 ```
 
 We almost got it! The only difference is 전라북도 (North Jeolla Province) in the MOFA's pdf file which is written as 전북특별자치도 (Jeonbuk State) in the Wikipedia table. Let's fix this.
 
 ```{r}
-# Let's change the English province column name.
-
-provinces_pd_joined <- provinces_pd_joined |>
-  rename(province_eng = `Official English name[5]`)
-
-
 # Move the English name column next to the Korean name column, and remove the 'no' column
 
-provinces_pd_joined <- provinces_pd_joined |>
-  select(province, province_eng, everything(), -no)
+province_city_pd_joined <- province_city_pd_joined |>
+  select(province_city, province_city_eng, everything(), -no)
 
 # Fix the English name of 전라북도
 
-provinces_pd_joined <- provinces_pd_joined |>
-  mutate(province_eng = ifelse(province == "전라북도", "North Jeolla Province", province_eng))
+province_city_pd_joined <- province_city_pd_joined |>
+  mutate(province_city_eng = ifelse(province_city == "전라북도", "North Jeolla province_city", province_city_eng))
 ```
 
-# Text Analysis
+## Text Analysis
 
-## Word Frequency
+### Word Frequency
 
 This time let's look at all of the text in the 2024 Public Diplomacy Comprehensive Implementation Plan. We will combine all the text into a single character vector.
 
@@ -200,7 +231,7 @@ This time let's look at all of the text in the 2024 Public Diplomacy Comprehensi
 pdf_text <- str_c(pdf_text_all, collapse = " ")
 ```
 
-We will now split the text into words using the `str_split` function from the `stringr` package. We will then convert the result into a data frame with non-factor columns using the `data.frame(stringsAsFactors = FALSE)` function. We will set the column name of the data frame as "word".
+We will now split the text into words using the [`str_split`](https://stringr.tidyverse.org/reference/str_split.html) function from the [`stringr`](https://stringr.tidyverse.org/) package. We will then convert the result into a data frame with non-factor columns using the [`data.frame(stringsAsFactors = FALSE)`](https://rdocumentation.org/packages/base/versions/3.6.2) function. We will set the column name of the data frame as `word`.
 
 ```{r}
 # Split the text into words
@@ -213,13 +244,13 @@ words <- pdf_text |>
   setNames("word")
 ```
 
-Let's look at the first few rows of the data frame.
+Let's look at the first 10 rows of the data frame.
 
 ```{r}
 head(words, 10)
 ```
 
-Now, let's count the frequency of each word in the text using the `count` function from the `dplyr` package. We will then arrange the result in descending order based on the frequency of the words.
+Now, let's count the frequency of each word in the text using the [`count`](https://dplyr.tidyverse.org/reference/count.html) function from the [`dplyr`](https://dplyr.tidyverse.org/) package package. We will then arrange the result in descending order based on the frequency of the words.
 
 ```{r}
 # Count the frequency of each word
@@ -227,7 +258,7 @@ word_freq <- words |>
   count(word, sort = TRUE)
 ```
 
-Let's look at the first few rows of the data frame
+Let's look at the first 10 rows of the data frame
 
 ```{r}
 head(word_freq, 10)
@@ -235,16 +266,16 @@ head(word_freq, 10)
 
 This is not very useful. There are two main issues with Korean text. First, Korean text does not have consistent spacing between words. Second, Korean text has particles and other morphemes that are not words. We will address these issues now.
 
-## Spacing in Korean Text
+### Spacing in Korean Text
 
-Let's get the spacing right in Korean text using the [`bitNLP`](https://github.com/bit2r/bitNLP) package's `get_spacing` function. We will use the `get_spacing` function to add spaces between words in the Korean text.
+Let's get the spacing right in Korean text using the [`bitNLP`](https://r2bit.com/bitNLP) package's [`get_spacing`](https://r2bit.com/bitNLP/reference/get_spacing.html) function, which will add spaces between words in the Korean text. So, for example "한국공공외교" will become "한국 공공 외교".
 
 ```{r}
 # Get the spacing right in Korean text
 pdf_text_ko <- get_spacing(pdf_text)
 ```
 
-Now, let's split the text into words again using the `str_split` function from the `stringr` package.
+Now, let's split the text into words again using the [`str_split`](https://stringr.tidyverse.org/reference/str_split.html) function from the [`stringr`](https://stringr.tidyverse.org/) package.
 
 ```{r}
 # Split the text into words
@@ -267,7 +298,7 @@ word_freq_ko <- words_ko |>
 head(word_freq_ko, 10)
 ```
 
-We have many special characters in the text. Let's remove all characters except for Korean characters, spaces, English letters, and numbers using the `str_replace_all` function from the `stringr` package.
+We have many special characters in the text. Let's remove all characters except for Korean characters, spaces, English letters, and numbers using the [`str_replace_all`](https://stringr.tidyverse.org/reference/str_replace.html) function from the [`stringr`](https://stringr.tidyverse.org/) package.
 
 ```{r}
 # Remove all characters except for Korean characters, spaces, English letters, and numbers
@@ -292,9 +323,37 @@ word_freq_ko <- word_freq_ko |>
 head(word_freq_ko, 10)
 ```
 
-## Morpheme Analysis in Korean Text
+This is much better! We have removed the special characters and have more meaningful words in the text. 
 
-Let's analyze the morphemes in the Korean text using the `morpho_mecab` function from the `bitNLP` package. We will use the `morpho_mecab` function to extract morphemes from the Korean text.
+We can also remove some common stopwords in Korean using the [`stopwords`](https://github.com/koheiw/stopwords) function in [`stopwords`](https://github.com/koheiw/stopwords) package along with the [`stopwords-iso`](https://github.com/stopwords-iso/stopwords-iso/) library that has Korean stopwords.
+
+
+```{r}
+
+stopwords <- stopwords("ko", source = "stopwords-iso") |>
+  as.data.frame() |>
+  setNames("word")
+
+# Remove stopwords
+
+word_freq_ko <- word_freq_ko |>
+  # anti_join (remove) stopwords
+  anti_join(stopwords, by = "word")
+```
+
+Let's count the frequency of each word in the text again.
+
+```{r}
+head(word_freq_ko, 10)
+```
+
+This way, we removed words such as 및 (and) and 등 (etc.) from the text.
+
+Let's move on to morpheme analysis which makes more sense in Korean text analysis context.
+
+### Morpheme Analysis in Korean Text
+
+Let's analyze the morphemes in the Korean text using the [`morpho_mecab`](https://r2bit.com/bitNLP/reference/morpho_mecab.html) function from the [`bitNLP`](https://r2bit.com/bitNLP) package, which will extract morphemes from the Korean text.
 
 ```{r}
 # Analyze the morphemes in the Korean text
@@ -309,7 +368,7 @@ This creates a list of character vectors, where each element corresponds to a mo
 morphemes_single <- morpho_mecab(pdf_text_ko, indiv = FALSE)
 ```
 
-Now, let's split the text into words again this time by converting `morphemes_single` into a data frame with non-factor columns using the `as.data.frame` function. We will set the column name of the data frame as "word".
+Now, let's split the text into words again this time by converting `morphemes_single` into a data frame using the [`as.data.frame`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/as.data.frame) function. We will set the column name of the data frame as "word".
 
 ```{r}
 # Split the text into words
@@ -319,7 +378,7 @@ words_morphemes <- morphemes_single |>
   setNames("word")
 ```
 
-We will now count the frequency of each morpheme in the text using the `count` function from the `dplyr` package. We will then arrange the result in descending order based on the frequency of the morphemes.
+We will now count the frequency of each morpheme in the text using the [`count`](https://dplyr.tidyverse.org/reference/count.html) function from the [`dplyr`](https://dplyr.tidyverse.org/) package package. We will then arrange the result in descending order based on the frequency of the morphemes.
 
 ```{r}
 # Count the frequency of each morpheme
@@ -332,49 +391,79 @@ head(morpheme_freq, 10)
 
 Now, this is more like it!
 
-## Word Network in Korean Text
+Let's visualize the frequency of the morphemes in the text using a bar plot. Before that let's address the font issue with Korean text in the plot.
 
-Let's analyze the word network in the Korean text using the `tokenize_noun_grams` function from the `bitNLP` package which builds on [`tidytext`](https://r2bit.com/bitNLP/articles/with_tidytext.html) package. We will use the `tokenize_noun_grams` function to extract the noun word network from the Korean text.
+Korean text sometimes is not visible in the graph due to the font issue. This was the case in my Macbook. Let's set the font to one that supports Korean characters. We will use the [`extrafont`](https://github.com/wch/extrafont) package to set the font to one that supports Korean characters. We will use the [`font_import`](https://github.com/wch/extrafont) function to import the fonts from the system. This may take some time. You only need to do it once. That's why I commented it. You can uncomment it in first usage. 
 
 ```{r}
-# Analyze the word network in the Korean text
+# Load extrafont and register fonts
 
-word_network <- pdf_text_ko |>
-  # Tokenize the text into noun grams
-  tokenize_noun_ngrams(n = 2)
-
-# 사용자 정의 사전 사용
-dic_path <- system.file("dic", package = "bitNLP")
-dic_file <- glue::glue("{dic_path}/buzz_dic.dic")
-
-word_network <- tokenize_noun_ngrams(pdf_text_ko, simplify = TRUE, user_dic = dic_file, n = 2) |>
-  as_tibble() |>
-  setNames("paired_words")
+#font_import()  # This might take a while if it's the first time you're running it
 ```
 
+We will then use the [`loadfonts`](https://github.com/wch/extrafont) function to load the fonts. We will use the [`fonts`](https://github.com/wch/extrafont) function to display the available fonts and find one that supports Korean characters. We will set the font to one that supports Korean characters. For now, I have chosen "Arial Unicode MS" as the Korean font. You can replace it with a font from your system that supports Korean characters if necessary.
+
 ```{r}
-
-word_network_separated <- word_network |>
-  separate(paired_words, c("word1", "word2"), sep = " ")
-
-# new bigram counts:
-word_network_counts <- word_network_separated |>
-  count(word1, word2, sort = TRUE)
-
-
-library(extrafont)
-# eval = FALSE
-# Load extrafont and register fonts
-#font_import()  # This might take a while if it's the first time you're running it
-#loadfonts(device = "all")  # Use 'device = "win"' for Windows or 'device = "cairo"' for Linux/Mac
+#loadfonts(device = "all")
 
 # Display available fonts, find one that supports Korean
 #fonts()
 
 # Set the font to one that supports Korean characters
 korean_font <- "Arial Unicode MS"  # Replace with a font from your system that supports Korean if necessary
+```
 
-# Your graph code with font adjustment
+We will use the [`ggplot`](https://ggplot2.tidyverse.org/) function from the [`ggplot2`](https://ggplot2.tidyverse.org/) package to create the plot. We will use the [`geom_col`](https://ggplot2.tidyverse.org/reference/geom_col.html) function to add the bars to the plot. We will use the [`theme_minimal`](https://ggplot2.tidyverse.org/reference/theme_minimal.html) function to set the theme of the plot to minimal. We will use the [`theme`](https://ggplot2.tidyverse.org/reference/theme.html) function to adjust the font size in the plot. We will set the font size to 10. We will use the [`labs`](https://ggplot2.tidyverse.org/reference/labs.html) function to add the title and labels to the plot. We will visualize only the most frequent 20 morphemes in the text.
+
+```{r}
+# Visualize the frequency of the morphemes in the text
+
+morpheme_freq |> 
+  top_n(20) |> 
+  mutate(word = reorder(word, n)) |> ggplot(aes(word, n)) + 
+  geom_col(fill = "#2196f3") +
+  coord_flip() +
+  theme_minimal() +
+  # use Korean font
+  theme(text = element_text(family = korean_font, size = 10)) +
+  labs(title = "Frequency of Morphemes in Korean Text", x = "Morpheme", y = "Frequency")
+```
+
+### Word Network in Korean Text
+
+Let's analyze the word network in the Korean text using the [`tokenize_noun_ngrams`](https://r2bit.com/bitNLP/reference/tokenize_noun_ngrams.html) function from the [`bitNLP`](https://r2bit.com/bitNLP/) package which builds on [`tidytext`](https://r2bit.com/bitNLP/articles/with_tidytext.html) package. We will use the `tokenize_noun_grams` function to extract the noun word network from the Korean text.
+
+```{r}
+# We can use a user-defined dictionary to improve the accuracy of the tokenization. We will rely on the one provided by the `bitNLP` package.
+
+dic_path <- system.file("dic", package = "bitNLP")
+dic_file <- glue::glue("{dic_path}/buzz_dic.dic")
+
+word_network <- tokenize_noun_ngrams(pdf_text_ko, simplify = TRUE, user_dic = dic_file, n = 2) |>
+  as.data.frame() |>
+  setNames("paired_words")
+```
+
+Now, let's separate the paired words into two columns using the [`separate`](https://tidyr.tidyverse.org/reference/separate.html) function from the [`tidyr`](https://tidyr.tidyverse.org/) package which is loaded as part of the [`tidyverse`](https://www.tidyverse.org/) package. This will allow us to create bigrams from the paired words.
+
+```{r}
+word_network_separated <- word_network |>
+  separate(paired_words, c("word1", "word2"), sep = " ")
+```
+
+We will now count the frequency of each bigram in the text using the [`count`](https://dplyr.tidyverse.org/reference/count.html) function from the [`dplyr`](https://dplyr.tidyverse.org/) package package, which is also party of the [`tidyverse`](https://www.tidyverse.org/). We will then arrange the result in descending order based on the frequency of the bigrams.
+
+```{r}
+# new bigram counts:
+word_network_counts <- word_network_separated |>
+  count(word1, word2, sort = TRUE)
+```
+
+We will now create a graph from the bigram counts using the [`graph_from_data_frame`](https://r.igraph.org/reference/graph_from_data_frame.html) function from the [`igraph`](https://r.igraph.org/) package. We will use the [`ggraph`](https://ggraph.data-imaginist.com/reference/ggraph.html) function from the [`ggraph`](https://ggraph.data-imaginist.com) package to create the graph. We will use the [`geom_edge_link`](https://ggraph.data-imaginist.com/reference/geom_edge_link.html) function to add the edges to the graph. We will use the [`geom_node_point`](https://ggraph.data-imaginist.com/reference/geom_node_point.html) function to add the nodes to the graph. We will use the [`geom_node_text`](https://ggraph.data-imaginist.com/reference/geom_node_text.html) function to add the labels to the nodes in the graph. We will set the font to the Korean font that we set earlier. We will then adjust the font in the graph. Here, `n >= 6` is used to filter out bigrams that appear less than 6 times. You can adjust this number as needed. You can check out `ggraph` layout options [here](https://cran.r-project.org/web/packages/ggraph/vignettes/Layouts.html).
+
+
+```{r}
+
 word_network_select <- word_network_counts |>
   filter(n >= 6) |>
   graph_from_data_frame() |>
@@ -388,7 +477,17 @@ word_network_select <- word_network_counts |>
 word_network_select
 ```
 
-# Session Info
+### Sentiment Analysis
+
+### Topic Modeling
+
+## Korean Tweet Analysis
+
+## Further Readings
+
+## References
+
+## Session Info
 
 ```{r}
 sessionInfo()
