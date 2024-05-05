@@ -1,6 +1,6 @@
 # Korean Text Analysis
 
-In this chapter, we will learn how to analyze Korean text data using R. We will use Korea's 2022 Diplomatic White Paper (외교백서, *waegyo baekseo*) as an example text.
+In this chapter, we will learn how to analyze Korean text data using R. Korea's 2024 Public Diplomacy Comprehensive Implementation Plan (2024년 공공외교 종합시행계획 개요) as an example text.
 
 We will learn the following things in order:
 
@@ -12,6 +12,7 @@ We will learn the following things in order:
 -   Analyzing the noun word network in Korean text.
 -   Analyzing the sentiment of Korean text.
 -   Topic modeling of Korean text.
+-   Korean tweet analysis.
 
 ## Libraries
 
@@ -88,7 +89,7 @@ Now, `pdf_text_all` is a list of character vectors, where each element correspon
 pdf_text_all[4]
 ```
 
-Oh, this is too long even for an example. But you can realize that there are many `\n` characters in the text. Let's split the text by the newline character and look at the first 10 lines of the 4th page. `\n` refers to a new line in the text. We can split the text into lines by using the [`str_split`](https://stringr.tidyverse.org/reference/str_split.html) function from the [`stringr`](https://stringr.tidyverse.org/) package, which is part of [`tidyverse`](https://www.tidyverse.org/). So, we don't need to load it separately. Let's look at the first six lines of the 4th page.
+You can see that there are `\n` characters, which refers to newline (new line) in the text. Let's split the text by the newline character and look at the first 10 lines of the 4th page. We can split the text into lines by using the [`str_split`](https://stringr.tidyverse.org/reference/str_split.html) function from the [`stringr`](https://stringr.tidyverse.org/) package, which is part of [`tidyverse`](https://www.tidyverse.org/). So, we do not need to load it separately. Let's look at the first six lines of the 4th page.
 
 ```{r}
 # Look at the first 10 lines of the 4th page
