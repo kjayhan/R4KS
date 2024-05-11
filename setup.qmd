@@ -1,4 +1,43 @@
 # Setting Up
 
-Downloading R, and Rstudio.
+Both R and Rstudio are free to use, and setting them up is quite straightforward.
+
+R is a programming language and software environment, produced mainly for statistical computing and graphics. RStudio is an integrated development environment (IDE) for R (as well as for other programming languages including Python, Stan, Julia and others).
+
+In order to use R, installing RStudio is not enough. Installing R is enough, but RStudio is recommended for a better experience.
+
+You can use R in other IDEs, such as [VS Code](https://code.visualstudio.com/) as well, but RStudio is the most popular and widely used IDE for R.
+
+## Installing R
+
+You need to install R on your computer. You can download the latest version of R from the [CRAN website](https://cran.r-project.org/mirrors.html) by clicking one of the mirror links in a location that is close to you. In the next page, you can download the installer for your operating system (Windows, Mac, or Linux).
+
+## Installing RStudio
+
+After installing R, you can download RStudio from the [RStudio website](https://posit.co/download/rstudio-desktop/). You can download the free version of RStudio Desktop by clicking [2: Install RStudio](https://posit.co/download/rstudio-desktop/) on the right. It automatically recognizes your operating system and downloads the correct installer for you.
+
+## Running R on RStudio
+
+After installing R and RStudio, you can open RStudio and start using R.
+
+When you open RStudio, you will see something like in the @fig-rstudio.
+
+![RStudio](data/rstudio.png){#fig-rstudio}
+
+Well, what you will see will be a default white screen, but you can customize it to look like the one in the image. You can change the theme of RStudio by going to `Tools > Global Options > Appearance` and selecting the theme you like.
+
+For now, pay attention to the two panes in RStudio:
+
+1.  **Console**: This is where you can write your R code. For example try writing `1+1` and clicking enter there. You will see the result in the console.
+
+2.  **Environment**: This is where you can see the objects you have created in your R session. For example, if you write `x <- 5` (that is assigning the number '5' to an object named 'x') in the source pane, you will see `x` in the environment pane.
+
+Check out the [The Basics of R](basics.qmd) chapter to learn the basics of R.
+
+## Further Information
+
+You can refer to the following video for further help on installing R and RStudio, unless above information is enough.
+
+{{< video https://youtu.be/ulIv0NiVTs4 >}}
+
 

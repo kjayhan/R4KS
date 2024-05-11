@@ -4,14 +4,56 @@
     "href": "index.html",
     "title": "R for Korean Studies: A Gentle Introduction to Computational Social Science",
     "section": "",
-    "text": "Preface\nKorean Studies is traditionally dominated by scholars of history and literature. It’s relatively rare to see R, Python, or other computational social science tools being used or taught in this field.\nI believe computational social science offers huge opportunities for Korean Studies, not only for quantitative research but also for qualitative studies, including those on history and literature!\nIn this book, I aim to increase data literacy and convince as many Korean Studies scholars and students as possible about the relative ease of learning R with code samples, and motivational case studies about Korea.\nThis book is supposed to be a gentle introduction, so I do not go into the details of the R language. You can refer to the links that I provide in this book for more information. Furthermore, I also strongly encourage you to use Github's Copilot which is free for academic use, ChatGPT which is not necessarily a coding bot, but still helpful especially for simple tasks, Stackoverflow, and Google for help whenever you are stuck or come across an error.\nI also encourage you to join our bootcamps for problem solving! You can sign up for my newsletter to get updates on the bootcamps.\n\n\nCurrent Status of the Book\n\n0.Preface: Nearly Complete\n9.Text Analysis: 50% Complete\n14.Making Korean Data Visualization Social: Nearly Complete\n15.Bootcamp: Nearly Complete\n\nI will complete the Text Analysis chapter and then move on to the next chapters. Subscribe to my newsletter to get updates on the book and the bootcamps.\n\n\nHow to Cite This Book\nThis book is licensed under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 United States License. You can check the license here.\nYou can freely use this book, but you must cite my work to avoid plagiarism. You can cite it in the following way: (Ayhan 2024).\n\n@book{ayhan_2024_r4ks,\n  title = {R for {Korean Studies}: A Gentle Introduction to {Computational Social Science}},\n  author = {Ayhan, Kadir Jun},\n  year = {2024},\n  month = {May},\n  edition = {Draft Version 0.0.1},\n  url = {https://r4ks.com}\n}\n\n\n\n\n\nAyhan, Kadir Jun. 2024. R for Korean Studies: A Gentle Introduction to Computational Social Science. Draft Version 0.0.1. https://r4ks.com."
+    "text": "Preface\nKorean Studies is traditionally dominated by scholars of history and literature. It’s relatively rare to see R, Python, or other computational social science tools being used or taught in this field.\nI believe computational social science offers huge opportunities for Korean Studies, not only for quantitative research but also for qualitative studies, including those on history and literature!\nIn this book, I aim to increase data literacy and convince as many Korean Studies scholars and students as possible about the relative ease of learning R with code samples, and motivational case studies about Korea.\nThis book is supposed to be a gentle introduction, so I do not go into the details of the R language. You can refer to the links that I provide in this book for more information. Furthermore, I also strongly encourage you to use Github's Copilot which is free for academic use, ChatGPT which is not necessarily a coding bot, but still helpful especially for simple tasks, Stackoverflow, and Google for help whenever you are stuck or come across an error.\nI also encourage you to join our bootcamps for problem solving! You can sign up for my newsletter to get updates on the bootcamps.\n\n\nCurrent Status of the Book\n\n\n0. Preface: Nearly Complete\n1. Introduction: Nearly Complete\n2. Setting Up: Nearly Complete\n4. The Basics of R: Nearly Complete\n9. Text Analysis: 50% Complete\n14. Making Korean Data Visualization Social: Nearly Complete\n15. Bootcamp: Nearly Complete\n\n\n\n\nStay Tuned for Updates\nSubscribe to my newsletter to get updates on the book and the bootcamps.\n\n\nHow to Cite This Book\nThis book is licensed under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 United States License. You can check the license here.\nYou can freely use this book, but you must cite my work to avoid plagiarism. You can cite it in the following way: (Ayhan 2024).\n\n@book{ayhan_2024_r4ks,\n  title = {R for {Korean Studies}: A Gentle Introduction to {Computational Social Science}},\n  author = {Ayhan, Kadir Jun},\n  year = {2024},\n  month = {May},\n  edition = {Draft Version 0.0.1},\n  url = {https://r4ks.com}\n}\n\n\n\n\n\nAyhan, Kadir Jun. 2024. R for Korean Studies: A Gentle Introduction to Computational Social Science. Draft Version 0.0.1. https://r4ks.com."
   },
   {
-    "objectID": "setup.html",
-    "href": "setup.html",
+    "objectID": "intro.html#why-do-i-need-computational-tools-in-korean-studies",
+    "href": "intro.html#why-do-i-need-computational-tools-in-korean-studies",
+    "title": "1  Introduction",
+    "section": "1.1 Why Do I Need Computational Tools in Korean Studies?",
+    "text": "1.1 Why Do I Need Computational Tools in Korean Studies?\nSimply put, there is so much more data out there that is useful for Korean Studies research, and we have faster computers, and handy tools to analyze such data.\nKorean Studies curricula across the world are quite rich and interdisciplonary. Those courses often equip students with the history, culture, literature, and language of Korea to understand the country better. Yet, Korean Studies scholars and students are not exposed to computational methods/ tools that can handle big or complex data as much.\nIf you are already here, it probably means that you apprecite the increasing importance of the computational tools in your research. This book, and bootcamps based on this book, will teach you the basics of R, give you sample codes based on Korean Studies-related examples.\nIn the age that we live in, I strongly believe that these computational methods/ tools will empower you in your research as well as in the job market given wide range of prospective jobs Korean Studies graduates seek and find (corporations, international organizations, think tanks, NGOs, media, academia etc.)."
+  },
+  {
+    "objectID": "intro.html#why-r",
+    "href": "intro.html#why-r",
+    "title": "1  Introduction",
+    "section": "1.2 Why R?",
+    "text": "1.2 Why R?\nR is free! There are so many packages that are rich with a wide range of functions that you would need in all kinds of research, analysis, and reporting. Many more are being built as you read this book! You can do from simple math to data pre-processing, from data visualization to regressions, from building your CV to building your website, from analyzing tweets to machine learning.\nPython is probably getting more popular in the industry jobs in recent years. Yet, I think, for the time being, R is better suited for social science research. At least there are more books, tutorials, examples that you can learn from in terms of social sciences.\nOnce exposed to R, you may also consider learning Python as well if it seems more attractive for you."
+  },
+  {
+    "objectID": "intro.html#i-dont-know-anything-about-coding-indeed-i-am-frustrated-about-coding",
+    "href": "intro.html#i-dont-know-anything-about-coding-indeed-i-am-frustrated-about-coding",
+    "title": "1  Introduction",
+    "section": "1.3 I don’t know anything about coding! Indeed, I am frustrated about coding!",
+    "text": "1.3 I don’t know anything about coding! Indeed, I am frustrated about coding!\nThen this book, and the bootcamps, are very much for you! I don’t expect the readers, and bootcamp participants, to have any prior knowledge of R, coding, or other statistical software.\nThis book is supposed to be a gentle introduction, so I do not go into the details of the R language. You can refer to the links that I provide in this book for more information. Furthermore, I also strongly encourage you to use Github's Copilot which is free for academic use, ChatGPT which is not necessarily a coding bot, but still helpful especially for simple tasks, Stackoverflow, and Google for help whenever you are stuck or come across an error.\nLearning curve is steep in the beginning. So you may need a trigger to begin and NOT GIVE UP. This book plays this trigger role. So, there is no need to be intimidated by R, or your lack of background with coding. I got you covered!"
+  },
+  {
+    "objectID": "setup.html#installing-r",
+    "href": "setup.html#installing-r",
     "title": "2  Setting Up",
-    "section": "",
-    "text": "Downloading R, and Rstudio."
+    "section": "2.1 Installing R",
+    "text": "2.1 Installing R\nYou need to install R on your computer. You can download the latest version of R from the CRAN website by clicking one of the mirror links in a location that is close to you. In the next page, you can download the installer for your operating system (Windows, Mac, or Linux)."
+  },
+  {
+    "objectID": "setup.html#installing-rstudio",
+    "href": "setup.html#installing-rstudio",
+    "title": "2  Setting Up",
+    "section": "2.2 Installing RStudio",
+    "text": "2.2 Installing RStudio\nAfter installing R, you can download RStudio from the RStudio website. You can download the free version of RStudio Desktop by clicking 2: Install RStudio on the right. It automatically recognizes your operating system and downloads the correct installer for you."
+  },
+  {
+    "objectID": "setup.html#running-r-on-rstudio",
+    "href": "setup.html#running-r-on-rstudio",
+    "title": "2  Setting Up",
+    "section": "2.3 Running R on RStudio",
+    "text": "2.3 Running R on RStudio\nAfter installing R and RStudio, you can open RStudio and start using R.\nWhen you open RStudio, you will see something like in the Figure 2.1.\n\n\n\nFigure 2.1: RStudio\n\n\nWell, what you will see will be a default white screen, but you can customize it to look like the one in the image. You can change the theme of RStudio by going to Tools &gt; Global Options &gt; Appearance and selecting the theme you like.\nFor now, pay attention to the two panes in RStudio:\n\nConsole: This is where you can write your R code. For example try writing 1+1 and clicking enter there. You will see the result in the console.\nEnvironment: This is where you can see the objects you have created in your R session. For example, if you write x &lt;- 5 (that is assigning the number ‘5’ to an object named ‘x’) in the source pane, you will see x in the environment pane.\n\nCheck out the The Basics of R chapter to learn the basics of R."
+  },
+  {
+    "objectID": "setup.html#further-information",
+    "href": "setup.html#further-information",
+    "title": "2  Setting Up",
+    "section": "2.4 Further Information",
+    "text": "2.4 Further Information\nYou can refer to the following video for further help on installing R and RStudio, unless above information is enough."
   },
   {
     "objectID": "sources.html#statistical-data",
@@ -26,6 +68,97 @@
     "title": "3  Korean Studies Data Sources",
     "section": "3.2 Text Data",
     "text": "3.2 Text Data"
+  },
+  {
+    "objectID": "basics.html#creating-a-project",
+    "href": "basics.html#creating-a-project",
+    "title": "4  The Basics of R",
+    "section": "4.1 Creating a Project",
+    "text": "4.1 Creating a Project\nFor each of your new projects, you should create a new project in RStudio. To do this, click on the “File” menu, then “New Project”. You will be asked to choose a directory for your project. Choose a directory where you want to store your project files. You can also create a new directory for your project. After you have chosen a directory, click on “Create Project”. You will see a new RStudio window with your project. You can now start working on your project.\nFor now, this is all you need to know about creating a project. We learn more about projects that are connected with Github in the Productivity Tools chapter.\nWhen you work within a project, managing the files for your project becomes easier. When you work within the project, you don’t need to worry about getting and setting your working directory. To give you an idea, this is how you can find the working directory for your project:\n\ngetwd()\n\n[1] \"/Users/pd/Library/CloudStorage/OneDrive-Personal/R/projects/R4KS\"\n\n\nYou can also set the working directory to some other path using the setwd() function. But you don’t need to do this when you work within a project. On another note, when you are writing code script in an R script file or within a code chunk, you can add non-code comments like this by adding a # sign at the beginning of the line.\n\n# You can uncomment a comment line and make it a code line by removing the '#' sign at the beginning of the line.\n\n# Replace \"path/to/your/directory\" with the actual path to your directory (folder) that you want to work in.\n\n# Try removing the '#' sign at the beginning of the line and running the code.\n\n# setwd(\"path/to/your/directory\")\n\nWhen you work within a project, you don’t need to worry about the working directory. You can store all the files for your project in the project directory. You can also save your R scripts in the project directory. This way, you can easily find the files for your project."
+  },
+  {
+    "objectID": "basics.html#scripting-in-r",
+    "href": "basics.html#scripting-in-r",
+    "title": "4  The Basics of R",
+    "section": "4.2 Scripting in R",
+    "text": "4.2 Scripting in R\nYou can simply type your R code in the console and press Enter to run the code. But this is not a good practice. You should write your code in a script file and then run the script file. This way, you can save your code and run it again whenever you want. You can also share your code with others.\nOne of the most important advantages of R, for example over Excel, is that you can reproduce your results. That’s why you should write your code in a script file. Every time you exit R, you should save your R script(s) and then rely on them next time you work on the same project.\n\n4.2.1 Creating a New R Script\nThe most basic way to create a new R script is to click on the “File” menu, then “New File”, and then “R Script”. You will see a new R script file in the RStudio editor. You can now write your R code in this file.\n\n\n4.2.2 Creating a Quarto File\nYou can also create a new Quarto file by clicking on the “File” menu, then “New File”, and then “Quarto File”. You will see a new Quarto file in the RStudio editor. You can now write your R code in this file.\nQuarto allows you to write your code in chunks. In between chunks, you can have other text, images, and other content. You can also run the code in each chunk and see the output in the document. This is a great way to write reports, papers, and books.\nPersonally I prefer to write my code in Quarto files. When you click to create a new Quarto file, it will ask you to add a title and author, and select a format for your Quarto file. I explain Quarto further in the Storytelling with Quarto chapter. For now, click “Create Empty Document” on the left bottom. Click File &gt; Save and save you Quarto document in your project directory.\nOn the top right of the RStudio editor, you can see a green C button with a + sign. That button allows you to insert a code chunk in your document. See Figure 4.1.\n\n\n\nFigure 4.1: Quarto: Inserting a New Code Chunk\n\n\nThen after you write your code and when you want to run the code in a chunk, you can click on the green Run button on the right side of the chunk. See Figure 4.2.\n\n\n\nFigure 4.2: Quarto: Running a Code Chunk\n\n\nWhen you are working in a simple R script, you don’t need to worry about chunks. You can simply write your code in the script file and select the lines of code you want to run and click on the Run button."
+  },
+  {
+    "objectID": "basics.html#installing-packages",
+    "href": "basics.html#installing-packages",
+    "title": "4  The Basics of R",
+    "section": "4.3 Installing Packages",
+    "text": "4.3 Installing Packages\nPackages in R are like apps for your phone. Just like your phone comes with some basic apps, R comes with 14 base packages (as of May 11, 2024) including base, utils, and stats. But you can, and you will need to, install other packages to do different things just like you install apps on your phone.\nYou can install a package using the install.packages() function. This book uses the tidyverse package, which is a universe of packages that follow a common “tidy” data philosophy.\nYou can install the tidyverse package using the following command:\n\n# uncomment the following line by removing \"#\" and run the code to install the tidyverse package\n\n# install.packages(\"tidyverse\")\n\nYou need to install the packages you need only once, and then you can use them whenever you want."
+  },
+  {
+    "objectID": "basics.html#loading-packages",
+    "href": "basics.html#loading-packages",
+    "title": "4  The Basics of R",
+    "section": "4.4 Loading Packages",
+    "text": "4.4 Loading Packages\nJust like apps on your phone, you need to load the packages you need every time you start a new R session. You can load the package using the library() function. For example, to load the tidyverse package, you can use the following command:\n\nlibrary(tidyverse)\n\nThe [tidyverse](https://tidyverse.org/) package is a collection of packages including ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, forcats, rvest, lubridate, and a few other packages. We learn some of these packages in this book. Once you load the tidyverse package, you can use all the functions in these packages. In other words, you don’t need to load, for example, the ggplot2 package separately by running library(ggplot2)."
+  },
+  {
+    "objectID": "basics.html#assigning-values-to-variables",
+    "href": "basics.html#assigning-values-to-variables",
+    "title": "4  The Basics of R",
+    "section": "4.5 Assigning Values to Variables",
+    "text": "4.5 Assigning Values to Variables\nYou can assign values to variables in R using the &lt;- operator. For example, you can assign the value 14 to a variable x using the following command:\n\nx &lt;- 14\n\nAfter assigning 14 to x, you can use x in your code. For example, you can print the value of x using the following command:\n\nprint(x)\n\n[1] 14\n\n\nSee, x is now 14. You can also see the value of x by typing x in the console and pressing Enter. Try it.\n\nx\n\n[1] 14\n\n\nYou can also make additional data manipulations using x and assign it to another variable y using the following command:\n\ny &lt;- x + 3\n\nLet’s see the value of y:\n\ny\n\n[1] 17\n\n\nR is an advanced calculator. You can do all kinds of calculations using R. For example, check out the following calculations:\n\n# Square root of 16\nsqrt(16)\n\n[1] 4\n\n# 2 to the power of 8\n2^8\n\n[1] 256\n\n# Logarithm of 100\nlog(100)\n\n[1] 4.60517\n\n# Exponential of previously assigned value y, i.e. 17, times x, i.e. 14.\nexp(y) * x\n\n[1] 338169339\n\n\nYou can also assign a character string to a variable. For example, you can assign the string “한국학 학자들 및 학생들도 R 좀 배웠으면 좋겠다.” to a variable z using the following command:\n\nz &lt;- \"한국학 학자 및 학생들도 R 좀 배웠으면 좋겠다.\"\n\nYou can print the value of z using the following command:\n\nz\n\n[1] \"한국학 학자 및 학생들도 R 좀 배웠으면 좋겠다.\""
+  },
+  {
+    "objectID": "basics.html#make-sure-to-get-the-spelling-right",
+    "href": "basics.html#make-sure-to-get-the-spelling-right",
+    "title": "4  The Basics of R",
+    "section": "4.6 Make sure to get the spelling right!",
+    "text": "4.6 Make sure to get the spelling right!\nAs a novice R user, more often than not, you will get error messages because you make mistakes in spelling. For example, we assigned the value 14 to a variable x. If you try to print the value of X instead of x, you will get an error message. Try it.\n\n# Uncomment the following line by removing \"#\" and run the code to see the error message.\n\n# X\n\nYou will get an error message saying that “Error: object ‘X’ not found”. This is because R is case-sensitive. X is not the same as x. Make sure to get the spelling right.\nIf you want to use more than two words for a variable name, you can use an underscore _ (my_variable) or a dot . (my.variable) to separate the words; or you can write the words together with each new word beginning with a capital letter (myVariable). You better be consistent with your naming convention, although technically you can name your variables however you want. For example, you can assign c(\"한국\", \"일본\", \"미국\", \"중국\") to a variable my_variable using the following command:\n\nmy_variable &lt;- c(\"한국\", \"일본\", \"미국\", \"중국\")"
+  },
+  {
+    "objectID": "basics.html#data-types",
+    "href": "basics.html#data-types",
+    "title": "4  The Basics of R",
+    "section": "4.7 Data Types",
+    "text": "4.7 Data Types\nR has several data types including numeric, character, logical, date, list, dataframe and so on. Let’s see the data types of the variables we created above. We can use the class() function to see the data type of a variable. For example, you can see the data type of x, y, and z using the following commands:\n\nclass(x)\n\n[1] \"numeric\"\n\nclass(y)\n\n[1] \"numeric\"\n\nclass(z)\n\n[1] \"character\"\n\n\nThe data type of x and y is numeric, and the data type of z is character.\nIf we write numbers in quotes, they become character strings. For example, you can assign the string “14” to a variable w using the following command:\n\nw &lt;- \"14\"\n\nYou can see the data type of w using the following command:\n\nclass(w)\n\n[1] \"character\"\n\n\nThe data type of w is character. You can also turn it into a numeric value using the as.numeric() function. For example, you can turn w into a numeric value using the following command:\n\nw &lt;- as.numeric(w)"
+  },
+  {
+    "objectID": "basics.html#vectors",
+    "href": "basics.html#vectors",
+    "title": "4  The Basics of R",
+    "section": "4.8 Vectors",
+    "text": "4.8 Vectors\nA vector is a collection of elements of the same data type. You can create a vector using the c() function. For example, you can create a vector v with the elements “서울”, “부산”, “대구”, “인천”, and “대전” using the following command:\n\nv &lt;- c(\"서울\", \"부산\", \"대구\", \"인천\", \"대전\")\n\nYou can print the vector v using the following command:\n\nv\n\n[1] \"서울\" \"부산\" \"대구\" \"인천\" \"대전\"\n\n\nYou can see the data type of v using the following command:\n\nclass(v)\n\n[1] \"character\"\n\n\nThe data type of v is character. You can also create a numeric vector. For example, you can create a vector numbers with the elements 1, -2, 3.1, 49, and 0 using the following command:\n\nnumbers &lt;- c(1, -2, 314, -49, 0)\n\nYou can print the vector numbers using the following command:\n\nnumbers\n\n[1]   1  -2 314 -49   0\n\n\nYou can see the data type of numbers using the following command:\n\nclass(numbers)\n\n[1] \"numeric\"\n\n\nThe data type of numbers is numeric."
+  },
+  {
+    "objectID": "basics.html#dataframes",
+    "href": "basics.html#dataframes",
+    "title": "4  The Basics of R",
+    "section": "4.9 Dataframes",
+    "text": "4.9 Dataframes\nA dataframe is a collection of vectors of the same length. You can create a dataframe using the data.frame() function. For example, you can create a dataframe df with three columns city_name_en, city_name_kr, and population using the following command:\n\n# Relying on this link for the population data (in millions):\n# https://kosis.kr/statHtml/statHtml.do?orgId=101&tblId=DT_1B040A3\n\ndf &lt;- data.frame(city_name_en = c(\"Busan\", \"Daegu\", \"Incheon\", \"Seoul\", \"Daejeon\"),\n                 city_name_kr = c(\"부산\", \"대구\", \"인천\", \"서울\", \"대전\"),\n                 population = c(3.3, 2.4, 3, 9.4, 1.4))\n\nYou can print the dataframe df using the following command:\n\ndf\n\n  city_name_en city_name_kr population\n1        Busan         부산        3.3\n2        Daegu         대구        2.4\n3      Incheon         인천        3.0\n4        Seoul         서울        9.4\n5      Daejeon         대전        1.4\n\n\nYou can see the data type of df using the following command:\n\nclass(df)\n\n[1] \"data.frame\"\n\n\nThe data type of df is dataframe. We can reach the columns of the dataframe using the $ sign. For example, you can see the column city_name_en using the following command:\n\ndf$city_name_en\n\n[1] \"Busan\"   \"Daegu\"   \"Incheon\" \"Seoul\"   \"Daejeon\""
+  },
+  {
+    "objectID": "basics.html#some-basic-functions",
+    "href": "basics.html#some-basic-functions",
+    "title": "4  The Basics of R",
+    "section": "4.10 Some Basic Functions",
+    "text": "4.10 Some Basic Functions\nYou can use the head() function to see the first few rows of a dataframe. For example, you can see the first few rows of the dataframe df using the following command:\n\nhead(df)\n\n  city_name_en city_name_kr population\n1        Busan         부산        3.3\n2        Daegu         대구        2.4\n3      Incheon         인천        3.0\n4        Seoul         서울        9.4\n5      Daejeon         대전        1.4\n\n\nBy default, the head() function shows the first 6 rows of the dataframe. You can also specify the number of rows you want to see. For example, you can see the first 3 rows of the dataframe df using the following command:\n\nhead(df, 3)\n\n  city_name_en city_name_kr population\n1        Busan         부산        3.3\n2        Daegu         대구        2.4\n3      Incheon         인천        3.0\n\n\nYou can use the tail() function to see the last few rows of a dataframe. For example, you can see the last few rows of the dataframe df using the following command:\n\ntail(df)\n\n  city_name_en city_name_kr population\n1        Busan         부산        3.3\n2        Daegu         대구        2.4\n3      Incheon         인천        3.0\n4        Seoul         서울        9.4\n5      Daejeon         대전        1.4\n\n\nIn this example, both the head() and tail() functions show the entire dataframe because the dataframe df has only 5 rows. But, in longer dataframes, you can see the first or last few rows using these functions.\nIn a similar vein, glimpse() function from the dplyr package is a function to see the structure of a dataframe. For example, you can see the structure of the dataframe df using the following command:\n\nglimpse(df)\n\nRows: 5\nColumns: 3\n$ city_name_en &lt;chr&gt; \"Busan\", \"Daegu\", \"Incheon\", \"Seoul\", \"Daejeon\"\n$ city_name_kr &lt;chr&gt; \"부산\", \"대구\", \"인천\", \"서울\", \"대전\"\n$ population   &lt;dbl&gt; 3.3, 2.4, 3.0, 9.4, 1.4\n\n\nThe nrow() function gives the number of rows in a dataframe. For example, you can see the number of rows in the dataframe df using the following command:\n\nnrow(df)\n\n[1] 5\n\n\nLikewise, the ncol() function gives the number of columns in a dataframe. For example, you can see the number of columns in the dataframe df using the following command:\n\nncol(df)\n\n[1] 3\n\n\nThe dim() function gives the dimensions of a dataframe. For example, you can see the dimensions of the dataframe df using the following command:\n\ndim(df)\n\n[1] 5 3\n\n\nThe summary() function gives a summary of a dataframe. For example, you can see the summary of the dataframe df using the following command:\n\nsummary(df)\n\n city_name_en       city_name_kr         population \n Length:5           Length:5           Min.   :1.4  \n Class :character   Class :character   1st Qu.:2.4  \n Mode  :character   Mode  :character   Median :3.0  \n                                       Mean   :3.9  \n                                       3rd Qu.:3.3  \n                                       Max.   :9.4"
+  },
+  {
+    "objectID": "basics.html#rows-and-columns",
+    "href": "basics.html#rows-and-columns",
+    "title": "4  The Basics of R",
+    "section": "4.11 Rows and Columns",
+    "text": "4.11 Rows and Columns\nYou can select rows and columns of a dataframe using the [] operator. The first argument of the [] operator is the row index, and the second argument is the column index. df[row, column] selects the row with the index row and the column with the index column.\nFor example, you can select the first row and the second column of the dataframe df using the following command:\n\ndf[1, 2]\n\n[1] \"부산\"\n\n\nYou can select the first row of the dataframe df using the following command:\n\ndf[1, ]\n\n  city_name_en city_name_kr population\n1        Busan         부산        3.3\n\n\nYou can select the second column of the dataframe df using the following command:\n\ndf[, 2]\n\n[1] \"부산\" \"대구\" \"인천\" \"서울\" \"대전\""
+  },
+  {
+    "objectID": "basics.html#piping",
+    "href": "basics.html#piping",
+    "title": "4  The Basics of R",
+    "section": "4.12 Piping",
+    "text": "4.12 Piping\nThe pipe operators |&gt; and %&gt;% are powerful tools in R.1 The pipe allows you to write code in a more readable way. You can use the pipe operator to pass the output of one function to the input of another function. For example, you can use the pipe operator to pass the dataframe df to the head() function. You can see the first few rows of the dataframe df using the following command:\n\ndf |&gt; head()\n\n  city_name_en city_name_kr population\n1        Busan         부산        3.3\n2        Daegu         대구        2.4\n3      Incheon         인천        3.0\n4        Seoul         서울        9.4\n5      Daejeon         대전        1.4\n\n\nWe can arrange the dataframe df using the arrange() function from the dplyr package. For example, you can arrange the dataframe df by the population column using the following command with a pipe:\n\ndf |&gt; arrange(population)\n\n  city_name_en city_name_kr population\n1      Daejeon         대전        1.4\n2        Daegu         대구        2.4\n3      Incheon         인천        3.0\n4        Busan         부산        3.3\n5        Seoul         서울        9.4\n\n\narrange() function arranges the dataframe by the selected numeric column in ascending order by default. If it is a character column, it arranges the dataframe in alphabetical order. You can arrange the dataframe in descending order by using the desc() function. For example, you can arrange the dataframe df by the population column in descending order using the following command:\n\ndf |&gt; arrange(desc(population))\n\n  city_name_en city_name_kr population\n1        Seoul         서울        9.4\n2        Busan         부산        3.3\n3      Incheon         인천        3.0\n4        Daegu         대구        2.4\n5      Daejeon         대전        1.4\n\n\nWe can also assign df to the rearranged dataframe. For example, you can assign the arranged dataframe to df using the following command:\n\ndf &lt;- df |&gt; arrange(desc(population))\n\nNow, df is arranged by the population column in descending order. Let’s check out:\n\ndf\n\n  city_name_en city_name_kr population\n1        Seoul         서울        9.4\n2        Busan         부산        3.3\n3      Incheon         인천        3.0\n4        Daegu         대구        2.4\n5      Daejeon         대전        1.4\n\n\nGood. We learned the basics of R. In the next chapter, we learn about data wrangling using mainly the dplyr package."
+  },
+  {
+    "objectID": "basics.html#footnotes",
+    "href": "basics.html#footnotes",
+    "title": "4  The Basics of R",
+    "section": "",
+    "text": "In most cases, these two pipes work the same way. Refer to this link for more explanation on the difference between the base pipe |&gt; and the magrittr pipe %&gt;%. For now, you can simply ignore the difference.↩︎"
   },
   {
     "objectID": "text.html#libraries",
