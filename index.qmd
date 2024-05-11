@@ -6,7 +6,7 @@ I believe computational social science offers huge opportunities for Korean Stud
 
 In this book, I aim to increase data literacy and convince as many Korean Studies scholars and students as possible about the relative ease of learning R with code samples, and motivational case studies about Korea.
 
-I also encourage you to join our bootcamps for problem solving! You can [sign up for my newsletter to get updates on the bootcamps](https://mailchi.mp/29054dcc1b0d/dr-ayhan-newsletter).
+I also encourage you to join our bootcamps for problem solving! You can [sign up for my newsletter to get updates on the bootcamps](https://mailchi.mp/2a64f70942f3/r4ks).
 
 # Current Status of the Book
 
@@ -28,7 +28,7 @@ I also encourage you to join our bootcamps for problem solving! You can [sign up
 
 # Stay Tuned for Updates
 
-Subscribe to [my newsletter](https://mailchi.mp/29054dcc1b0d/dr-ayhan-newsletter) to get updates on the book and the bootcamps.
+Subscribe to [my newsletter](https://mailchi.mp/2a64f70942f3/r4ks) to get updates on the book and the bootcamps.
 
 # How to Cite This Book
 
