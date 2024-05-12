@@ -44,6 +44,7 @@ format:
     link-external-newwindow: true
   pdf:
     documentclass: scrreprt
+    mainfont: Arial Unicode MS
 editor: visual
 freeze: true
 execute:

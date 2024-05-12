@@ -332,7 +332,6 @@ You can select the second column of the dataframe `df` using the following comma
 df[, 2]
 ```
 
-
 ## Piping
 
 The pipe operators `|>` and `%>%` are powerful tools in R.[^basics-1] The pipe allows you to write code in a more readable way. You can use the pipe operator to pass the output of one function to the input of another function. For example, you can use the pipe operator to pass the dataframe `df` to the `head()` function. You can see the first few rows of the dataframe `df` using the following command:
