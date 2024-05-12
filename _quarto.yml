@@ -2,11 +2,23 @@ project:
   type: book
 
 book:
+  favicon: R4KS logo square 1024.png
+  cover-image: R4KS logo square 1024.png
+  site-url: https://r4ks.com
+  repo-url: https://www.github.com/kjayhan/R4KS
   title: "R for Korean Studies: A Gentle Introduction to Computational Social Science"
   subtitle: "Draft Version: 0.0.1"
   author: "[Kadir Jun Ayhan, Ph.D.](https://ayhan.phd)"
   date: today
   version: 0.0.1
+  google-analytics: "G-6J6HBMRCFK"
+  comments: 
+    hypothesis:
+      theme: clean
+      openSidebar: false
+  page-footer:
+    left: "© 2024 [Kadir Jun Ayhan](https://ayhan.phd) - [Linkedin](https://www.linkedin.com/in/kadirjunayhan/) - [Email](mailto:k@ayhan.phd)"
+    right: "Written with [Quarto](https://quarto.org/) - Source code on [GitHub](https://github.com/kjayhan/R4KS)"
   chapters:
     - index.qmd
     - intro.qmd
@@ -37,14 +49,3 @@ freeze: true
 execute:
   warning: false
   message: false
-website:
-  title: "R for Korean Studies"
-  google-analytics: "G-6J6HBMRCFK"
-  comments: 
-    hypothesis:
-      theme: clean
-      openSidebar: false
-  page-footer:
-    left: "© 2024 [Kadir Jun Ayhan](https://ayhan.phd) - [Linkedin](https://www.linkedin.com/in/kadirjunayhan/) - [Email](mailto:k@ayhan.phd)"
-    right: "Written with [Quarto](https://quarto.org/) - Source code on [GitHub](https://github.com/kjayhan/R4KS)"
-    
