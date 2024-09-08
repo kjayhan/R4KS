@@ -8,17 +8,17 @@ This is what I wrote in my [blog post](https://ayhan.phd/blog/2023-01-15%20Ewha%
 
 Following the same spirit in David Robinson's tweet, I decided to write this book.
 
-## Why Do I Need Computational Tools in Korean Studies?
+## "Why Do I Need Computational Tools in Korean Studies?"
 
 Simply put, there is so much more data out there that is useful for Korean Studies research, and we have faster computers, and handy tools to analyze such data.
 
-Korean Studies curricula across the world are quite rich and interdisciplonary. Those courses often equip students with the history, culture, literature, and language of Korea to understand the country better. Yet, Korean Studies scholars and students are not exposed to computational methods/ tools that can handle big or complex data as much.
+Korean Studies curricula across the world are quite rich and interdisciplinary. Those courses often equip students with the history, culture, literature, and language of Korea to understand the country better. Yet, Korean Studies scholars and students are not exposed to computational methods/ tools that can handle big or complex data as much.
 
-If you are already here, it probably means that you apprecite the increasing importance of the computational tools in your research. This book, and bootcamps based on this book, will teach you the basics of R, give you sample codes based on Korean Studies-related examples.
+If you are already here, it probably means that you appreciate the increasing importance of the computational tools in your research. This book, and bootcamps based on this book, will teach you the basics of R, and give you sample codes based on Korean Studies-related examples.
 
 In the age that we live in, I strongly believe that these computational methods/ tools will empower you in your research as well as in the job market given wide range of prospective jobs Korean Studies graduates seek and find (corporations, international organizations, think tanks, NGOs, media, academia etc.).
 
-## Why R?
+## "Why R?"
 
 R is free! There are so many packages that are rich with a wide range of functions that you would need in all kinds of research, analysis, and reporting. Many more are being built as you read this book! You can do from simple math to data pre-processing, from data visualization to regressions, from building your CV to building your website, from analyzing tweets to machine learning.
 
@@ -26,7 +26,7 @@ Python is probably getting more popular in the industry jobs in recent years. Ye
 
 Once exposed to R, you may also consider learning Python as well if it seems more attractive for you.
 
-## I don't know anything about coding! Indeed, I am frustrated about coding!
+## "I don't know anything about coding! Indeed, I am frustrated about coding!"
 
 Then this book, and the bootcamps, are very much for you! I don't expect the readers, and bootcamp participants, to have any prior knowledge of R, coding, or other statistical software.
 

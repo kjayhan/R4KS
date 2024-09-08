@@ -267,7 +267,9 @@ This is not very useful. There are two main issues with Korean text. First, Kore
 
 ### Spacing in Korean Text
 
-Let's get the spacing right in Korean text using the [`bitNLP`](https://r2bit.com/bitNLP) package's [`get_spacing`](https://r2bit.com/bitNLP/reference/get_spacing.html) function, which will add spaces between words in the Korean text. So, for example "한국공공외교" will become "한국 공공 외교".
+Text analysis in Korean is not straightforward because Korean text does not have consistent spacing between words. Typical text analysis methods that rely on spaces between words do not work well with Korean text.
+
+The [`bitNLP`](https://r2bit.com/bitNLP) package's [`get_spacing`](https://r2bit.com/bitNLP/reference/get_spacing.html) function helps us deal with this problem by adding spaces between words in the Korean text. So, for example "한국공공외교" will become "한국 공공 외교".
 
 ```{r}
 # Get the spacing right in Korean text

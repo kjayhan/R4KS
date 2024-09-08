@@ -2,8 +2,8 @@ project:
   type: book
 
 book:
-  favicon: R4KS logo square 1024.png
-  cover-image: R4KS logo square 1024.png
+  favicon: r4ks Logo square 512.png
+  cover-image: r4ks Logo square 512.png
   site-url: https://r4ks.com
   repo-url: https://www.github.com/kjayhan/R4KS
   title: "R for Korean Studies: A Gentle Introduction to Computational Social Science"
@@ -17,7 +17,7 @@ book:
       theme: clean
       openSidebar: false
   page-footer:
-    left: "© 2024 [Kadir Jun Ayhan](https://ayhan.phd) - [Linkedin](https://www.linkedin.com/in/kadirjunayhan/) - [Email](mailto:k@ayhan.phd)"
+    left: "© 2024 [Kadir Jun Ayhan](https://ayhan.phd) & [K-Analytics](https://k-a.phd) - [Linkedin](https://www.linkedin.com/company/k-a-phd/) - [Email](mailto:k@ayhan.phd)"
     right: "Written with [Quarto](https://quarto.org/) - Source code on [GitHub](https://github.com/kjayhan/R4KS)"
   chapters:
     - index.qmd
