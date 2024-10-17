@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.554">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>R for Korean Studies: A Gentle Introduction to Computational Social Science - 9&nbsp; Korean Text Analysis</title>
 <style>
 code{white-space: pre-wrap;}
@@ -56,7 +53,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -75,8 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -102,38 +97,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-6J6HBMRCFK"></script>
-
-<script type="text/javascript">
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-6J6HBMRCFK"></script><script type="text/javascript">
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
 </script>
-<script type="application/json" class="js-hypothesis-config">
-{
-  "theme": "clean",
-  "openSidebar": false
-}
-</script>
-<script async="" src="https://hypothes.is/embed.js"></script>
-<script>
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    document.body.classList.add('hypothesis-enabled');
-  });
-</script>
-
-
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -144,13 +119,9 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R for Korean Studies: A Gentle Introduction to Computational Social Science</a> 
         <div class="sidebar-tools-main">
@@ -165,7 +136,7 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
@@ -268,41 +239,39 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#libraries" id="toc-libraries" class="nav-link active" data-scroll-target="#libraries"><span class="header-section-number">9.1</span> Libraries</a></li>
+<li><a href="#libraries" id="toc-libraries" class="nav-link active" data-scroll-target="#libraries"><span class="header-section-number">9.1</span> Libraries</a></li>
   <li><a href="#loading-pdf-data" id="toc-loading-pdf-data" class="nav-link" data-scroll-target="#loading-pdf-data"><span class="header-section-number">9.2</span> Loading pdf Data</a></li>
   <li><a href="#pdf-table-extraction" id="toc-pdf-table-extraction" class="nav-link" data-scroll-target="#pdf-table-extraction"><span class="header-section-number">9.3</span> pdf Table Extraction</a></li>
   <li><a href="#html-table-extraction" id="toc-html-table-extraction" class="nav-link" data-scroll-target="#html-table-extraction"><span class="header-section-number">9.4</span> html Table Extraction</a></li>
-  <li><a href="#text-analysis" id="toc-text-analysis" class="nav-link" data-scroll-target="#text-analysis"><span class="header-section-number">9.5</span> Text Analysis</a>
+  <li>
+<a href="#text-analysis" id="toc-text-analysis" class="nav-link" data-scroll-target="#text-analysis"><span class="header-section-number">9.5</span> Text Analysis</a>
   <ul class="collapse">
-  <li><a href="#word-frequency" id="toc-word-frequency" class="nav-link" data-scroll-target="#word-frequency"><span class="header-section-number">9.5.1</span> Word Frequency</a></li>
+<li><a href="#word-frequency" id="toc-word-frequency" class="nav-link" data-scroll-target="#word-frequency"><span class="header-section-number">9.5.1</span> Word Frequency</a></li>
   <li><a href="#spacing-in-korean-text" id="toc-spacing-in-korean-text" class="nav-link" data-scroll-target="#spacing-in-korean-text"><span class="header-section-number">9.5.2</span> Spacing in Korean Text</a></li>
   <li><a href="#morpheme-analysis-in-korean-text" id="toc-morpheme-analysis-in-korean-text" class="nav-link" data-scroll-target="#morpheme-analysis-in-korean-text"><span class="header-section-number">9.5.3</span> Morpheme Analysis in Korean Text</a></li>
   <li><a href="#word-network-in-korean-text" id="toc-word-network-in-korean-text" class="nav-link" data-scroll-target="#word-network-in-korean-text"><span class="header-section-number">9.5.4</span> Word Network in Korean Text</a></li>
   <li><a href="#sentiment-analysis" id="toc-sentiment-analysis" class="nav-link" data-scroll-target="#sentiment-analysis"><span class="header-section-number">9.5.5</span> Sentiment Analysis</a></li>
   <li><a href="#topic-modeling" id="toc-topic-modeling" class="nav-link" data-scroll-target="#topic-modeling"><span class="header-section-number">9.5.6</span> Topic Modeling</a></li>
-  </ul></li>
+  </ul>
+</li>
   <li><a href="#korean-tweet-analysis" id="toc-korean-tweet-analysis" class="nav-link" data-scroll-target="#korean-tweet-analysis"><span class="header-section-number">9.6</span> Korean Tweet Analysis</a></li>
   <li><a href="#further-readings" id="toc-further-readings" class="nav-link" data-scroll-target="#further-readings"><span class="header-section-number">9.7</span> Further Readings</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">9.8</span> References</a></li>
   <li><a href="#session-info" id="toc-session-info" class="nav-link" data-scroll-target="#session-info"><span class="header-section-number">9.9</span> Session Info</a></li>
-  </ul>
-</nav>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Korean Text Analysis</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Korean Text Analysis</span>
+</h1>
 </div>
 
 
@@ -316,10 +285,7 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
   
 
 
-</header>
-
-
-<p>In this chapter, we will learn how to analyze Korean text data using R. Korea’s 2024 Public Diplomacy Comprehensive Implementation Plan (2024년 공공외교 종합시행계획 개요) as an example text.</p>
+</header><p>In this chapter, we will learn how to analyze Korean text data using R. Korea’s 2024 Public Diplomacy Comprehensive Implementation Plan (2024년 공공외교 종합시행계획 개요) as an example text.</p>
 <p>We will learn the following things in order:</p>
 <ul>
 <li>Extracting text and tables from a PDF file.</li>
@@ -332,79 +298,78 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
 <li>Topic modeling of Korean text.</li>
 <li>Korean tweet analysis.</li>
 </ul>
-<section id="libraries" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="libraries"><span class="header-section-number">9.1</span> Libraries</h2>
+<section id="libraries" class="level2" data-number="9.1"><h2 data-number="9.1" class="anchored" data-anchor-id="libraries">
+<span class="header-section-number">9.1</span> Libraries</h2>
 <p>First, we need to install <a href="https://r2bit.com/bitNLP/"><code>bitNLP</code></a> which requires us to install the <a href="https://taku910.github.io/mecab/"><code>MeCab</code></a> library for Korean text analysis. Uncomment the following lines in your first usage. After the first usage, you can comment out the installation lines.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("remotes")</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># remotes::install_github("bit2r/bitNLP")</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bitNLP)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># install_mecab_ko()</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("RcppMeCab")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
+<span><span class="co"># remotes::install_github("bit2r/bitNLP")</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">bitNLP</span><span class="op">)</span></span>
+<span><span class="co"># install_mecab_ko()</span></span>
+<span><span class="co"># install.packages("RcppMeCab")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now let’s load the necessary libraries. If you are missing any of the following packages, you can install them by uncommenting the <code>install.packages</code> lines.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("tidyverse")</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("pdftools")</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("rvest")</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("tidytext")</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("igraph")</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("ggraph")</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("extrafont")</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("devtools")</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># devtools::install_github("koheiw/stopwords")</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pdftools)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggraph)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(extrafont)</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stopwords)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># install.packages("tidyverse")</span></span>
+<span><span class="co"># install.packages("pdftools")</span></span>
+<span><span class="co"># install.packages("rvest")</span></span>
+<span><span class="co"># install.packages("tidytext")</span></span>
+<span><span class="co"># install.packages("igraph")</span></span>
+<span><span class="co"># install.packages("ggraph")</span></span>
+<span><span class="co"># install.packages("extrafont")</span></span>
+<span><span class="co"># install.packages("devtools")</span></span>
+<span><span class="co"># devtools::install_github("koheiw/stopwords")</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/pdftools/">pdftools</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rvest.tidyverse.org/">rvest</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://juliasilge.github.io/tidytext/">tidytext</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r.igraph.org/">igraph</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggraph.data-imaginist.com">ggraph</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/wch/extrafont">extrafont</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quanteda/stopwords">stopwords</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="loading-pdf-data" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="loading-pdf-data"><span class="header-section-number">9.2</span> Loading pdf Data</h2>
+</section><section id="loading-pdf-data" class="level2" data-number="9.2"><h2 data-number="9.2" class="anchored" data-anchor-id="loading-pdf-data">
+<span class="header-section-number">9.2</span> Loading pdf Data</h2>
 <p>Let’s analyze the text from Korea’s 2024 Public Diplomacy Comprehensive Implementation Plan (2024년 공공외교 종합시행계획 개요) which is available as a pdf file on the Ministry of Foreign Affairs’ (MOFA) <a href="https://www.mofa.go.kr/cntntsDown.do?path=www&amp;physic=2024%EB%85%84%EB%8F%84_%EA%B3%B5%EA%B3%B5%EC%99%B8%EA%B5%90_%EC%A2%85%ED%95%A9%EC%8B%9C%ED%96%89%EA%B3%84%ED%9A%8D.pdf&amp;real=2024%EB%85%84%EB%8F%84_%EA%B3%B5%EA%B3%B5%EC%99%B8%EA%B5%90_%EC%A2%85%ED%95%A9%EC%8B%9C%ED%96%89%EA%B3%84%ED%9A%8D.pdf">website</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <p>If the pdf file is in your local directory, you can load it using the following code.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load PDF</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pdf_path <span class="ot">&lt;-</span> <span class="st">"data/2024공공외교.pdf"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Load PDF</span></span>
+<span><span class="va">pdf_path</span> <span class="op">&lt;-</span> <span class="st">"data/2024공공외교.pdf"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Alternatively, you can download the pdf file from the MOFA’s website using the <a href="https://henrikbengtsson.github.io/R.utils/reference/downloadFile.character.html"><code>download.file</code></a> function. You can then load the pdf file using the <code>pdf_path</code> variable. Working with the online pdf file and the local pdf file is the same. We can do either. For now, I will use the local pdf file since the MOFA might change the url for the pdf later. That is why I commented the download code. You can comment the earlier code for the local pdf file and uncomment the following code for the online pdf file.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download PDF</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#file &lt;- tempfile()</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># This url works for now. But MOFA might change it later. You can replace the link with any other link you want to download.</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#url &lt;- "https://www.mofa.go.kr/cntntsDown.do?path=www&amp;physic=2024%EB%85%84%EB%8F%84_%EA%B3%B5%EA%B3%B5%EC%99%B8%EA%B5%90_%EC%A2%85%ED%95%A9%EC%8B%9C%ED%96%89%EA%B3%84%ED%9A%8D.pdf&amp;real=2024%EB%85%84%EB%8F%84_%EA%B3%B5%EA%B3%B5%EC%99%B8%EA%B5%90_%EC%A2%85%ED%95%A9%EC%8B%9C%ED%96%89%EA%B3%84%ED%9A%8D.pdf"</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># download.file(url, pdf_path, headers = c("User-Agent" = "My Custom User Agent"))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Download PDF</span></span>
+<span><span class="co">#file &lt;- tempfile()</span></span>
+<span></span>
+<span><span class="co"># This url works for now. But MOFA might change it later. You can replace the link with any other link you want to download.</span></span>
+<span></span>
+<span><span class="co">#url &lt;- "https://www.mofa.go.kr/cntntsDown.do?path=www&amp;physic=2024%EB%85%84%EB%8F%84_%EA%B3%B5%EA%B3%B5%EC%99%B8%EA%B5%90_%EC%A2%85%ED%95%A9%EC%8B%9C%ED%96%89%EA%B3%84%ED%9A%8D.pdf&amp;real=2024%EB%85%84%EB%8F%84_%EA%B3%B5%EA%B3%B5%EC%99%B8%EA%B5%90_%EC%A2%85%ED%95%A9%EC%8B%9C%ED%96%89%EA%B3%84%ED%9A%8D.pdf"</span></span>
+<span></span>
+<span><span class="co"># download.file(url, pdf_path, headers = c("User-Agent" = "My Custom User Agent"))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now let’s extract the text from the pdf file using the <a href="https://docs.ropensci.org/pdftools/reference/pdftools.html"><code>pdf_text</code></a> function from the <a href="https://docs.ropensci.org/pdftools/index.html"><code>pdftools</code></a> package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract text</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pdf_text_all <span class="ot">&lt;-</span> <span class="fu">pdf_text</span>(pdf_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Extract text</span></span>
+<span><span class="va">pdf_text_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/pdftools/reference/pdftools.html">pdf_text</a></span><span class="op">(</span><span class="va">pdf_path</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now, <code>pdf_text_all</code> is a list of character vectors, where each element corresponds to a page in the pdf file. For example, we can look at the 4<sup>th</sup> page of the pdf file in the following way.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's look at the 4th page</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>pdf_text_all[<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Let's look at the 4th page</span></span>
+<span><span class="va">pdf_text_all</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "참고       기관별 사업규모 및 예산\n[중앙행정기관]\n                  ‘24년     ‘23년      ‘24년 예산         ‘23년 예산\n       기관명\n                  사업수      사업수         (백만원)           (백만원)\n 1    교육부             16       16          194,996          94,963\n 2    과학기술정보통신부        6        6           32,852          40,283\n 3    외교부             73       63           40,215          39,419\n3-1   한국국제교류재단        37       41           42,514          44,664\n 4    통일부              6        6            1,831           2,386\n 5    법무부              3        3           15,068          14,346\n 6    국방부              7        8            6,165           7,221\n 7    행정안전부            3        3              594             574\n 8    문화체육관광부         21       22          185,478         145,049\n 9    농림축산식품부          6        7            3,048           4,268\n10    보건복지부            7        7            6,497           8,557\n11    환경부              1        1            1,888           1,427\n12    고용노동부            1        1            1,264           1,529\n13    여성가족부            6        7            1,531           2,748\n14    국토교통부            4        4            2,394           2,394\n15    중소벤처기업부          5        5            7,246           5,548\n16    국가보훈부            1        1            8,774           3,637\n17    법제처              2        2              327             327\n18    해양수산부            1        1              100             100\n19    재외동포청            5        -           22,289               -\n        합계           211      204         475,038         419,440\n\n[지자체]\n                  ‘24년     ‘23년      ‘24년 예산         ‘23년 예산\n       기관명\n                  사업수      사업수         (백만원)           (백만원)\n 1    경기도             25       14          21,558            3,899\n 2    강원특별자치도         10       11          78,593          11,024\n 3    충청북도             7        8             789              736\n 4    충청남도            10       10           2,508            1,731\n 5    전라북도            19       19           2,626          10,703\n 6    전라남도            13       13           2,962            6,917\n 7    경상북도            18       18            2709            3,314\n 8    경상남도             8       10            미정              1,408\n 9    제주특별자치도         23       24           4,433            7,343\n10    서울특별시           31       31          10,005            9,628\n11    부산광역시           36       35           3,017            2,355\n12    대구광역시           11       11             316              321\n13    인천광역시           26       25           5,516            5,008\n14    광주광역시           22       26           3,487            6,459\n15    대전광역시           38       44            3685            3,848\n16    울산광역시           17       14           1,302              660\n17    세종특별자치시          8        9              96              373\n        합계           322      322         143,602          75,727\n\n\n                             - 4 -\n"</code></pre>
 </div>
 </div>
 <p>You can see that there are <code>\n</code> characters, which refers to newline (new line) in the text. Let’s split the text by the newline character and look at the first 10 lines of the 4th page. We can split the text into lines by using the <a href="https://stringr.tidyverse.org/reference/str_split.html"><code>str_split</code></a> function from the <a href="https://stringr.tidyverse.org/"><code>stringr</code></a> package, which is part of <a href="https://www.tidyverse.org/"><code>tidyverse</code></a>. So, we do not need to load it separately. Let’s look at the first six lines of the 4th page.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the first 10 lines of the 4th page</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>pdf_text_all[<span class="dv">4</span>] <span class="sc">|&gt;</span> </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Split by newline character.</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_split</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Unlist</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unlist</span>() <span class="sc">|&gt;</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Take the first 10 lines</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Look at the first 10 lines of the 4th page</span></span>
+<span><span class="va">pdf_text_all</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="co"># Split by newline character.</span></span>
+<span>  <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split</a></span><span class="op">(</span><span class="st">"\n"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="co"># Unlist</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co"># Take the first 10 lines</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "참고       기관별 사업규모 및 예산"                                         
  [2] "[중앙행정기관]"                                                             
@@ -420,26 +385,23 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
 </div>
 <p>The 4th page in the pdf file looks like this:</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="data/2024pd4.png" class="img-fluid figure-img"></p>
-<figcaption>2024 Public Diplomacy Comprehensive Implementation Plan, p.&nbsp;4</figcaption>
-</figure>
+<figure class="figure"><p><img src="data/2024pd4.png" class="img-fluid figure-img"></p>
+<figcaption>2024 Public Diplomacy Comprehensive Implementation Plan, p.&nbsp;4</figcaption></figure>
 </div>
-</section>
-<section id="pdf-table-extraction" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="pdf-table-extraction"><span class="header-section-number">9.3</span> pdf Table Extraction</h2>
+</section><section id="pdf-table-extraction" class="level2" data-number="9.3"><h2 data-number="9.3" class="anchored" data-anchor-id="pdf-table-extraction">
+<span class="header-section-number">9.3</span> pdf Table Extraction</h2>
 <p>Let’s try to extract the second table on page 4 of the pdf file. The table has the number of public diplomacy projects and budgets for <a href="https://www.mois.go.kr/eng/sub/a03/citiesprovinces/screen.do">first-tier local administration unit</a> (hereafter, <em>province_city</em> for short) in Korea. We will unlist each line as we did earlier so that we can see the table in a more readable way.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the first 10 lines of the 4th page</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>lines_pdf_4 <span class="ot">&lt;-</span> pdf_text_all[<span class="dv">4</span>] <span class="sc">|&gt;</span> </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Split by newline character.</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_split</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Unlist</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unlist</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Look at the first 10 lines of the 4th page</span></span>
+<span><span class="va">lines_pdf_4</span> <span class="op">&lt;-</span> <span class="va">pdf_text_all</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="co"># Split by newline character.</span></span>
+<span>  <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split</a></span><span class="op">(</span><span class="st">"\n"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="co"># Unlist</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>First, let’s look at the 29<sup>th</sup> and 30<sup>th</sup> lines for the column names in the pdf file.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>lines_pdf_4[<span class="dv">29</span><span class="sc">:</span><span class="dv">30</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lines_pdf_4</span><span class="op">[</span><span class="fl">29</span><span class="op">:</span><span class="fl">30</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "                  ‘24년     ‘23년      ‘24년 예산         ‘23년 예산"
 [2] "       기관명"                                                       </code></pre>
@@ -447,28 +409,28 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
 </div>
 <p>The column names are the line number, province or city’s name, project numbers for 2024 and 2023 respectively, and the budget for 2024 and 2023 in million Korean Won respectively. Let’s use the following English column names that correspond to the Korean column names in the pdf file.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Column names</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>col_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"no"</span>, <span class="st">"province_city"</span>, <span class="st">"project_no_2024"</span>, <span class="st">"project_no_2023"</span>, <span class="st">"budget_2024"</span>, <span class="st">"budget_2023"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Column names</span></span>
+<span><span class="va">col_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"no"</span>, <span class="st">"province_city"</span>, <span class="st">"project_no_2024"</span>, <span class="st">"project_no_2023"</span>, <span class="st">"budget_2024"</span>, <span class="st">"budget_2023"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>By observing the <code>lines_pdf_4</code> object using <code>view(lines_pdf_4)</code>, we can see that the second table starts from the 32<sup>nd</sup> line and ends on the 48<sup>th</sup>. We will extract only those lines. We will use <a href="https://stringr.tidyverse.org/reference/str_trim.html"><code>str_trim</code></a> “removes whitespace from start and end of string”. We will also use <a href="https://stringr.tidyverse.org/reference/str_replace.html"><code>str_replace_all</code></a> to remove commas from each line to convert entries into numbers. We will then split each line based on two or more consecutive spaces (our string is “<code>\s{2,}</code>”) using <a href="https://stringr.tidyverse.org/reference/str_split.html"><code>str_split</code></a> and simplify the result into a matrix. We will convert this matrix into a data frame with non-factor columns using <code>data.frame(stringsAsFactors = FALSE)</code>. We will set the column names of the data frame using the <code>col_names</code> vector that we created above. These explanations are also available in each step in the following code chunk.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select lines 32 to 48 from the lines_pdf_4 data frame</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>province_city_pd <span class="ot">&lt;-</span> lines_pdf_4[<span class="dv">32</span><span class="sc">:</span><span class="dv">48</span>] <span class="sc">|&gt;</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Trim whitespace from both ends of each element in the selected rows</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_trim</span>() <span class="sc">|&gt;</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Replace all commas with an empty string in each element</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_replace_all</span>(<span class="st">","</span>, <span class="st">""</span>) <span class="sc">|&gt;</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Split each element based on 2 or more consecutive spaces and simplify into a matrix</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_split</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">s{2,}"</span>, <span class="at">simplify =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Convert the matrix into a data frame with non-factor columns</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Set column names for the data frame using the provided 'col_names' vector</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setNames</span>(col_names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Select lines 32 to 48 from the lines_pdf_4 data frame</span></span>
+<span><span class="va">province_city_pd</span> <span class="op">&lt;-</span> <span class="va">lines_pdf_4</span><span class="op">[</span><span class="fl">32</span><span class="op">:</span><span class="fl">48</span><span class="op">]</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co"># Trim whitespace from both ends of each element in the selected rows</span></span>
+<span>  <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_trim.html">str_trim</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co"># Replace all commas with an empty string in each element</span></span>
+<span>  <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="st">","</span>, <span class="st">""</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co"># Split each element based on 2 or more consecutive spaces and simplify into a matrix</span></span>
+<span>  <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split</a></span><span class="op">(</span><span class="st">"\\s{2,}"</span>, simplify <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co"># Convert the matrix into a data frame with non-factor columns</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co"># Set column names for the data frame using the provided 'col_names' vector</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/setNames.html">setNames</a></span><span class="op">(</span><span class="va">col_names</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s rearrange the table (which is originally in alphabetical order) by descending order based on public diplomacy budgets in 2024.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>province_city_pd <span class="sc">|&gt;</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(budget_2024))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">province_city_pd</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">budget_2024</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   no  province_city project_no_2024 project_no_2023 budget_2024 budget_2023
 1   8       경상남도               8              10        미정        1408
@@ -491,20 +453,19 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
 </div>
 </div>
 <p>But these province_city names are in Korean since the document was in Korean. Let’s practice extracting a table from internet then to find English names for these Korean provinces or cities. As of May 6, 2024, <a href="https://en.wikipedia.org/wiki/Administrative_divisions_of_South_Korea">Wikipedia’s list of South Korea’s administrative divisions</a> seems to be correct. Let’s extract the table there.</p>
-</section>
-<section id="html-table-extraction" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="html-table-extraction"><span class="header-section-number">9.4</span> html Table Extraction</h2>
+</section><section id="html-table-extraction" class="level2" data-number="9.4"><h2 data-number="9.4" class="anchored" data-anchor-id="html-table-extraction">
+<span class="header-section-number">9.4</span> html Table Extraction</h2>
 <p>We will use the <a href="https://rvest.tidyverse.org/"><code>rvest</code></a> package to extract the table from the Wikipedia page. We will use the <a href="https://rvest.tidyverse.org/reference/read_html.html"><code>read_html</code></a> function to read the html content of the Wikipedia page. We will then use the <a href="https://rvest.tidyverse.org/reference/html_nodes.html"><code>html_node</code></a> function to select the table we want to extract. You can refer to <a href="https://rvest.tidyverse.org/"><code>rvest</code></a> package for more information on how to extract what you want. We can use the xpath of the table we want to extract. You can find the xpath of the table by right-clicking on the table on the Wikipedia page and selecting “Inspect” or “Inspect Element” depending on your browser. You can then right-click on the highlighted html element in the “Elements” tab of the “Developer Tools” and select “Copy” -&gt; “Copy XPath”. The xpath of the table we want to extract is <code>//*[@id="mw-content-text"]/div[1]/table[5]</code>. We will use the <a href="https://rvest.tidyverse.org/reference/html_table.html"><code>html_table</code></a> function to extract the table as a data frame. We will use the <code>fill = TRUE</code> argument to fill in the missing values in the table.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>html <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">"https://en.wikipedia.org/wiki/Administrative_divisions_of_South_Korea"</span>)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> html <span class="sc">|&gt;</span> </span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_node</span>(<span class="at">xpath =</span> <span class="st">'//*[@id="mw-content-text"]/div[1]/table[5]'</span>) <span class="sc">|&gt;</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_table</span>(<span class="at">fill =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">html</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://xml2.r-lib.org/reference/read_xml.html">read_html</a></span><span class="op">(</span><span class="st">"https://en.wikipedia.org/wiki/Administrative_divisions_of_South_Korea"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">table</span> <span class="op">&lt;-</span> <span class="va">html</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rvest.tidyverse.org/reference/rename.html">html_node</a></span><span class="op">(</span>xpath <span class="op">=</span> <span class="st">'//*[@id="mw-content-text"]/div[1]/table[5]'</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rvest.tidyverse.org/reference/html_table.html">html_table</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s look at the first 10 rows of the table.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">table</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 9
   Code  Emblem Name   Official English nam…¹ Hangul Hanja Population 2020 Cens…²
@@ -522,26 +483,26 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
 </div>
 <p>Perfect! Now, let’s keep only the columns that we will need.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select columns 4 and 5 from the table</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> table <span class="sc">|&gt;</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's change the English province_city column name.</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> table <span class="sc">|&gt;</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">province_city_eng =</span> <span class="st">`</span><span class="at">Official English name[5]</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Select columns 4 and 5 from the table</span></span>
+<span><span class="va">table</span> <span class="op">&lt;-</span> <span class="va">table</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fl">4</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Let's change the English province_city column name.</span></span>
+<span></span>
+<span><span class="va">table</span> <span class="op">&lt;-</span> <span class="va">table</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>province_city_eng <span class="op">=</span> <span class="va">`Official English name[5]`</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s hope that the Korean names in the Wikipedia table and the MOFA’s pdf file are the same. Let’s merge the two tables based on the Korean names.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge the two tables based on the Korean names</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>province_city_pd_joined <span class="ot">&lt;-</span> province_city_pd <span class="sc">|&gt;</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(table, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"province_city"</span> <span class="ot">=</span> <span class="st">"Hangul"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Merge the two tables based on the Korean names</span></span>
+<span><span class="va">province_city_pd_joined</span> <span class="op">&lt;-</span> <span class="va">province_city_pd</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">table</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"province_city"</span> <span class="op">=</span> <span class="st">"Hangul"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s see if we have any missing values in the English names.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for missing values in the English names</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>province_city_pd_joined <span class="sc">|&gt;</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(province_city_eng))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Check for missing values in the English names</span></span>
+<span><span class="va">province_city_pd_joined</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">province_city_eng</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  no province_city project_no_2024 project_no_2023 budget_2024 budget_2023
 1  5      전라북도              19              19        2626       10703
@@ -551,40 +512,39 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
 </div>
 <p>We almost got it! The only difference is 전라북도 (North Jeolla Province) in the MOFA’s pdf file which is written as 전북특별자치도 (Jeonbuk State) in the Wikipedia table. Let’s fix this.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Move the English name column next to the Korean name column, and remove the 'no' column</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>province_city_pd_joined <span class="ot">&lt;-</span> province_city_pd_joined <span class="sc">|&gt;</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(province_city, province_city_eng, <span class="fu">everything</span>(), <span class="sc">-</span>no)</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Fix the English name of 전라북도</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>province_city_pd_joined <span class="ot">&lt;-</span> province_city_pd_joined <span class="sc">|&gt;</span></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">province_city_eng =</span> <span class="fu">ifelse</span>(province_city <span class="sc">==</span> <span class="st">"전라북도"</span>, <span class="st">"North Jeolla province_city"</span>, province_city_eng))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Move the English name column next to the Korean name column, and remove the 'no' column</span></span>
+<span></span>
+<span><span class="va">province_city_pd_joined</span> <span class="op">&lt;-</span> <span class="va">province_city_pd_joined</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">province_city</span>, <span class="va">province_city_eng</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="op">-</span><span class="va">no</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Fix the English name of 전라북도</span></span>
+<span></span>
+<span><span class="va">province_city_pd_joined</span> <span class="op">&lt;-</span> <span class="va">province_city_pd_joined</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>province_city_eng <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">province_city</span> <span class="op">==</span> <span class="st">"전라북도"</span>, <span class="st">"North Jeolla province_city"</span>, <span class="va">province_city_eng</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="text-analysis" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="text-analysis"><span class="header-section-number">9.5</span> Text Analysis</h2>
-<section id="word-frequency" class="level3" data-number="9.5.1">
-<h3 data-number="9.5.1" class="anchored" data-anchor-id="word-frequency"><span class="header-section-number">9.5.1</span> Word Frequency</h3>
+</section><section id="text-analysis" class="level2" data-number="9.5"><h2 data-number="9.5" class="anchored" data-anchor-id="text-analysis">
+<span class="header-section-number">9.5</span> Text Analysis</h2>
+<section id="word-frequency" class="level3" data-number="9.5.1"><h3 data-number="9.5.1" class="anchored" data-anchor-id="word-frequency">
+<span class="header-section-number">9.5.1</span> Word Frequency</h3>
 <p>This time let’s look at all of the text in the 2024 Public Diplomacy Comprehensive Implementation Plan. We will combine all the text into a single character vector.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine text</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>pdf_text <span class="ot">&lt;-</span> <span class="fu">str_c</span>(pdf_text_all, <span class="at">collapse =</span> <span class="st">" "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Combine text</span></span>
+<span><span class="va">pdf_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_c.html">str_c</a></span><span class="op">(</span><span class="va">pdf_text_all</span>, collapse <span class="op">=</span> <span class="st">" "</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We will now split the text into words using the <a href="https://stringr.tidyverse.org/reference/str_split.html"><code>str_split</code></a> function from the <a href="https://stringr.tidyverse.org/"><code>stringr</code></a> package. We will then convert the result into a data frame with non-factor columns using the <a href="https://rdocumentation.org/packages/base/versions/3.6.2"><code>data.frame(stringsAsFactors = FALSE)</code></a> function. We will set the column name of the data frame as <code>word</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the text into words</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>words <span class="ot">&lt;-</span> pdf_text <span class="sc">|&gt;</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Split the text into words</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_split</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">s+"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Convert the result into a data frame with non-factor columns</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Set the column name of the data frame as "word"</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setNames</span>(<span class="st">"word"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Split the text into words</span></span>
+<span><span class="va">words</span> <span class="op">&lt;-</span> <span class="va">pdf_text</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co"># Split the text into words</span></span>
+<span>  <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split</a></span><span class="op">(</span><span class="st">"\\s+"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co"># Convert the result into a data frame with non-factor columns</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co"># Set the column name of the data frame as "word"</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/setNames.html">setNames</a></span><span class="op">(</span><span class="st">"word"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s look at the first 10 rows of the data frame.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(words, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">words</span>, <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           word
 1              
@@ -601,13 +561,13 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
 </div>
 <p>Now, let’s count the frequency of each word in the text using the <a href="https://dplyr.tidyverse.org/reference/count.html"><code>count</code></a> function from the <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a> package package. We will then arrange the result in descending order based on the frequency of the words.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the frequency of each word</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>word_freq <span class="ot">&lt;-</span> words <span class="sc">|&gt;</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Count the frequency of each word</span></span>
+<span><span class="va">word_freq</span> <span class="op">&lt;-</span> <span class="va">words</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">word</span>, sort <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s look at the first 10 rows of the data frame</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(word_freq, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">word_freq</span>, <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       word  n
 1        및 72
@@ -623,32 +583,31 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
 </div>
 </div>
 <p>This is not very useful. There are two main issues with Korean text. First, Korean text does not have consistent spacing between words. Second, Korean text has particles and other morphemes that are not words. We will address these issues now.</p>
-</section>
-<section id="spacing-in-korean-text" class="level3" data-number="9.5.2">
-<h3 data-number="9.5.2" class="anchored" data-anchor-id="spacing-in-korean-text"><span class="header-section-number">9.5.2</span> Spacing in Korean Text</h3>
+</section><section id="spacing-in-korean-text" class="level3" data-number="9.5.2"><h3 data-number="9.5.2" class="anchored" data-anchor-id="spacing-in-korean-text">
+<span class="header-section-number">9.5.2</span> Spacing in Korean Text</h3>
 <p>Let’s get the spacing right in Korean text using the <a href="https://r2bit.com/bitNLP"><code>bitNLP</code></a> package’s <a href="https://r2bit.com/bitNLP/reference/get_spacing.html"><code>get_spacing</code></a> function, which will add spaces between words in the Korean text. So, for example “한국공공외교” will become “한국 공공 외교”.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the spacing right in Korean text</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>pdf_text_ko <span class="ot">&lt;-</span> <span class="fu">get_spacing</span>(pdf_text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Get the spacing right in Korean text</span></span>
+<span><span class="va">pdf_text_ko</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/bitNLP/man/get_spacing.html">get_spacing</a></span><span class="op">(</span><span class="va">pdf_text</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now, let’s split the text into words again using the <a href="https://stringr.tidyverse.org/reference/str_split.html"><code>str_split</code></a> function from the <a href="https://stringr.tidyverse.org/"><code>stringr</code></a> package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the text into words</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>words_ko <span class="ot">&lt;-</span> pdf_text_ko <span class="sc">|&gt;</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Split the text into words</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_split</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">s+"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Convert the result into a data frame with non-factor columns</span></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Set the column name of the data frame as "word"</span></span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setNames</span>(<span class="st">"word"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Split the text into words</span></span>
+<span><span class="va">words_ko</span> <span class="op">&lt;-</span> <span class="va">pdf_text_ko</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co"># Split the text into words</span></span>
+<span>  <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split</a></span><span class="op">(</span><span class="st">"\\s+"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co"># Convert the result into a data frame with non-factor columns</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co"># Set the column name of the data frame as "word"</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/setNames.html">setNames</a></span><span class="op">(</span><span class="st">"word"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s analyze the word frequency in the text again.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the frequency of each word</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>word_freq_ko <span class="ot">&lt;-</span> words_ko <span class="sc">|&gt;</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(word_freq_ko, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Count the frequency of each word</span></span>
+<span><span class="va">word_freq_ko</span> <span class="op">&lt;-</span> <span class="va">words_ko</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">word</span>, sort <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">word_freq_ko</span>, <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   word   n
 1     ▴ 175
@@ -665,24 +624,24 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
 </div>
 <p>We have many special characters in the text. Let’s remove all characters except for Korean characters, spaces, English letters, and numbers using the <a href="https://stringr.tidyverse.org/reference/str_replace.html"><code>str_replace_all</code></a> function from the <a href="https://stringr.tidyverse.org/"><code>stringr</code></a> package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove all characters except for Korean characters, spaces, English letters, and numbers</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>word_freq_ko <span class="ot">&lt;-</span> pdf_text_ko <span class="sc">|&gt;</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Remove all characters except Korean characters, English letters, numbers, and spaces</span></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_replace_all</span>(<span class="st">"[^가-힣a-zA-Z0-9</span><span class="sc">\\</span><span class="st">s]"</span>, <span class="st">""</span>) <span class="sc">|&gt;</span></span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Split the cleaned text into words based on one or more spaces</span></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_split</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">s+"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Convert the list result into a data frame with non-factor columns</span></span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Set the column name of the data frame as "word"</span></span>
-<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setNames</span>(<span class="st">"word"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Remove all characters except for Korean characters, spaces, English letters, and numbers</span></span>
+<span><span class="va">word_freq_ko</span> <span class="op">&lt;-</span> <span class="va">pdf_text_ko</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co"># Remove all characters except Korean characters, English letters, numbers, and spaces</span></span>
+<span>  <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="st">"[^가-힣a-zA-Z0-9\\s]"</span>, <span class="st">""</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co"># Split the cleaned text into words based on one or more spaces</span></span>
+<span>  <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split</a></span><span class="op">(</span><span class="st">"\\s+"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co"># Convert the list result into a data frame with non-factor columns</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co"># Set the column name of the data frame as "word"</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/setNames.html">setNames</a></span><span class="op">(</span><span class="st">"word"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s analyze the word frequency in the text again.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the frequency of each word</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>word_freq_ko <span class="ot">&lt;-</span> word_freq_ko <span class="sc">|&gt;</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(word_freq_ko, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Count the frequency of each word</span></span>
+<span><span class="va">word_freq_ko</span> <span class="op">&lt;-</span> <span class="va">word_freq_ko</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">word</span>, sort <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">word_freq_ko</span>, <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   word  n
 1    및 73
@@ -700,19 +659,19 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
 <p>This is much better! We have removed the special characters and have more meaningful words in the text.</p>
 <p>We can also remove some common stopwords in Korean using the <a href="https://github.com/koheiw/stopwords"><code>stopwords</code></a> function in <a href="https://github.com/koheiw/stopwords"><code>stopwords</code></a> package along with the <a href="https://github.com/stopwords-iso/stopwords-iso/"><code>stopwords-iso</code></a> library that has Korean stopwords.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>stopwords <span class="ot">&lt;-</span> <span class="fu">stopwords</span>(<span class="st">"ko"</span>, <span class="at">source =</span> <span class="st">"stopwords-iso"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">|&gt;</span></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setNames</span>(<span class="st">"word"</span>)</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove stopwords</span></span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>word_freq_ko <span class="ot">&lt;-</span> word_freq_ko <span class="sc">|&gt;</span></span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># anti_join (remove) stopwords</span></span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stopwords, <span class="at">by =</span> <span class="st">"word"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">stopwords</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/stopwords/man/stopwords.html">stopwords</a></span><span class="op">(</span><span class="st">"ko"</span>, source <span class="op">=</span> <span class="st">"stopwords-iso"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/setNames.html">setNames</a></span><span class="op">(</span><span class="st">"word"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Remove stopwords</span></span>
+<span></span>
+<span><span class="va">word_freq_ko</span> <span class="op">&lt;-</span> <span class="va">word_freq_ko</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co"># anti_join (remove) stopwords</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">anti_join</a></span><span class="op">(</span><span class="va">stopwords</span>, by <span class="op">=</span> <span class="st">"word"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s count the frequency of each word in the text again.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(word_freq_ko, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">word_freq_ko</span>, <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   word  n
 1  외교 67
@@ -729,36 +688,35 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
 </div>
 <p>This way, we removed words such as 및 (and) and 등 (etc.) from the text.</p>
 <p>Let’s move on to morpheme analysis which makes more sense in Korean text analysis context.</p>
-</section>
-<section id="morpheme-analysis-in-korean-text" class="level3" data-number="9.5.3">
-<h3 data-number="9.5.3" class="anchored" data-anchor-id="morpheme-analysis-in-korean-text"><span class="header-section-number">9.5.3</span> Morpheme Analysis in Korean Text</h3>
+</section><section id="morpheme-analysis-in-korean-text" class="level3" data-number="9.5.3"><h3 data-number="9.5.3" class="anchored" data-anchor-id="morpheme-analysis-in-korean-text">
+<span class="header-section-number">9.5.3</span> Morpheme Analysis in Korean Text</h3>
 <p>Let’s analyze the morphemes in the Korean text using the <a href="https://r2bit.com/bitNLP/reference/morpho_mecab.html"><code>morpho_mecab</code></a> function from the <a href="https://r2bit.com/bitNLP"><code>bitNLP</code></a> package, which will extract morphemes from the Korean text.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Analyze the morphemes in the Korean text</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>morphemes <span class="ot">&lt;-</span> <span class="fu">morpho_mecab</span>(pdf_text_ko)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Analyze the morphemes in the Korean text</span></span>
+<span><span class="va">morphemes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/bitNLP/man/morpho_mecab.html">morpho_mecab</a></span><span class="op">(</span><span class="va">pdf_text_ko</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This creates a list of character vectors, where each element corresponds to a morpheme in the text. We can also combine all of the morphemes and tokenize them into a single character vector.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine all the morphemes into a single character vector</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>morphemes_single <span class="ot">&lt;-</span> <span class="fu">morpho_mecab</span>(pdf_text_ko, <span class="at">indiv =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Combine all the morphemes into a single character vector</span></span>
+<span></span>
+<span><span class="va">morphemes_single</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/bitNLP/man/morpho_mecab.html">morpho_mecab</a></span><span class="op">(</span><span class="va">pdf_text_ko</span>, indiv <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now, let’s split the text into words again this time by converting <code>morphemes_single</code> into a data frame using the <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/as.data.frame"><code>as.data.frame</code></a> function. We will set the column name of the data frame as “word”.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the text into words</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>words_morphemes <span class="ot">&lt;-</span> morphemes_single <span class="sc">|&gt;</span></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">|&gt;</span></span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Set the column name of the data frame as "word"</span></span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setNames</span>(<span class="st">"word"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Split the text into words</span></span>
+<span><span class="va">words_morphemes</span> <span class="op">&lt;-</span> <span class="va">morphemes_single</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co"># Set the column name of the data frame as "word"</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/setNames.html">setNames</a></span><span class="op">(</span><span class="st">"word"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We will now count the frequency of each morpheme in the text using the <a href="https://dplyr.tidyverse.org/reference/count.html"><code>count</code></a> function from the <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a> package package. We will then arrange the result in descending order based on the frequency of the morphemes.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the frequency of each morpheme</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>morpheme_freq <span class="ot">&lt;-</span> words_morphemes <span class="sc">|&gt;</span></span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(morpheme_freq, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Count the frequency of each morpheme</span></span>
+<span></span>
+<span><span class="va">morpheme_freq</span> <span class="op">&lt;-</span> <span class="va">words_morphemes</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">word</span>, sort <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">morpheme_freq</span>, <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   word  n
 1  외교 68
@@ -777,108 +735,98 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
 <p>Let’s visualize the frequency of the morphemes in the text using a bar plot. Before that let’s address the font issue with Korean text in the plot.</p>
 <p>Korean text sometimes is not visible in the graph due to the font issue. This was the case in my Macbook. Let’s set the font to one that supports Korean characters. We will use the <a href="https://github.com/wch/extrafont"><code>extrafont</code></a> package to set the font to one that supports Korean characters. We will use the <a href="https://github.com/wch/extrafont"><code>font_import</code></a> function to import the fonts from the system. This may take some time. You only need to do it once. That’s why I commented it. You can uncomment it in first usage.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load extrafont and register fonts</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co">#font_import()  # This might take a while if it's the first time you're running it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Load extrafont and register fonts</span></span>
+<span></span>
+<span><span class="co">#font_import()  # This might take a while if it's the first time you're running it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We will then use the <a href="https://github.com/wch/extrafont"><code>loadfonts</code></a> function to load the fonts. We will use the <a href="https://github.com/wch/extrafont"><code>fonts</code></a> function to display the available fonts and find one that supports Korean characters. We will set the font to one that supports Korean characters. For now, I have chosen “Arial Unicode MS” as the Korean font. You can replace it with a font from your system that supports Korean characters if necessary.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co">#loadfonts(device = "all")</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Display available fonts, find one that supports Korean</span></span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co">#fonts()</span></span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the font to one that supports Korean characters</span></span>
-<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>korean_font <span class="ot">&lt;-</span> <span class="st">"Arial Unicode MS"</span>  <span class="co"># Replace with a font from your system that supports Korean if necessary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#loadfonts(device = "all")</span></span>
+<span></span>
+<span><span class="co"># Display available fonts, find one that supports Korean</span></span>
+<span><span class="co">#fonts()</span></span>
+<span></span>
+<span><span class="co"># Set the font to one that supports Korean characters</span></span>
+<span><span class="va">korean_font</span> <span class="op">&lt;-</span> <span class="st">"Arial Unicode MS"</span>  <span class="co"># Replace with a font from your system that supports Korean if necessary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We will use the <a href="https://ggplot2.tidyverse.org/"><code>ggplot</code></a> function from the <a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a> package to create the plot. We will use the <a href="https://ggplot2.tidyverse.org/reference/geom_col.html"><code>geom_col</code></a> function to add the bars to the plot. We will use the <a href="https://ggplot2.tidyverse.org/reference/theme_minimal.html"><code>theme_minimal</code></a> function to set the theme of the plot to minimal. We will use the <a href="https://ggplot2.tidyverse.org/reference/theme.html"><code>theme</code></a> function to adjust the font size in the plot. We will set the font size to 10. We will use the <a href="https://ggplot2.tidyverse.org/reference/labs.html"><code>labs</code></a> function to add the title and labels to the plot. We will visualize only the most frequent 20 morphemes in the text.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the frequency of the morphemes in the text</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>morpheme_freq <span class="sc">|&gt;</span> </span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">20</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">word =</span> <span class="fu">reorder</span>(word, n)) <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(word, n)) <span class="sc">+</span> </span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"#2196f3"</span>) <span class="sc">+</span></span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use Korean font</span></span>
-<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> korean_font, <span class="at">size =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
-<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Frequency of Morphemes in Korean Text"</span>, <span class="at">x =</span> <span class="st">"Morpheme"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Visualize the frequency of the morphemes in the text</span></span>
+<span></span>
+<span><span class="va">morpheme_freq</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/top_n.html">top_n</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>word <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder</a></span><span class="op">(</span><span class="va">word</span>, <span class="va">n</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">word</span>, <span class="va">n</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"#2196f3"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># use Korean font</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>family <span class="op">=</span> <span class="va">korean_font</span>, size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Frequency of Morphemes in Korean Text"</span>, x <span class="op">=</span> <span class="st">"Morpheme"</span>, y <span class="op">=</span> <span class="st">"Frequency"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="text_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="text_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="word-network-in-korean-text" class="level3" data-number="9.5.4">
-<h3 data-number="9.5.4" class="anchored" data-anchor-id="word-network-in-korean-text"><span class="header-section-number">9.5.4</span> Word Network in Korean Text</h3>
+</section><section id="word-network-in-korean-text" class="level3" data-number="9.5.4"><h3 data-number="9.5.4" class="anchored" data-anchor-id="word-network-in-korean-text">
+<span class="header-section-number">9.5.4</span> Word Network in Korean Text</h3>
 <p>Let’s analyze the word network in the Korean text using the <a href="https://r2bit.com/bitNLP/reference/tokenize_noun_ngrams.html"><code>tokenize_noun_ngrams</code></a> function from the <a href="https://r2bit.com/bitNLP/"><code>bitNLP</code></a> package which builds on <a href="https://r2bit.com/bitNLP/articles/with_tidytext.html"><code>tidytext</code></a> package. We will use the <code>tokenize_noun_grams</code> function to extract the noun word network from the Korean text.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can use a user-defined dictionary to improve the accuracy of the tokenization. We will rely on the one provided by the `bitNLP` package.</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>dic_path <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">"dic"</span>, <span class="at">package =</span> <span class="st">"bitNLP"</span>)</span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>dic_file <span class="ot">&lt;-</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"{dic_path}/buzz_dic.dic"</span>)</span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>word_network <span class="ot">&lt;-</span> <span class="fu">tokenize_noun_ngrams</span>(pdf_text_ko, <span class="at">simplify =</span> <span class="cn">TRUE</span>, <span class="at">user_dic =</span> dic_file, <span class="at">n =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span></span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">|&gt;</span></span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setNames</span>(<span class="st">"paired_words"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># We can use a user-defined dictionary to improve the accuracy of the tokenization. We will rely on the one provided by the `bitNLP` package.</span></span>
+<span></span>
+<span><span class="va">dic_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"dic"</span>, package <span class="op">=</span> <span class="st">"bitNLP"</span><span class="op">)</span></span>
+<span><span class="va">dic_file</span> <span class="op">&lt;-</span> <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"{dic_path}/buzz_dic.dic"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">word_network</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/bitNLP/man/tokenize_noun_ngrams.html">tokenize_noun_ngrams</a></span><span class="op">(</span><span class="va">pdf_text_ko</span>, simplify <span class="op">=</span> <span class="cn">TRUE</span>, user_dic <span class="op">=</span> <span class="va">dic_file</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/setNames.html">setNames</a></span><span class="op">(</span><span class="st">"paired_words"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now, let’s separate the paired words into two columns using the <a href="https://tidyr.tidyverse.org/reference/separate.html"><code>separate</code></a> function from the <a href="https://tidyr.tidyverse.org/"><code>tidyr</code></a> package which is loaded as part of the <a href="https://www.tidyverse.org/"><code>tidyverse</code></a> package. This will allow us to create bigrams from the paired words.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>word_network_separated <span class="ot">&lt;-</span> word_network <span class="sc">|&gt;</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(paired_words, <span class="fu">c</span>(<span class="st">"word1"</span>, <span class="st">"word2"</span>), <span class="at">sep =</span> <span class="st">" "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">word_network_separated</span> <span class="op">&lt;-</span> <span class="va">word_network</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate.html">separate</a></span><span class="op">(</span><span class="va">paired_words</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"word1"</span>, <span class="st">"word2"</span><span class="op">)</span>, sep <span class="op">=</span> <span class="st">" "</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We will now count the frequency of each bigram in the text using the <a href="https://dplyr.tidyverse.org/reference/count.html"><code>count</code></a> function from the <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a> package package, which is also party of the <a href="https://www.tidyverse.org/"><code>tidyverse</code></a>. We will then arrange the result in descending order based on the frequency of the bigrams.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># new bigram counts:</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>word_network_counts <span class="ot">&lt;-</span> word_network_separated <span class="sc">|&gt;</span></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word1, word2, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># new bigram counts:</span></span>
+<span><span class="va">word_network_counts</span> <span class="op">&lt;-</span> <span class="va">word_network_separated</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">word1</span>, <span class="va">word2</span>, sort <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We will now create a graph from the bigram counts using the <a href="https://r.igraph.org/reference/graph_from_data_frame.html"><code>graph_from_data_frame</code></a> function from the <a href="https://r.igraph.org/"><code>igraph</code></a> package. We will use the <a href="https://ggraph.data-imaginist.com/reference/ggraph.html"><code>ggraph</code></a> function from the <a href="https://ggraph.data-imaginist.com"><code>ggraph</code></a> package to create the graph. We will use the <a href="https://ggraph.data-imaginist.com/reference/geom_edge_link.html"><code>geom_edge_link</code></a> function to add the edges to the graph. We will use the <a href="https://ggraph.data-imaginist.com/reference/geom_node_point.html"><code>geom_node_point</code></a> function to add the nodes to the graph. We will use the <a href="https://ggraph.data-imaginist.com/reference/geom_node_text.html"><code>geom_node_text</code></a> function to add the labels to the nodes in the graph. We will set the font to the Korean font that we set earlier. We will then adjust the font in the graph. Here, <code>n &gt;= 6</code> is used to filter out bigrams that appear less than 6 times. You can adjust this number as needed. You can check out <code>ggraph</code> layout options <a href="https://cran.r-project.org/web/packages/ggraph/vignettes/Layouts.html">here</a>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>word_network_select <span class="ot">&lt;-</span> word_network_counts <span class="sc">|&gt;</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;=</span> <span class="dv">6</span>) <span class="sc">|&gt;</span></span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">graph_from_data_frame</span>() <span class="sc">|&gt;</span></span>
-<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggraph</span>(<span class="at">layout =</span> <span class="st">"fr"</span>) <span class="sc">+</span></span>
-<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="fu">aes</span>()) <span class="sc">+</span></span>
-<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="at">color =</span> <span class="st">"#2196f3"</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name), <span class="at">family =</span> korean_font, <span class="at">vjust =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span>  <span class="co"># Set family to Korean font</span></span>
-<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span>
-<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>word_network_select</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">word_network_select</span> <span class="op">&lt;-</span> <span class="va">word_network_counts</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">n</span> <span class="op">&gt;=</span> <span class="fl">6</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://r.igraph.org/reference/graph_from_data_frame.html">graph_from_data_frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/ggraph.html">ggraph</a></span><span class="op">(</span>layout <span class="op">=</span> <span class="st">"fr"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/geom_edge_link.html">geom_edge_link</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/geom_node_point.html">geom_node_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#2196f3"</span>, size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/geom_node_text.html">geom_node_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">name</span><span class="op">)</span>, family <span class="op">=</span> <span class="va">korean_font</span>, vjust <span class="op">=</span> <span class="fl">2</span>, size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span>  <span class="co"># Set family to Korean font</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="va">word_network_select</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="text_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="text_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="sentiment-analysis" class="level3" data-number="9.5.5">
-<h3 data-number="9.5.5" class="anchored" data-anchor-id="sentiment-analysis"><span class="header-section-number">9.5.5</span> Sentiment Analysis</h3>
-</section>
-<section id="topic-modeling" class="level3" data-number="9.5.6">
-<h3 data-number="9.5.6" class="anchored" data-anchor-id="topic-modeling"><span class="header-section-number">9.5.6</span> Topic Modeling</h3>
-</section>
-</section>
-<section id="korean-tweet-analysis" class="level2" data-number="9.6">
-<h2 data-number="9.6" class="anchored" data-anchor-id="korean-tweet-analysis"><span class="header-section-number">9.6</span> Korean Tweet Analysis</h2>
-</section>
-<section id="further-readings" class="level2" data-number="9.7">
-<h2 data-number="9.7" class="anchored" data-anchor-id="further-readings"><span class="header-section-number">9.7</span> Further Readings</h2>
-</section>
-<section id="references" class="level2" data-number="9.8">
-<h2 data-number="9.8" class="anchored" data-anchor-id="references"><span class="header-section-number">9.8</span> References</h2>
-</section>
-<section id="session-info" class="level2" data-number="9.9">
-<h2 data-number="9.9" class="anchored" data-anchor-id="session-info"><span class="header-section-number">9.9</span> Session Info</h2>
+</section><section id="sentiment-analysis" class="level3" data-number="9.5.5"><h3 data-number="9.5.5" class="anchored" data-anchor-id="sentiment-analysis">
+<span class="header-section-number">9.5.5</span> Sentiment Analysis</h3>
+</section><section id="topic-modeling" class="level3" data-number="9.5.6"><h3 data-number="9.5.6" class="anchored" data-anchor-id="topic-modeling">
+<span class="header-section-number">9.5.6</span> Topic Modeling</h3>
+</section></section><section id="korean-tweet-analysis" class="level2" data-number="9.6"><h2 data-number="9.6" class="anchored" data-anchor-id="korean-tweet-analysis">
+<span class="header-section-number">9.6</span> Korean Tweet Analysis</h2>
+</section><section id="further-readings" class="level2" data-number="9.7"><h2 data-number="9.7" class="anchored" data-anchor-id="further-readings">
+<span class="header-section-number">9.7</span> Further Readings</h2>
+</section><section id="references" class="level2" data-number="9.8"><h2 data-number="9.8" class="anchored" data-anchor-id="references">
+<span class="header-section-number">9.8</span> References</h2>
+</section><section id="session-info" class="level2" data-number="9.9"><h2 data-number="9.9" class="anchored" data-anchor-id="session-info">
+<span class="header-section-number">9.9</span> Session Info</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>R version 4.4.0 (2024-04-24)
 Platform: aarch64-apple-darwin20
@@ -936,16 +884,10 @@ loaded via a namespace (and not attached):
 </div>
 
 
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
+</section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
 <ol>
 <li id="fn1"><p>Please bear in mind that MOFA website’s url might change later, making this hyperlink broken. In that case, you can download the pdf file on the MOFA’s website by searching for “2024년 공공외교 종합시행계획 개요”.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</ol></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1358,9 +1300,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./visuals-maps.html" class="pagination-link" aria-label="Data Visualization: Maps">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Visualization: Maps</span></span>
       </a>          
@@ -1372,8 +1312,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>© 2024 <a href="https://ayhan.phd">Kadir Jun Ayhan</a> &amp; <a href="https://k-a.phd">K-Analytics</a> - <a href="https://www.linkedin.com/company/k-a-phd/">Linkedin</a> - <a href="mailto:k@ayhan.phd">Email</a></p>
 </div>   
@@ -1385,8 +1324,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>

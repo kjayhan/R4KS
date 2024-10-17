@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.554">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>R for Korean Studies: A Gentle Introduction to Computational Social Science - 4&nbsp; The Basics of R</title>
 <style>
 code{white-space: pre-wrap;}
@@ -56,7 +53,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -75,8 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -102,38 +97,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-6J6HBMRCFK"></script>
-
-<script type="text/javascript">
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-6J6HBMRCFK"></script><script type="text/javascript">
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
 </script>
-<script type="application/json" class="js-hypothesis-config">
-{
-  "theme": "clean",
-  "openSidebar": false
-}
-</script>
-<script async="" src="https://hypothes.is/embed.js"></script>
-<script>
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    document.body.classList.add('hypothesis-enabled');
-  });
-</script>
-
-
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -144,13 +119,9 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R for Korean Studies: A Gentle Introduction to Computational Social Science</a> 
         <div class="sidebar-tools-main">
@@ -165,7 +136,7 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
@@ -268,21 +239,21 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#creating-a-project" id="toc-creating-a-project" class="nav-link active" data-scroll-target="#creating-a-project"><span class="header-section-number">4.1</span> Creating a Project</a></li>
-  <li><a href="#scripting-in-r" id="toc-scripting-in-r" class="nav-link" data-scroll-target="#scripting-in-r"><span class="header-section-number">4.2</span> Scripting in R</a>
+<li><a href="#creating-a-project" id="toc-creating-a-project" class="nav-link active" data-scroll-target="#creating-a-project"><span class="header-section-number">4.1</span> Creating a Project</a></li>
+  <li>
+<a href="#scripting-in-r" id="toc-scripting-in-r" class="nav-link" data-scroll-target="#scripting-in-r"><span class="header-section-number">4.2</span> Scripting in R</a>
   <ul class="collapse">
-  <li><a href="#creating-a-new-r-script" id="toc-creating-a-new-r-script" class="nav-link" data-scroll-target="#creating-a-new-r-script"><span class="header-section-number">4.2.1</span> Creating a New R Script</a></li>
+<li><a href="#creating-a-new-r-script" id="toc-creating-a-new-r-script" class="nav-link" data-scroll-target="#creating-a-new-r-script"><span class="header-section-number">4.2.1</span> Creating a New R Script</a></li>
   <li><a href="#creating-a-quarto-file" id="toc-creating-a-quarto-file" class="nav-link" data-scroll-target="#creating-a-quarto-file"><span class="header-section-number">4.2.2</span> Creating a Quarto File</a></li>
-  </ul></li>
+  </ul>
+</li>
   <li><a href="#installing-packages" id="toc-installing-packages" class="nav-link" data-scroll-target="#installing-packages"><span class="header-section-number">4.3</span> Installing Packages</a></li>
   <li><a href="#loading-packages" id="toc-loading-packages" class="nav-link" data-scroll-target="#loading-packages"><span class="header-section-number">4.4</span> Loading Packages</a></li>
   <li><a href="#assigning-values-to-variables" id="toc-assigning-values-to-variables" class="nav-link" data-scroll-target="#assigning-values-to-variables"><span class="header-section-number">4.5</span> Assigning Values to Variables</a></li>
@@ -293,15 +264,13 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
   <li><a href="#some-basic-functions" id="toc-some-basic-functions" class="nav-link" data-scroll-target="#some-basic-functions"><span class="header-section-number">4.10</span> Some Basic Functions</a></li>
   <li><a href="#rows-and-columns" id="toc-rows-and-columns" class="nav-link" data-scroll-target="#rows-and-columns"><span class="header-section-number">4.11</span> Rows and Columns</a></li>
   <li><a href="#piping" id="toc-piping" class="nav-link" data-scroll-target="#piping"><span class="header-section-number">4.12</span> Piping</a></li>
-  </ul>
-</nav>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Basics of R</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Basics of R</span>
+</h1>
 </div>
 
 
@@ -315,184 +284,169 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
   
 
 
-</header>
-
-
-<p>In this chapter, we learn the basics of R.</p>
-<section id="creating-a-project" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="creating-a-project"><span class="header-section-number">4.1</span> Creating a Project</h2>
+</header><p>In this chapter, we learn the basics of R.</p>
+<section id="creating-a-project" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="creating-a-project">
+<span class="header-section-number">4.1</span> Creating a Project</h2>
 <p>For each of your new projects, you should create a new project in RStudio. To do this, click on the “File” menu, then “New Project”. You will be asked to choose a directory for your project. Choose a directory where you want to store your project files. You can also create a new directory for your project. After you have chosen a directory, click on “Create Project”. You will see a new RStudio window with your project. You can now start working on your project.</p>
 <p>For now, this is all you need to know about creating a project. We learn more about projects that are connected with <a href="https://github.com/">Github</a> in the <a href="./productivity.html">Productivity Tools</a> chapter.</p>
 <p>When you work within a project, managing the files for your project becomes easier. When you work within the project, you don’t need to worry about getting and setting your working directory. To give you an idea, this is how you can find the working directory for your project:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "/Users/pd/Library/CloudStorage/OneDrive-Personal/R/projects/R4KS"</code></pre>
 </div>
 </div>
-<p>You can also set the working directory to some other path using the <code>setwd()</code> function. But you don’t need to do this when you work within a project. On another note, when you are writing code script in an R script file or within a code chunk, you can add non-code comments like this by adding a <code>#</code> sign at the beginning of the line.</p>
+<p>You can also set the working directory to some other path using the <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code> function. But you don’t need to do this when you work within a project. On another note, when you are writing code script in an R script file or within a code chunk, you can add non-code comments like this by adding a <code>#</code> sign at the beginning of the line.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can uncomment a comment line and make it a code line by removing the '#' sign at the beginning of the line.</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace "path/to/your/directory" with the actual path to your directory (folder) that you want to work in.</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Try removing the '#' sign at the beginning of the line and running the code.</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># setwd("path/to/your/directory")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># You can uncomment a comment line and make it a code line by removing the '#' sign at the beginning of the line.</span></span>
+<span></span>
+<span><span class="co"># Replace "path/to/your/directory" with the actual path to your directory (folder) that you want to work in.</span></span>
+<span></span>
+<span><span class="co"># Try removing the '#' sign at the beginning of the line and running the code.</span></span>
+<span></span>
+<span><span class="co"># setwd("path/to/your/directory")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>When you work within a project, you don’t need to worry about the working directory. You can store all the files for your project in the project directory. You can also save your R scripts in the project directory. This way, you can easily find the files for your project.</p>
-</section>
-<section id="scripting-in-r" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="scripting-in-r"><span class="header-section-number">4.2</span> Scripting in R</h2>
+</section><section id="scripting-in-r" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="scripting-in-r">
+<span class="header-section-number">4.2</span> Scripting in R</h2>
 <p>You can simply type your R code in the console and press Enter to run the code. But this is not a good practice. You should write your code in a script file and then run the script file. This way, you can save your code and run it again whenever you want. You can also share your code with others.</p>
 <p>One of the most important advantages of R, for example over Excel, is that you can reproduce your results. That’s why you should write your code in a script file. Every time you exit R, you should save your R script(s) and then rely on them next time you work on the same project.</p>
-<section id="creating-a-new-r-script" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="creating-a-new-r-script"><span class="header-section-number">4.2.1</span> Creating a New R Script</h3>
+<section id="creating-a-new-r-script" class="level3" data-number="4.2.1"><h3 data-number="4.2.1" class="anchored" data-anchor-id="creating-a-new-r-script">
+<span class="header-section-number">4.2.1</span> Creating a New R Script</h3>
 <p>The most basic way to create a new R script is to click on the “File” menu, then “New File”, and then “R Script”. You will see a new R script file in the RStudio editor. You can now write your R code in this file.</p>
-</section>
-<section id="creating-a-quarto-file" class="level3" data-number="4.2.2">
-<h3 data-number="4.2.2" class="anchored" data-anchor-id="creating-a-quarto-file"><span class="header-section-number">4.2.2</span> Creating a Quarto File</h3>
+</section><section id="creating-a-quarto-file" class="level3" data-number="4.2.2"><h3 data-number="4.2.2" class="anchored" data-anchor-id="creating-a-quarto-file">
+<span class="header-section-number">4.2.2</span> Creating a Quarto File</h3>
 <p>You can also create a new Quarto file by clicking on the “File” menu, then “New File”, and then “Quarto File”. You will see a new Quarto file in the RStudio editor. You can now write your R code in this file.</p>
 <p>Quarto allows you to write your code in chunks. In between chunks, you can have other text, images, and other content. You can also run the code in each chunk and see the output in the document. This is a great way to write reports, papers, and books.</p>
 <p>Personally I prefer to write my code in Quarto files. When you click to create a new Quarto file, it will ask you to add a title and author, and select a format for your Quarto file. I explain Quarto further in the <a href="./quarto.html">Storytelling with Quarto</a> chapter. For now, click “Create Empty Document” on the left bottom. Click File &gt; Save and save you Quarto document in your project directory.</p>
 <p>On the top right of the RStudio editor, you can see a green C button with a + sign. That button allows you to insert a code chunk in your document. See <a href="#fig-quarto_new_chunk" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>.</p>
 <div id="fig-quarto_new_chunk" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-quarto_new_chunk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-quarto_new_chunk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="data/quarto_new_chunk.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-quarto_new_chunk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4.1: Quarto: Inserting a New Code Chunk
-</figcaption>
-</figure>
+</figcaption></figure>
 </div>
 <p>Then after you write your code and when you want to run the code in a chunk, you can click on the green Run button on the right side of the chunk. See <a href="#fig-quarto_run_chunk" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>.</p>
 <div id="fig-quarto_run_chunk" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-quarto_run_chunk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-quarto_run_chunk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="data/quarto_run_chunk.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-quarto_run_chunk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4.2: Quarto: Running a Code Chunk
-</figcaption>
-</figure>
+</figcaption></figure>
 </div>
 <p>When you are working in a simple R script, you don’t need to worry about chunks. You can simply write your code in the script file and select the lines of code you want to run and click on the Run button.</p>
-</section>
-</section>
-<section id="installing-packages" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="installing-packages"><span class="header-section-number">4.3</span> Installing Packages</h2>
+</section></section><section id="installing-packages" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="installing-packages">
+<span class="header-section-number">4.3</span> Installing Packages</h2>
 <p>Packages in R are like apps for your phone. Just like your phone comes with some basic apps, R comes with <a href="https://cran.r-project.org/doc/FAQ/R-FAQ.html#Which-add_002don-packages-exist-for-R_003f">14 base packages (as of May 11, 2024)</a> including <code>base</code>, <code>utils</code>, and <code>stats</code>. But you can, and you will need to, install other packages to do different things just like you install apps on your phone.</p>
-<p>You can install a package using the <code>install.packages()</code> function. This book uses the <a href="https://tidyverse.org/"><code>tidyverse</code></a> package, which is a universe of packages that follow a common <a href="https://r4ds.had.co.nz/tidy-data.html#tidy-data-1">“tidy”</a> data philosophy.</p>
+<p>You can install a package using the <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> function. This book uses the <a href="https://tidyverse.org/"><code>tidyverse</code></a> package, which is a universe of packages that follow a common <a href="https://r4ds.had.co.nz/tidy-data.html#tidy-data-1">“tidy”</a> data philosophy.</p>
 <p>You can install the <code>tidyverse</code> package using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># uncomment the following line by removing "#" and run the code to install the tidyverse package</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("tidyverse")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># uncomment the following line by removing "#" and run the code to install the tidyverse package</span></span>
+<span></span>
+<span><span class="co"># install.packages("tidyverse")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You need to install the packages you need only once, and then you can use them whenever you want.</p>
-</section>
-<section id="loading-packages" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="loading-packages"><span class="header-section-number">4.4</span> Loading Packages</h2>
-<p>Just like apps on your phone, you need to load the packages you need every time you start a new R session. You can load the package using the <code>library()</code> function. For example, to load the <code>tidyverse</code> package, you can use the following command:</p>
+</section><section id="loading-packages" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="loading-packages">
+<span class="header-section-number">4.4</span> Loading Packages</h2>
+<p>Just like apps on your phone, you need to load the packages you need every time you start a new R session. You can load the package using the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> function. For example, to load the <code>tidyverse</code> package, you can use the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The <code>[tidyverse](https://tidyverse.org/)</code> package is a collection of packages including <code>ggplot2</code>, <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a>, <code>tidyr</code>, <code>readr</code>, <code>purrr</code>, <code>tibble</code>, <code>stringr</code>, <code>forcats</code>, <code>rvest</code>, <code>lubridate</code>, and a few other packages. We learn some of these packages in this book. Once you load the <code>tidyverse</code> package, you can use all the functions in these packages. In other words, you don’t need to load, for example, the <code>ggplot2</code> package separately by running <code>library(ggplot2)</code>.</p>
-</section>
-<section id="assigning-values-to-variables" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="assigning-values-to-variables"><span class="header-section-number">4.5</span> Assigning Values to Variables</h2>
+<p>The <code>[tidyverse](https://tidyverse.org/)</code> package is a collection of packages including <code>ggplot2</code>, <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a>, <code>tidyr</code>, <code>readr</code>, <code>purrr</code>, <code>tibble</code>, <code>stringr</code>, <code>forcats</code>, <code>rvest</code>, <code>lubridate</code>, and a few other packages. We learn some of these packages in this book. Once you load the <code>tidyverse</code> package, you can use all the functions in these packages. In other words, you don’t need to load, for example, the <code>ggplot2</code> package separately by running <code><a href="https://ggplot2.tidyverse.org">library(ggplot2)</a></code>.</p>
+</section><section id="assigning-values-to-variables" class="level2" data-number="4.5"><h2 data-number="4.5" class="anchored" data-anchor-id="assigning-values-to-variables">
+<span class="header-section-number">4.5</span> Assigning Values to Variables</h2>
 <p>You can assign values to variables in R using the <code>&lt;-</code> operator. For example, you can assign the value 14 to a variable <code>x</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">14</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">14</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>After assigning 14 to <code>x</code>, you can use <code>x</code> in your code. For example, you can print the value of <code>x</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 14</code></pre>
 </div>
 </div>
 <p>See, <code>x</code> is now 14. You can also see the value of <code>x</code> by typing <code>x</code> in the console and pressing Enter. Try it.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 14</code></pre>
 </div>
 </div>
 <p>You can also make additional data manipulations using <code>x</code> and assign it to another variable <code>y</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">+</span> <span class="fl">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s see the value of <code>y</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 17</code></pre>
 </div>
 </div>
 <p>R is an advanced calculator. You can do all kinds of calculations using R. For example, check out the following calculations:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Square root of 16</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">16</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Square root of 16</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">16</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2 to the power of 8</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">^</span><span class="dv">8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 2 to the power of 8</span></span>
+<span><span class="fl">2</span><span class="op">^</span><span class="fl">8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 256</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Logarithm of 100</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Logarithm of 100</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4.60517</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exponential of previously assigned value y, i.e. 17, times x, i.e. 14.</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(y) <span class="sc">*</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Exponential of previously assigned value y, i.e. 17, times x, i.e. 14.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">*</span> <span class="va">x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 338169339</code></pre>
 </div>
 </div>
 <p>You can also assign a character string to a variable. For example, you can assign the string “한국학 학자들 및 학생들도 R 좀 배웠으면 좋겠다.” to a variable <code>z</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="st">"한국학 학자 및 학생들도 R 좀 배웠으면 좋겠다."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">z</span> <span class="op">&lt;-</span> <span class="st">"한국학 학자 및 학생들도 R 좀 배웠으면 좋겠다."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can print the value of <code>z</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">z</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "한국학 학자 및 학생들도 R 좀 배웠으면 좋겠다."</code></pre>
 </div>
 </div>
-</section>
-<section id="make-sure-to-get-the-spelling-right" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="make-sure-to-get-the-spelling-right"><span class="header-section-number">4.6</span> Make sure to get the spelling right!</h2>
+</section><section id="make-sure-to-get-the-spelling-right" class="level2" data-number="4.6"><h2 data-number="4.6" class="anchored" data-anchor-id="make-sure-to-get-the-spelling-right">
+<span class="header-section-number">4.6</span> Make sure to get the spelling right!</h2>
 <p>As a novice R user, more often than not, you will get error messages because you make mistakes in spelling. For example, we assigned the value 14 to a variable <code>x</code>. If you try to print the value of <code>X</code> instead of <code>x</code>, you will get an error message. Try it.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uncomment the following line by removing "#" and run the code to see the error message.</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># X</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Uncomment the following line by removing "#" and run the code to see the error message.</span></span>
+<span></span>
+<span><span class="co"># X</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You will get an error message saying that “Error: object ‘X’ not found”. This is because R is case-sensitive. <code>X</code> is not the same as <code>x</code>. Make sure to get the spelling right.</p>
 <p>If you want to use more than two words for a variable name, you can use an underscore <code>_</code> (<code>my_variable</code>) or a dot <code>.</code> (<code>my.variable</code>) to separate the words; or you can write the words together with each new word beginning with a capital letter (<code>myVariable</code>). You better be consistent with your naming convention, although technically you can name your variables however you want. For example, you can assign <code>c("한국", "일본", "미국", "중국")</code> to a variable <code>my_variable</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>my_variable <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"한국"</span>, <span class="st">"일본"</span>, <span class="st">"미국"</span>, <span class="st">"중국"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_variable</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"한국"</span>, <span class="st">"일본"</span>, <span class="st">"미국"</span>, <span class="st">"중국"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="data-types" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="data-types"><span class="header-section-number">4.7</span> Data Types</h2>
-<p>R has several data types including numeric, character, logical, date, list, dataframe and so on. Let’s see the data types of the variables we created above. We can use the <code>class()</code> function to see the data type of a variable. For example, you can see the data type of <code>x</code>, <code>y</code>, and <code>z</code> using the following commands:</p>
+</section><section id="data-types" class="level2" data-number="4.7"><h2 data-number="4.7" class="anchored" data-anchor-id="data-types">
+<span class="header-section-number">4.7</span> Data Types</h2>
+<p>R has several data types including numeric, character, logical, date, list, dataframe and so on. Let’s see the data types of the variables we created above. We can use the <code><a href="https://rdrr.io/r/base/class.html">class()</a></code> function to see the data type of a variable. For example, you can see the data type of <code>x</code>, <code>y</code>, and <code>z</code> using the following commands:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "numeric"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "numeric"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
@@ -500,74 +454,72 @@ Figure&nbsp;4.2: Quarto: Running a Code Chunk
 <p>The data type of <code>x</code> and <code>y</code> is numeric, and the data type of <code>z</code> is character.</p>
 <p>If we write numbers in quotes, they become character strings. For example, you can assign the string “14” to a variable <code>w</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="st">"14"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">w</span> <span class="op">&lt;-</span> <span class="st">"14"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can see the data type of <code>w</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(w)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">w</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
 </div>
-<p>The data type of <code>w</code> is character. You can also turn it into a numeric value using the <code>as.numeric()</code> function. For example, you can turn <code>w</code> into a numeric value using the following command:</p>
+<p>The data type of <code>w</code> is character. You can also turn it into a numeric value using the <code><a href="https://rdrr.io/r/base/numeric.html">as.numeric()</a></code> function. For example, you can turn <code>w</code> into a numeric value using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(w)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">w</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">w</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="vectors" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="vectors"><span class="header-section-number">4.8</span> Vectors</h2>
-<p>A vector is a collection of elements of the same data type. You can create a vector using the <code>c()</code> function. For example, you can create a vector <code>v</code> with the elements “서울”, “부산”, “대구”, “인천”, and “대전” using the following command:</p>
+</section><section id="vectors" class="level2" data-number="4.8"><h2 data-number="4.8" class="anchored" data-anchor-id="vectors">
+<span class="header-section-number">4.8</span> Vectors</h2>
+<p>A vector is a collection of elements of the same data type. You can create a vector using the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function. For example, you can create a vector <code>v</code> with the elements “서울”, “부산”, “대구”, “인천”, and “대전” using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"서울"</span>, <span class="st">"부산"</span>, <span class="st">"대구"</span>, <span class="st">"인천"</span>, <span class="st">"대전"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"서울"</span>, <span class="st">"부산"</span>, <span class="st">"대구"</span>, <span class="st">"인천"</span>, <span class="st">"대전"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can print the vector <code>v</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>v</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">v</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "서울" "부산" "대구" "인천" "대전"</code></pre>
 </div>
 </div>
 <p>You can see the data type of <code>v</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
 </div>
 <p>The data type of <code>v</code> is character. You can also create a numeric vector. For example, you can create a vector <code>numbers</code> with the elements 1, -2, 3.1, 49, and 0 using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="dv">314</span>, <span class="sc">-</span><span class="dv">49</span>, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">numbers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="op">-</span><span class="fl">2</span>, <span class="fl">314</span>, <span class="op">-</span><span class="fl">49</span>, <span class="fl">0</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can print the vector <code>numbers</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>numbers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">numbers</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]   1  -2 314 -49   0</code></pre>
 </div>
 </div>
 <p>You can see the data type of <code>numbers</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(numbers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">numbers</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "numeric"</code></pre>
 </div>
 </div>
 <p>The data type of <code>numbers</code> is numeric.</p>
-</section>
-<section id="dataframes" class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="dataframes"><span class="header-section-number">4.9</span> Dataframes</h2>
-<p>A dataframe is a collection of vectors of the same length. You can create a dataframe using the <code>data.frame()</code> function. For example, you can create a dataframe <code>df</code> with three columns <code>city_name_en</code>, <code>city_name_kr</code>, and <code>population</code> using the following command:</p>
+</section><section id="dataframes" class="level2" data-number="4.9"><h2 data-number="4.9" class="anchored" data-anchor-id="dataframes">
+<span class="header-section-number">4.9</span> Dataframes</h2>
+<p>A dataframe is a collection of vectors of the same length. You can create a dataframe using the <code><a href="https://rdrr.io/r/base/data.frame.html">data.frame()</a></code> function. For example, you can create a dataframe <code>df</code> with three columns <code>city_name_en</code>, <code>city_name_kr</code>, and <code>population</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Relying on this link for the population data (in millions):</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="co"># https://kosis.kr/statHtml/statHtml.do?orgId=101&amp;tblId=DT_1B040A3</span></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">city_name_en =</span> <span class="fu">c</span>(<span class="st">"Busan"</span>, <span class="st">"Daegu"</span>, <span class="st">"Incheon"</span>, <span class="st">"Seoul"</span>, <span class="st">"Daejeon"</span>),</span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">city_name_kr =</span> <span class="fu">c</span>(<span class="st">"부산"</span>, <span class="st">"대구"</span>, <span class="st">"인천"</span>, <span class="st">"서울"</span>, <span class="st">"대전"</span>),</span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">population =</span> <span class="fu">c</span>(<span class="fl">3.3</span>, <span class="fl">2.4</span>, <span class="dv">3</span>, <span class="fl">9.4</span>, <span class="fl">1.4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Relying on this link for the population data (in millions):</span></span>
+<span><span class="co"># https://kosis.kr/statHtml/statHtml.do?orgId=101&amp;tblId=DT_1B040A3</span></span>
+<span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>city_name_en <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Busan"</span>, <span class="st">"Daegu"</span>, <span class="st">"Incheon"</span>, <span class="st">"Seoul"</span>, <span class="st">"Daejeon"</span><span class="op">)</span>,</span>
+<span>                 city_name_kr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"부산"</span>, <span class="st">"대구"</span>, <span class="st">"인천"</span>, <span class="st">"서울"</span>, <span class="st">"대전"</span><span class="op">)</span>,</span>
+<span>                 population <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3.3</span>, <span class="fl">2.4</span>, <span class="fl">3</span>, <span class="fl">9.4</span>, <span class="fl">1.4</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can print the dataframe <code>df</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  city_name_en city_name_kr population
 1        Busan         부산        3.3
@@ -579,24 +531,23 @@ Figure&nbsp;4.2: Quarto: Running a Code Chunk
 </div>
 <p>You can see the data type of <code>df</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "data.frame"</code></pre>
 </div>
 </div>
 <p>The data type of <code>df</code> is dataframe. We can reach the columns of the dataframe using the <code>$</code> sign. For example, you can see the column <code>city_name_en</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>city_name_en</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span><span class="op">$</span><span class="va">city_name_en</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Busan"   "Daegu"   "Incheon" "Seoul"   "Daejeon"</code></pre>
 </div>
 </div>
-</section>
-<section id="some-basic-functions" class="level2" data-number="4.10">
-<h2 data-number="4.10" class="anchored" data-anchor-id="some-basic-functions"><span class="header-section-number">4.10</span> Some Basic Functions</h2>
-<p>You can use the <code>head()</code> function to see the first few rows of a dataframe. For example, you can see the first few rows of the dataframe <code>df</code> using the following command:</p>
+</section><section id="some-basic-functions" class="level2" data-number="4.10"><h2 data-number="4.10" class="anchored" data-anchor-id="some-basic-functions">
+<span class="header-section-number">4.10</span> Some Basic Functions</h2>
+<p>You can use the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> function to see the first few rows of a dataframe. For example, you can see the first few rows of the dataframe <code>df</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  city_name_en city_name_kr population
 1        Busan         부산        3.3
@@ -606,9 +557,9 @@ Figure&nbsp;4.2: Quarto: Running a Code Chunk
 5      Daejeon         대전        1.4</code></pre>
 </div>
 </div>
-<p>By default, the <code>head()</code> function shows the first 6 rows of the dataframe. You can also specify the number of rows you want to see. For example, you can see the first 3 rows of the dataframe <code>df</code> using the following command:</p>
+<p>By default, the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> function shows the first 6 rows of the dataframe. You can also specify the number of rows you want to see. For example, you can see the first 3 rows of the dataframe <code>df</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  city_name_en city_name_kr population
 1        Busan         부산        3.3
@@ -616,9 +567,9 @@ Figure&nbsp;4.2: Quarto: Running a Code Chunk
 3      Incheon         인천        3.0</code></pre>
 </div>
 </div>
-<p>You can use the <code>tail()</code> function to see the last few rows of a dataframe. For example, you can see the last few rows of the dataframe <code>df</code> using the following command:</p>
+<p>You can use the <code><a href="https://rdrr.io/r/utils/head.html">tail()</a></code> function to see the last few rows of a dataframe. For example, you can see the last few rows of the dataframe <code>df</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  city_name_en city_name_kr population
 1        Busan         부산        3.3
@@ -628,10 +579,10 @@ Figure&nbsp;4.2: Quarto: Running a Code Chunk
 5      Daejeon         대전        1.4</code></pre>
 </div>
 </div>
-<p>In this example, both the <code>head()</code> and <code>tail()</code> functions show the entire dataframe because the dataframe <code>df</code> has only 5 rows. But, in longer dataframes, you can see the first or last few rows using these functions.</p>
-<p>In a similar vein, <code>glimpse()</code> function from the <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a> package is a function to see the structure of a dataframe. For example, you can see the structure of the dataframe <code>df</code> using the following command:</p>
+<p>In this example, both the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> and <code><a href="https://rdrr.io/r/utils/head.html">tail()</a></code> functions show the entire dataframe because the dataframe <code>df</code> has only 5 rows. But, in longer dataframes, you can see the first or last few rows using these functions.</p>
+<p>In a similar vein, <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> function from the <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a> package is a function to see the structure of a dataframe. For example, you can see the structure of the dataframe <code>df</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 5
 Columns: 3
@@ -640,30 +591,30 @@ $ city_name_kr &lt;chr&gt; "부산", "대구", "인천", "서울", "대전"
 $ population   &lt;dbl&gt; 3.3, 2.4, 3.0, 9.4, 1.4</code></pre>
 </div>
 </div>
-<p>The <code>nrow()</code> function gives the number of rows in a dataframe. For example, you can see the number of rows in the dataframe <code>df</code> using the following command:</p>
+<p>The <code><a href="https://rdrr.io/r/base/nrow.html">nrow()</a></code> function gives the number of rows in a dataframe. For example, you can see the number of rows in the dataframe <code>df</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
 </div>
-<p>Likewise, the <code>ncol()</code> function gives the number of columns in a dataframe. For example, you can see the number of columns in the dataframe <code>df</code> using the following command:</p>
+<p>Likewise, the <code><a href="https://rdrr.io/r/base/nrow.html">ncol()</a></code> function gives the number of columns in a dataframe. For example, you can see the number of columns in the dataframe <code>df</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
 </div>
 </div>
-<p>The <code>dim()</code> function gives the dimensions of a dataframe. For example, you can see the dimensions of the dataframe <code>df</code> using the following command:</p>
+<p>The <code><a href="https://rdrr.io/r/base/dim.html">dim()</a></code> function gives the dimensions of a dataframe. For example, you can see the dimensions of the dataframe <code>df</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5 3</code></pre>
 </div>
 </div>
-<p>The <code>summary()</code> function gives a summary of a dataframe. For example, you can see the summary of the dataframe <code>df</code> using the following command:</p>
+<p>The <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function gives a summary of a dataframe. For example, you can see the summary of the dataframe <code>df</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> city_name_en       city_name_kr         population 
  Length:5           Length:5           Min.   :1.4  
@@ -674,20 +625,19 @@ $ population   &lt;dbl&gt; 3.3, 2.4, 3.0, 9.4, 1.4</code></pre>
                                        Max.   :9.4  </code></pre>
 </div>
 </div>
-</section>
-<section id="rows-and-columns" class="level2" data-number="4.11">
-<h2 data-number="4.11" class="anchored" data-anchor-id="rows-and-columns"><span class="header-section-number">4.11</span> Rows and Columns</h2>
+</section><section id="rows-and-columns" class="level2" data-number="4.11"><h2 data-number="4.11" class="anchored" data-anchor-id="rows-and-columns">
+<span class="header-section-number">4.11</span> Rows and Columns</h2>
 <p>You can select rows and columns of a dataframe using the <code>[]</code> operator. The first argument of the <code>[]</code> operator is the row index, and the second argument is the column index. <code>df[row, column]</code> selects the row with the index <code>row</code> and the column with the index <code>column</code>.</p>
 <p>For example, you can select the first row and the second column of the dataframe <code>df</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span>, <span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span><span class="op">[</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "부산"</code></pre>
 </div>
 </div>
 <p>You can select the first row of the dataframe <code>df</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  city_name_en city_name_kr population
 1        Busan         부산        3.3</code></pre>
@@ -695,17 +645,16 @@ $ population   &lt;dbl&gt; 3.3, 2.4, 3.0, 9.4, 1.4</code></pre>
 </div>
 <p>You can select the second column of the dataframe <code>df</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>df[, <span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "부산" "대구" "인천" "서울" "대전"</code></pre>
 </div>
 </div>
-</section>
-<section id="piping" class="level2" data-number="4.12">
-<h2 data-number="4.12" class="anchored" data-anchor-id="piping"><span class="header-section-number">4.12</span> Piping</h2>
-<p>The pipe operators <code>|&gt;</code> and <code>%&gt;%</code> are powerful tools in R.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> The pipe allows you to write code in a more readable way. You can use the pipe operator to pass the output of one function to the input of another function. For example, you can use the pipe operator to pass the dataframe <code>df</code> to the <code>head()</code> function. You can see the first few rows of the dataframe <code>df</code> using the following command:</p>
+</section><section id="piping" class="level2" data-number="4.12"><h2 data-number="4.12" class="anchored" data-anchor-id="piping">
+<span class="header-section-number">4.12</span> Piping</h2>
+<p>The pipe operators <code>|&gt;</code> and <code>%&gt;%</code> are powerful tools in R.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> The pipe allows you to write code in a more readable way. You can use the pipe operator to pass the output of one function to the input of another function. For example, you can use the pipe operator to pass the dataframe <code>df</code> to the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> function. You can see the first few rows of the dataframe <code>df</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  city_name_en city_name_kr population
 1        Busan         부산        3.3
@@ -715,9 +664,9 @@ $ population   &lt;dbl&gt; 3.3, 2.4, 3.0, 9.4, 1.4</code></pre>
 5      Daejeon         대전        1.4</code></pre>
 </div>
 </div>
-<p>We can arrange the dataframe <code>df</code> using the <code>arrange()</code> function from the <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a> package. For example, you can arrange the dataframe <code>df</code> by the <code>population</code> column using the following command with a pipe:</p>
+<p>We can arrange the dataframe <code>df</code> using the <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> function from the <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a> package. For example, you can arrange the dataframe <code>df</code> by the <code>population</code> column using the following command with a pipe:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">arrange</span>(population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">population</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  city_name_en city_name_kr population
 1      Daejeon         대전        1.4
@@ -727,9 +676,9 @@ $ population   &lt;dbl&gt; 3.3, 2.4, 3.0, 9.4, 1.4</code></pre>
 5        Seoul         서울        9.4</code></pre>
 </div>
 </div>
-<p><code>arrange()</code> function arranges the dataframe by the selected numeric column in ascending order by default. If it is a character column, it arranges the dataframe in alphabetical order. You can arrange the dataframe in descending order by using the <code>desc()</code> function. For example, you can arrange the dataframe <code>df</code> by the <code>population</code> column in descending order using the following command:</p>
+<p><code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> function arranges the dataframe by the selected numeric column in ascending order by default. If it is a character column, it arranges the dataframe in alphabetical order. You can arrange the dataframe in descending order by using the <code><a href="https://dplyr.tidyverse.org/reference/desc.html">desc()</a></code> function. For example, you can arrange the dataframe <code>df</code> by the <code>population</code> column in descending order using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(population))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">population</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  city_name_en city_name_kr population
 1        Seoul         서울        9.4
@@ -741,11 +690,11 @@ $ population   &lt;dbl&gt; 3.3, 2.4, 3.0, 9.4, 1.4</code></pre>
 </div>
 <p>We can also assign <code>df</code> to the rearranged dataframe. For example, you can assign the arranged dataframe to <code>df</code> using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(population))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">population</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now, <code>df</code> is arranged by the <code>population</code> column in descending order. Let’s check out:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  city_name_en city_name_kr population
 1        Seoul         서울        9.4
@@ -758,16 +707,10 @@ $ population   &lt;dbl&gt; 3.3, 2.4, 3.0, 9.4, 1.4</code></pre>
 <p>Good. We learned the basics of R. In the next chapter, we learn about data wrangling using mainly the <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a> package.</p>
 
 
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
+</section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
 <ol>
 <li id="fn1"><p>In most cases, these two pipes work the same way. Refer to <a href="https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/">this link</a> for more explanation on the difference between the <code>base</code> pipe <code>|&gt;</code> and the <code>magrittr</code> pipe <code>%&gt;%</code>. For now, you can simply ignore the difference.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</ol></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1180,9 +1123,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./sources.html" class="pagination-link" aria-label="Korean Studies Data Sources">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Korean Studies Data Sources</span></span>
       </a>          
@@ -1194,8 +1135,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>© 2024 <a href="https://ayhan.phd">Kadir Jun Ayhan</a> &amp; <a href="https://k-a.phd">K-Analytics</a> - <a href="https://www.linkedin.com/company/k-a-phd/">Linkedin</a> - <a href="mailto:k@ayhan.phd">Email</a></p>
 </div>   
@@ -1207,8 +1147,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>

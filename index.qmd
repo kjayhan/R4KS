@@ -19,6 +19,8 @@ I also encourage you to join our bootcamps for problem solving! You can [sign up
 
 -   4\. The Basics of R: Nearly Complete
 
+-   5\. Data Wrangling: Nearly Complete
+
 -   9\. Text Analysis: 50% Complete
 
 -   14\. Making Korean Data Visualization Social: Nearly Complete
@@ -41,8 +43,8 @@ You can freely use this book, but you must cite my work to avoid plagiarism. You
   title = {R for {Korean Studies}: A Gentle Introduction to {Computational Social Science}},
   author = {Ayhan, Kadir Jun},
   year = {2024},
-  month = {May},
-  edition = {Draft Version 0.0.1},
+  month = {October},
+  edition = {Draft Version 0.0.2},
   url = {https://r4ks.com}
 }
 ```

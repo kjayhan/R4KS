@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.554">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Kadir Jun Ayhan, Ph.D.">
-<meta name="dcterms.date" content="2024-09-08">
-
+<meta name="dcterms.date" content="2024-10-16">
 <title>R for Korean Studies: A Gentle Introduction to Computational Social Science</title>
 <style>
 code{white-space: pre-wrap;}
@@ -78,7 +75,6 @@ div.csl-indent {
   margin-left: 2em;
 }</style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -96,8 +92,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -123,38 +118,18 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-6J6HBMRCFK"></script>
-
-<script type="text/javascript">
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-6J6HBMRCFK"></script><script type="text/javascript">
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
 </script>
-<script type="application/json" class="js-hypothesis-config">
-{
-  "theme": "clean",
-  "openSidebar": false
-}
-</script>
-<script async="" src="https://hypothes.is/embed.js"></script>
-<script>
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    document.body.classList.add('hypothesis-enabled');
-  });
-</script>
-
-
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -165,13 +140,9 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R for Korean Studies: A Gentle Introduction to Computational Social Science</a> 
         <div class="sidebar-tools-main">
@@ -186,7 +157,7 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Preface</span></a>
@@ -289,29 +260,23 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+<li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
   <li><a href="#current-status-of-the-book" id="toc-current-status-of-the-book" class="nav-link" data-scroll-target="#current-status-of-the-book">Current Status of the Book</a></li>
   <li><a href="#stay-tuned-for-updates" id="toc-stay-tuned-for-updates" class="nav-link" data-scroll-target="#stay-tuned-for-updates">Stay Tuned for Updates</a></li>
   <li><a href="#how-to-cite-this-book" id="toc-how-to-cite-this-book" class="nav-link" data-scroll-target="#how-to-cite-this-book">How to Cite This Book</a></li>
-  </ul>
-</nav>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">R for Korean Studies: A Gentle Introduction to Computational Social Science</h1>
-<p class="subtitle lead">Draft Version: 0.0.1</p>
+<p class="subtitle lead">Draft Version: 0.0.2</p>
 </div>
 
 
@@ -328,7 +293,7 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 8, 2024</p>
+      <p class="date">October 16, 2024</p>
     </div>
   </div>
   
@@ -338,36 +303,27 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
 
 
 </header>
-
-
-
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1><p><img src="r4ks Logo square 512.png" title="R for Korean Studies: A Gentle Introduction to Computational Social Science" class="quarto-cover-image img-fluid"></p>
+<section id="preface" class="level1 unnumbered"><h1 class="unnumbered">Preface</h1><p><img src="r4ks Logo square 512.png" title="R for Korean Studies: A Gentle Introduction to Computational Social Science" class="quarto-cover-image img-fluid"></p>
 <p>Korean Studies is traditionally dominated by scholars of history and literature. It’s relatively rare to see R, Python, or other computational social science tools being used or taught in this field.</p>
 <p>I believe computational social science offers huge opportunities for Korean Studies, not only for quantitative research but also for qualitative studies, including those on history and literature!</p>
 <p>In this book, I aim to increase data literacy and convince as many Korean Studies scholars and students as possible about the relative ease of learning R with code samples, and motivational case studies about Korea.</p>
 <p>I also encourage you to join our bootcamps for problem solving! You can <a href="https://mailchi.mp/2a64f70942f3/r4ks">sign up for my newsletter to get updates on the bootcamps</a>.</p>
-</section>
-<section id="current-status-of-the-book" class="level1">
-<h1>Current Status of the Book</h1>
+</section><section id="current-status-of-the-book" class="level1"><h1>Current Status of the Book</h1>
 <div class="alert alert-info">
 <ul>
 <li><p>0. Preface: Nearly Complete</p></li>
 <li><p>1. Introduction: Nearly Complete</p></li>
 <li><p>2. Setting Up: Nearly Complete</p></li>
 <li><p>4. The Basics of R: Nearly Complete</p></li>
+<li><p>5.. Data Wrangling: Nearly Complete</p></li>
 <li><p>9. Text Analysis: 50% Complete</p></li>
 <li><p>14. Making Korean Data Visualization Social: Nearly Complete</p></li>
 <li><p>15. Bootcamp: Nearly Complete</p></li>
 </ul>
 </div>
-</section>
-<section id="stay-tuned-for-updates" class="level1">
-<h1>Stay Tuned for Updates</h1>
+</section><section id="stay-tuned-for-updates" class="level1"><h1>Stay Tuned for Updates</h1>
 <p>Subscribe to <a href="https://mailchi.mp/2a64f70942f3/r4ks">my newsletter</a> to get updates on the book and the bootcamps.</p>
-</section>
-<section id="how-to-cite-this-book" class="level1">
-<h1>How to Cite This Book</h1>
+</section><section id="how-to-cite-this-book" class="level1"><h1>How to Cite This Book</h1>
 <p>This book is licensed under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 United States License. You can check the license <a href="https://github.com/kjayhan/R4KS/blob/master/LICENCE">here</a>.</p>
 <p>You can freely use this book, but you must cite my work to avoid plagiarism. You can cite it in the following way: <span class="citation" data-cites="ayhan_2024_r4ks">(<a href="references.html#ref-ayhan_2024_r4ks" role="doc-biblioref">Ayhan 2024</a>)</span>.</p>
 <div class="cell">
@@ -375,8 +331,8 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  title <span class="ot">=</span> {R <span class="cf">for</span> {Korean Studies}<span class="sc">:</span> A Gentle Introduction to {Computational Social Science}},</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  author <span class="ot">=</span> {Ayhan, Kadir Jun},</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2024</span>},</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  month <span class="ot">=</span> {May},</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  edition <span class="ot">=</span> {Draft Version <span class="dv">0</span>.<span class="fl">0.1</span>},</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  month <span class="ot">=</span> {October},</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  edition <span class="ot">=</span> {Draft Version <span class="dv">0</span>.<span class="fl">0.2</span>},</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>r4ks.com}</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -387,10 +343,7 @@ gtag('config', 'G-6J6HBMRCFK', { 'anonymize_ip': true});
 Ayhan, Kadir Jun. 2024. <em>R for <span>Korean Studies</span>: A Gentle Introduction to <span>Computational Social Science</span></em>. Draft Version 0.0.1. <a href="https://r4ks.com">https://r4ks.com</a>.
 </div>
 </div>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -803,9 +756,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
       <a href="./intro.html" class="pagination-link" aria-label="Introduction">
@@ -814,8 +765,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>© 2024 <a href="https://ayhan.phd">Kadir Jun Ayhan</a> &amp; <a href="https://k-a.phd">K-Analytics</a> - <a href="https://www.linkedin.com/company/k-a-phd/">Linkedin</a> - <a href="mailto:k@ayhan.phd">Email</a></p>
 </div>   
@@ -827,8 +777,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>
