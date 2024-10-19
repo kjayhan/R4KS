@@ -20,6 +20,8 @@ I also encourage you to join our [bootcamps](https://k-a.phd/r4ks.html) for prob
 
 -   5\. Data Wrangling: Nearly Complete
 
+-   7\. Data Visualization: Plots: 50% Complete
+
 -   9\. Text Analysis: 50% Complete
 
 -   14\. Making Korean Data Visualization Social: Nearly Complete

@@ -1,6 +1,6 @@
 # Data Visualization: Plots
 
-[A Very Early Draft]
+\[A Very Early Draft\]
 
 In this chapter, we will learn data visualization using the `ggplot2` package, which is part of the `tidyverse` family. We will learn how to create scatter plots, line plots, bar plots, and histograms. We will also learn how to customize the appearance of these plots. Since this is a beginner's guide, we will only cover the very basics of data visualization.
 
@@ -72,8 +72,7 @@ A histogram is a graphical representation of the distribution of a continuous va
 
 To create a histogram, we use the `geom_histogram()` function in `ggplot2`. Let's create a histogram of Korea's trade volume.
 
-In ggplot2, we first specify the dataset and the aesthetic mappings using the `ggplot()` function. In `geom_histogram()`, we specify only the x-axis variable using the `aes()` function.
-We then add layers to the plot using the `+` operator. We should be careful not to use a pipe (`|>` or `%>%`) instead of `+` operator within `ggplot()` calls. In this case, we specify the x-axis variable using the `aes()` function and add the `geom_histogram()` layer to create the histogram.
+In ggplot2, we first specify the dataset and the aesthetic mappings using the `ggplot()` function. In `geom_histogram()`, we specify only the x-axis variable using the `aes()` function. We then add layers to the plot using the `+` operator. We should be careful not to use a pipe (`|>` or `%>%`) instead of `+` operator within `ggplot()` calls. In this case, we specify the x-axis variable using the `aes()` function and add the `geom_histogram()` layer to create the histogram.
 
 ```{r}
 # Create a histogram of Korea's trade volume
@@ -82,6 +81,7 @@ df |>
   ggplot(aes(x = trade_kosis)) + # specify the x-axis variable
   geom_histogram() # create a histogram
 ```
+
 This is not very useful as a histogram because of the skewed distribution of the trade volume. We can improve the appearance of the histogram by using log transformation.
 
 ```{r}
@@ -137,7 +137,7 @@ hist3 +
   # theme_light() # change the theme of the plot to light
   # theme_dark() # change the theme of the plot to dark
   # theme_bw() # change the theme of the plot to black and white
-``` 
+```
 
 ## Bar Plots
 
@@ -171,7 +171,7 @@ bar2 <- bar1 +
 bar2 # print the bar plot
 ```
 
-This bar plot is now more informative and visually appealing. 
+This bar plot is now more informative and visually appealing.
 
 ## Line Plots
 
@@ -197,7 +197,6 @@ Now let's put imports and exports volume amounts into the same column, using the
 df_year <- df_year |>
   pivot_longer(cols = c(total_exports, total_imports), names_to = "type", values_to = "volume") # put imports and exports volume amounts into the same column
 ```
-
 
 ```{r}
 # Create a line plot of Korea's exports and imports by year
@@ -248,7 +247,7 @@ scatter2 # print the scatter plot
 
 This scatter plot shows the relationship between the logged GDP of Korea's trade partner and the bilateral logged trade volume. The linear regression line indicates a positive relationship between the variables, as expected.
 
-Now let's differentiate the points by the income level of the partner country. We can do this by adding the `color` argument in the `aes()` function and specifying the `income` variable. 
+Now let's differentiate the points by the income level of the partner country. We can do this by adding the `color` argument in the `aes()` function and specifying the `income` variable.
 
 First, let's see the categories and frequency of each category in the income variable.
 
@@ -257,6 +256,7 @@ First, let's see the categories and frequency of each category in the income var
 
 table(df$income) # count the frequency of each category in the income variable
 ```
+
 To make the visual neat, we can group the income levels into three categories: low, middle, and high. We can do this by using the `case_when()` function in the `mutate()` function.
 
 ```{r}
@@ -270,8 +270,6 @@ df <- df |>
     TRUE ~ "Not Classified" # otherwise, assign it to the Not Classified category
   ))
 ```
-
-
 
 ```{r}
 # Differentiate the points by the income level of the partner country
@@ -287,5 +285,3 @@ scatter3 <- df |>
 
 scatter3 # print the scatter plot
 ```
-
-
