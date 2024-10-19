@@ -270,7 +270,7 @@ We wanted extra WDI data, but we don't need all. Let's select the ones we need. 
 
 ```{r}
 wdi <- wdi |>
-  #select(-iso2c, -status, -lastupdated, -capital, -lending, -longitude, -latitude) |> # exclude these columns
+  select(-iso2c, -status, -lastupdated, -capital, -lending, -longitude, -latitude) |> # exclude these columns
   filter(!is.na(iso3c)) |> # exclude the rows that are missing country codes (in other words, we only include the ones that are not (!) missing country codes (iso3c))
   arrange(iso3c, year) # arrange the data by country code and year
 
@@ -582,8 +582,12 @@ trade_aid |>
   gt::gt()
 ```
 
-Voilà! Now we have a dataset that has both trade and aid data, both of which originally did not have consistent country names or country codes. If we only used `country_kr` column to join the two datasets, we would have failed to merge all the data, such as "콩고 민주공화국" and	"콩고민주공화국(DR콩고)", both of which are Democratic Republic of the Congo; or "도미니카 공화국"	and "도미니카공화국" (Dominican Republic) which merelt have a space difference between the words. But with the `iso3c_kr` function, we were able to merge the two datasets successfully.
+Voilà! Now we have a dataset that has both trade and aid data, both of which originally did not have consistent country names or country codes. If we only used `country_kr` column to join the two datasets, we would have failed to merge all the data, such as "콩고 민주공화국" and "콩고민주공화국(DR콩고)", both of which are Democratic Republic of the Congo; or "도미니카 공화국" and "도미니카공화국" (Dominican Republic) which merelt have a space difference between the words. But with the `iso3c_kr` function, we were able to merge the two datasets successfully.
 
 ## Working with dates
 
-**To be added**
+*To be added*
+
+## Regular expressions
+
+*To be added*
